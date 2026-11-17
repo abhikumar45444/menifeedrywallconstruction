@@ -79,7 +79,7 @@ export default function EstimatorScreen({ onOpenCallModal }) {
   };
 
   return (
-    <div className="w-full flex-1 overflow-y-auto smooth-scroll bg-slate-50 pb-28">
+    <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
       {/* Top Header Banner */}
       <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-800 text-white pt-6">
         <div className="flex items-center justify-between">

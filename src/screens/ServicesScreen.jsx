@@ -48,7 +48,7 @@ export default function ServicesScreen({
   };
 
   return (
-    <div className="w-full flex-1 overflow-y-auto smooth-scroll bg-slate-50 pb-28">
+    <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
       {/* Header Banner */}
       <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-800 text-white pt-6">
         <span className="text-[10px] font-bold uppercase tracking-wider text-brand-400 bg-brand-950/60 px-2 py-0.5 rounded-full border border-brand-800">

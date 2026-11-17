@@ -26,10 +26,10 @@ export default function ConsultationDrawer({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300">
+    <div className="absolute inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-lg bg-white rounded-t-[32px] shadow-2xl max-h-[90vh] flex flex-col overflow-hidden animate-island z-10 border-t border-slate-200">
+      <div className="relative w-full bg-white rounded-t-[32px] shadow-2xl max-h-[85%] flex flex-col overflow-hidden animate-slide-up z-10 border-t border-slate-200">
         {/* Grab Handle */}
         <div className="flex justify-center pt-3 pb-1">
           <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
@@ -55,7 +55,7 @@ export default function ConsultationDrawer({ isOpen, onClose }) {
         </div>
 
         {/* Body Form */}
-        <div className="flex-1 overflow-y-auto px-5 py-4 smooth-scroll">
+        <div className="flex-1 overflow-y-auto px-5 py-4 smooth-scroll hide-scrollbar">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">

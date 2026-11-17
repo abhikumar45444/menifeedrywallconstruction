@@ -14,10 +14,10 @@ export default function CallModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-3 transition-opacity">
+    <div className="absolute inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-3 transition-opacity">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-5 overflow-hidden animate-island z-10 border border-slate-100">
+      <div className="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-5 overflow-hidden animate-slide-up z-10 border border-slate-100">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">

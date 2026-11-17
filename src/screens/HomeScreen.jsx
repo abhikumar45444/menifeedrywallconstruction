@@ -36,7 +36,7 @@ export default function HomeScreen({
       });
 
   return (
-    <div className="w-full flex-1 overflow-y-auto smooth-scroll bg-slate-50 pb-28">
+    <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
       {/* Auto-Rotating Hero Carousel */}
       <HeroCarousel 
         onSelectTab={onSelectTab}

@@ -6,12 +6,12 @@ export default function ServiceModal({ service, onClose, onSelectTab, onOpenCall
   if (!service) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300">
+    <div className="absolute inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300">
       {/* Backdrop tap dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Sheet Content */}
-      <div className="relative w-full max-w-lg bg-white rounded-t-[32px] shadow-2xl max-h-[88vh] flex flex-col overflow-hidden animate-island z-10 border-t border-slate-200">
+      <div className="relative w-full bg-white rounded-t-[32px] shadow-2xl max-h-[85%] flex flex-col overflow-hidden animate-slide-up z-10 border-t border-slate-200">
         {/* Grab Handle */}
         <div className="flex justify-center pt-3 pb-1">
           <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
@@ -47,7 +47,7 @@ export default function ServiceModal({ service, onClose, onSelectTab, onOpenCall
         </div>
 
         {/* Scrollable details body */}
-        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4 smooth-scroll">
+        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4 smooth-scroll hide-scrollbar">
           {/* Quick stats pills */}
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="p-2.5 rounded-2xl bg-brand-50/70 border border-brand-100 flex items-center gap-2">

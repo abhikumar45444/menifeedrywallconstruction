@@ -47,7 +47,7 @@ export default function App() {
 
         {/* Screen View Container with scroll detection */}
         <div 
-          className="flex-1 w-full overflow-y-auto smooth-scroll flex flex-col"
+          className="flex-1 w-full overflow-y-auto smooth-scroll hide-scrollbar flex flex-col"
           onScroll={handleScroll}
         >
           {activeTab === 'home' && (

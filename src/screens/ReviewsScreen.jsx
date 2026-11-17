@@ -11,7 +11,7 @@ export default function ReviewsScreen({ onOpenCallModal, onOpenConsultation }) {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div className="w-full flex-1 overflow-y-auto smooth-scroll bg-slate-50 pb-28">
+    <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
       {/* Top Banner */}
       <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-800 text-white pt-6">
         <div className="flex items-center gap-1.5 mb-1">
@@ -181,7 +181,7 @@ export default function ReviewsScreen({ onOpenCallModal, onOpenConsultation }) {
 
         {/* Gallery Image Lightbox Modal */}
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 animate-island">
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 animate-island">
             <div className="relative max-w-sm w-full bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
               <button
                 onClick={() => setSelectedProject(null)}

@@ -5,6 +5,14 @@
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  *::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+    width: 0;
+    height: 0;
   }
 
   body {
@@ -19,9 +27,11 @@
   }
 }
 
-/* Custom scrollbar for horizontal categories */
+/* Custom scrollbar class */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+  width: 0;
+  height: 0;
 }
 .hide-scrollbar {
   -ms-overflow-style: none;
@@ -32,14 +42,30 @@
 .smooth-scroll {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.smooth-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-/* Dynamic island animations */
+/* Dynamic island & sheet animations */
 @keyframes islandExpand {
   0% { transform: scale(0.95); opacity: 0.8; }
   100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes sheetSlideUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
 .animate-island {
   animation: islandExpand 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-up {
+  animation: sheetSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import PhoneShell from './components/PhoneShell';
 import TopHeader from './components/TopHeader';
 import BottomNav from './components/BottomNav';
@@ -15,41 +15,26 @@ export default function App() {
   const [selectedService, setSelectedService] = useState(null);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Monitor scroll in screen container to adjust header transparency
-  const handleScroll = (e) => {
-    const scrollTop = e.target.scrollTop;
-    if (scrollTop > 25 && !isScrolled) {
-      setIsScrolled(true);
-    } else if (scrollTop <= 25 && isScrolled) {
-      setIsScrolled(false);
-    }
-  };
-
-  // Reset scroll when switching tabs
   const handleSelectTab = (tab) => {
     setActiveTab(tab);
-    setIsScrolled(false);
   };
 
   return (
     <PhoneShell activeTab={activeTab} onTabChange={handleSelectTab}>
-      <div 
-        className="w-full h-full flex flex-col relative overflow-hidden bg-slate-50"
-      >
-        {/* Sticky Collapsible Top Header */}
-        <TopHeader
-          isScrolled={isScrolled}
-          onOpenCallModal={() => setIsCallModalOpen(true)}
-          onOpenConsultation={() => setIsConsultationOpen(true)}
-        />
+      <div className="w-full h-full flex flex-col relative overflow-hidden bg-slate-50">
+        {/* On tabs other than home, render pinned solid header */}
+        {activeTab !== 'home' && (
+          <TopHeader
+            isScrolled={true}
+            onOpenCallModal={() => setIsCallModalOpen(true)}
+            onOpenConsultation={() => setIsConsultationOpen(true)}
+            onSelectTab={handleSelectTab}
+          />
+        )}
 
-        {/* Screen View Container with scroll detection */}
-        <div 
-          className="flex-1 w-full overflow-y-auto smooth-scroll hide-scrollbar flex flex-col"
-          onScroll={handleScroll}
-        >
+        {/* Screen View Container */}
+        <div className="flex-1 w-full h-full overflow-hidden flex flex-col relative">
           {activeTab === 'home' && (
             <HomeScreen
               onSelectTab={handleSelectTab}

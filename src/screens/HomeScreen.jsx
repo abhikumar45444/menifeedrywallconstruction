@@ -4,6 +4,7 @@ import {
   ArrowRight, Phone, CheckCircle2, MapPin, Award, AlertCircle,
   HelpCircle, ChevronRight, Clock, Hammer
 } from 'lucide-react';
+import TopHeader from '../components/TopHeader';
 import HeroCarousel from '../components/HeroCarousel';
 import { COMPANY_INFO, SERVICES, TESTIMONIALS } from '../data/drywallData';
 import { ASSETS } from '../utils/assets';
@@ -15,7 +16,19 @@ export default function HomeScreen({
   onOpenConsultation 
 }) {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [expandedFaq, setExpandedFaq] = useState(null);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Scroll listener attached to the internal PhoneShell scroll container
+  const handleScroll = (e) => {
+    const st = e.currentTarget.scrollTop;
+    setScrollTop(st);
+    if (st > 40 && !isScrolled) {
+      setIsScrolled(true);
+    } else if (st <= 40 && isScrolled) {
+      setIsScrolled(false);
+    }
+  };
 
   const categories = [
     { id: 'all', label: 'All Services' },
@@ -36,15 +49,28 @@ export default function HomeScreen({
       });
 
   return (
-    <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
-      {/* Auto-Rotating Hero Carousel */}
+    <div 
+      onScroll={handleScroll}
+      className="w-full h-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28 relative"
+    >
+      {/* 1. Sticky Overlaid Top Navigation Header (Blinkit/Zepto Style) */}
+      <TopHeader
+        isScrolled={isScrolled}
+        onOpenCallModal={onOpenCallModal}
+        onOpenConsultation={onOpenConsultation}
+        onSelectTab={onSelectTab}
+      />
+
+      {/* 2. Auto-Rotating Full-Bleed Hero Banner with Scroll-Linked Collapse */}
       <HeroCarousel 
+        scrollTop={scrollTop}
         onSelectTab={onSelectTab}
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      <div className="px-4 pt-6 space-y-6">
+      {/* 3. Content Sheet Sliding Up Beneath Sticky Header */}
+      <div className="relative z-20 px-4 pt-4 space-y-6">
         {/* Urgent Escrow / Move-Out Emergency Alert Banner */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 p-3.5 text-white shadow-md shadow-amber-500/20">
           <div className="flex items-start gap-3">

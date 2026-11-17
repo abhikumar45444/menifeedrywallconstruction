@@ -117,9 +117,8 @@ export default function HeroCarousel({
         {SLIDES.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
           >
             <img
               src={slide.image}
@@ -207,11 +206,10 @@ export default function HeroCarousel({
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`transition-all duration-300 rounded-full ${
-                  i === current
-                    ? 'w-6 h-1.5 bg-brand-400'
-                    : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/70'
-                }`}
+                className={`transition-all duration-300 rounded-full ${i === current
+                  ? 'w-6 h-1.5 bg-brand-400'
+                  : 'w-1.5 h-1.5 bg-white/40 hover:bg-white/70'
+                  }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}

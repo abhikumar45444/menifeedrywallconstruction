@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Wrench, Droplets, Sparkles, Layers, ShieldCheck, Star, 
+import {
+  Wrench, Droplets, Sparkles, Layers, ShieldCheck, Star,
   ArrowRight, Phone, CheckCircle2, MapPin, Award, AlertCircle,
   HelpCircle, ChevronRight, Clock, Hammer
 } from 'lucide-react';
@@ -60,12 +60,12 @@ export default function HomeScreen({
   const filteredServices = activeCategory === 'all'
     ? SERVICES.slice(0, 5)
     : SERVICES.filter(s => {
-        if (activeCategory === 'repair') return s.id.includes('repair') || s.id.includes('install');
-        if (activeCategory === 'water') return s.id.includes('water');
-        if (activeCategory === 'popcorn') return s.id.includes('popcorn');
-        if (activeCategory === 'texture') return s.id.includes('texture') || s.id.includes('smooth');
-        return true;
-      });
+      if (activeCategory === 'repair') return s.id.includes('repair') || s.id.includes('install');
+      if (activeCategory === 'water') return s.id.includes('water');
+      if (activeCategory === 'popcorn') return s.id.includes('popcorn');
+      if (activeCategory === 'texture') return s.id.includes('texture') || s.id.includes('smooth');
+      return true;
+    });
 
   return (
     <div 
@@ -84,7 +84,7 @@ export default function HomeScreen({
       />
 
       {/* 2. AUTO-ROTATING FULL-BLEED HERO BANNER (tucked with marginTop: -headerHeight) */}
-      <HeroCarousel 
+      <HeroCarousel
         headerHeight={headerHeight}
         parallaxOffset={parallaxOffset}
         onSelectTab={onSelectTab}
@@ -196,11 +196,10 @@ export default function HomeScreen({
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all active:scale-95 ${
-                  activeCategory === cat.id
-                    ? 'bg-brand-600 text-white shadow-xs'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
-                }`}
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all active:scale-95 ${activeCategory === cat.id
+                  ? 'bg-brand-600 text-white shadow-xs'
+                  : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                  }`}
               >
                 {cat.label}
               </button>

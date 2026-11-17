@@ -49,8 +49,8 @@ export default function ServicesScreen({
 
   return (
     <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
-      {/* Header Banner */}
-      <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-800 text-white pt-6">
+      {/* Header Banner - AssessME screen header spacing */}
+      <div className="px-5 pt-3.5 md:pt-12 pb-4 bg-gradient-to-b from-[#0f172a] to-slate-800 text-white shadow-xs">
         <span className="text-[10px] font-bold uppercase tracking-wider text-brand-400 bg-brand-950/60 px-2 py-0.5 rounded-full border border-brand-800">
           Professional Catalog
         </span>

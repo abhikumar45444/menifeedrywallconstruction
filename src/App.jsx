@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PhoneShell from './components/PhoneShell';
-import TopHeader from './components/TopHeader';
 import BottomNav from './components/BottomNav';
 import HomeScreen from './screens/HomeScreen';
 import ServicesScreen from './screens/ServicesScreen';
@@ -9,38 +8,34 @@ import ReviewsScreen from './screens/ReviewsScreen';
 import ServiceModal from './components/ServiceModal';
 import CallModal from './components/CallModal';
 import ConsultationDrawer from './components/ConsultationDrawer';
+import AreaModal from './components/AreaModal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedService, setSelectedService] = useState(null);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [showAreaModal, setShowAreaModal] = useState(false);
+  const [selectedArea, setSelectedArea] = useState('Riverside County (Menifee & Murrieta)');
 
   const handleSelectTab = (tab) => {
     setActiveTab(tab);
   };
 
-  return (
-    <PhoneShell activeTab={activeTab} onTabChange={handleSelectTab}>
-      <div className="w-full h-full flex flex-col relative overflow-hidden bg-slate-50">
-        {/* On tabs other than home, render pinned solid header */}
-        {activeTab !== 'home' && (
-          <TopHeader
-            isScrolled={true}
-            onOpenCallModal={() => setIsCallModalOpen(true)}
-            onOpenConsultation={() => setIsConsultationOpen(true)}
-            onSelectTab={handleSelectTab}
-          />
-        )}
+  const isModalOpen = !!selectedService || isCallModalOpen || isConsultationOpen || showAreaModal;
 
-        {/* Screen View Container */}
-        <div className="flex-1 w-full h-full overflow-hidden flex flex-col relative">
+  return (
+    <PhoneShell isLocked={isModalOpen}>
+      <div className="flex flex-col flex-1 relative h-full overflow-hidden bg-slate-50">
+        <div className="flex-1 flex flex-col relative h-full min-h-0 overflow-hidden bg-slate-50">
           {activeTab === 'home' && (
             <HomeScreen
               onSelectTab={handleSelectTab}
               onOpenServiceModal={(service) => setSelectedService(service)}
               onOpenCallModal={() => setIsCallModalOpen(true)}
               onOpenConsultation={() => setIsConsultationOpen(true)}
+              selectedArea={selectedArea}
+              onOpenAreaModal={() => setShowAreaModal(true)}
             />
           )}
 
@@ -72,7 +67,7 @@ export default function App() {
           onSelectTab={handleSelectTab}
         />
 
-        {/* Modals & Slide-up Drawers */}
+        {/* Modals & Slide-up Drawers (contained within phone shell) */}
         <ServiceModal
           service={selectedService}
           onClose={() => setSelectedService(null)}
@@ -88,6 +83,13 @@ export default function App() {
         <ConsultationDrawer
           isOpen={isConsultationOpen}
           onClose={() => setIsConsultationOpen(false)}
+        />
+
+        <AreaModal
+          isOpen={showAreaModal}
+          onClose={() => setShowAreaModal(false)}
+          selectedArea={selectedArea}
+          onSelectArea={(area) => setSelectedArea(area)}
         />
       </div>
     </PhoneShell>

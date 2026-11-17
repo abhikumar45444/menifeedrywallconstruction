@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Wrench, Droplets, Sparkles, Layers, ShieldCheck, Star, 
   ArrowRight, Phone, CheckCircle2, MapPin, Award, AlertCircle,
@@ -13,22 +13,41 @@ export default function HomeScreen({
   onSelectTab, 
   onOpenServiceModal, 
   onOpenCallModal, 
-  onOpenConsultation 
+  onOpenConsultation,
+  selectedArea = 'Riverside County (Menifee & Murrieta)',
+  onOpenAreaModal
 }) {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [scrollTop, setScrollTop] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [headerHeight, setHeaderHeight] = useState(96);
+  const scrollRef = useRef(null);
+  const headerRef = useRef(null);
 
-  // Scroll listener attached to the internal PhoneShell scroll container
+  // Measure header height dynamically to tuck the hero perfectly underneath
+  useEffect(() => {
+    if (!headerRef.current) return;
+    const updateHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight);
+      }
+    };
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(headerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Internal scroll listener to trigger scroll-linked collapse and header transition
   const handleScroll = (e) => {
-    const st = e.currentTarget.scrollTop;
-    setScrollTop(st);
-    if (st > 40 && !isScrolled) {
-      setIsScrolled(true);
-    } else if (st <= 40 && isScrolled) {
-      setIsScrolled(false);
-    }
+    const top = e.currentTarget.scrollTop;
+    setScrollY(top);
   };
+
+  // Threshold: at scrollTop > 40, transition sticky top bar to solid dark slate
+  const isScrolled = scrollY > 40;
+
+  // Parallax offset for hero image
+  const parallaxOffset = Math.min(scrollY * 0.38, 85);
 
   const categories = [
     { id: 'all', label: 'All Services' },
@@ -50,27 +69,30 @@ export default function HomeScreen({
 
   return (
     <div 
+      ref={scrollRef}
       onScroll={handleScroll}
-      className="w-full h-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28 relative"
+      className="flex-1 overflow-y-auto no-scrollbar scrollbar-hide hide-scrollbar relative h-full bg-slate-50 font-sans select-none rounded-none md:rounded-t-[40px] pb-28"
     >
-      {/* 1. Sticky Overlaid Top Navigation Header (Blinkit/Zepto Style) */}
+      {/* 1. TOP OVERLAY BAR (Sticky & Overlaid on Hero - Exactly like AssessME) */}
       <TopHeader
+        ref={headerRef}
         isScrolled={isScrolled}
+        selectedArea={selectedArea}
+        onOpenAreaModal={onOpenAreaModal}
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
-        onSelectTab={onSelectTab}
       />
 
-      {/* 2. Auto-Rotating Full-Bleed Hero Banner with Scroll-Linked Collapse */}
+      {/* 2. AUTO-ROTATING FULL-BLEED HERO BANNER (tucked with marginTop: -headerHeight) */}
       <HeroCarousel 
-        scrollTop={scrollTop}
+        headerHeight={headerHeight}
+        parallaxOffset={parallaxOffset}
         onSelectTab={onSelectTab}
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 3. Content Sheet Sliding Up Beneath Sticky Header */}
-      <div className="relative z-20 px-4 pt-4 space-y-6">
+      <div className="px-4 pt-6 space-y-6">
         {/* Urgent Escrow / Move-Out Emergency Alert Banner */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 p-3.5 text-white shadow-md shadow-amber-500/20">
           <div className="flex items-start gap-3">

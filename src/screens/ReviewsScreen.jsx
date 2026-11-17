@@ -12,8 +12,8 @@ export default function ReviewsScreen({ onOpenCallModal, onOpenConsultation }) {
 
   return (
     <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
-      {/* Top Banner */}
-      <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-800 text-white pt-6">
+      {/* Top Banner - AssessME screen header spacing */}
+      <div className="px-5 pt-3.5 md:pt-12 pb-4 bg-gradient-to-b from-[#0f172a] to-slate-800 text-white shadow-xs">
         <div className="flex items-center gap-1.5 mb-1">
           <div className="flex text-amber-400">
             {[...Array(5)].map((_, i) => (

@@ -80,8 +80,8 @@ export default function EstimatorScreen({ onOpenCallModal }) {
 
   return (
     <div className="w-full flex-1 overflow-y-auto smooth-scroll hide-scrollbar bg-slate-50 pb-28">
-      {/* Top Header Banner */}
-      <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-800 text-white pt-6">
+      {/* Top Header Banner - AssessME screen header spacing */}
+      <div className="px-5 pt-3.5 md:pt-12 pb-4 bg-gradient-to-b from-[#0f172a] to-slate-800 text-white shadow-xs">
         <div className="flex items-center justify-between">
           <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-800 flex items-center gap-1">
             <Sparkles className="w-2.5 h-2.5" />

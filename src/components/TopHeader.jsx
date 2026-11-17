@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Clock, ShieldCheck, Sparkles } from 'lucide-react';
+import { Phone, Sparkles, MessageSquare } from 'lucide-react';
 import { ASSETS } from '../utils/assets';
 import { COMPANY_INFO } from '../data/drywallData';
 
@@ -8,87 +8,74 @@ export default function TopHeader({ isScrolled, onOpenCallModal, onOpenConsultat
     <header
       className={`sticky top-0 z-30 transition-all duration-300 w-full ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md py-2 border-b border-slate-100'
-          : 'bg-gradient-to-b from-black/75 via-black/40 to-transparent py-3'
+          ? 'bg-white/95 backdrop-blur-md shadow-xs py-2.5 border-b border-slate-100/80'
+          : 'bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent py-2.5'
       }`}
     >
       <div className="px-4 flex items-center justify-between">
-        {/* Brand Logo & Wordmark */}
-        <div className="flex items-center gap-2">
-          <div className="relative">
-            <div
-              className={`p-1 rounded-xl transition-all duration-300 ${
-                isScrolled ? 'bg-brand-50 border border-brand-100' : 'bg-white/10 backdrop-blur-sm border border-white/20'
-              }`}
-            >
-              <img
-                src={ASSETS.logo}
-                alt="Menifee Drywall Construction Logo"
-                className="h-8 w-auto object-contain"
-                onError={(e) => {
-                  // Fallback in case of external image blocking
-                  e.target.style.display = 'none';
-                }}
-              />
-            </div>
-            {/* Top Pro mini badge indicator */}
-            <div className="absolute -bottom-1 -right-1 bg-amber-500 text-white rounded-full p-0.5 shadow-sm">
-              <Sparkles className="w-2.5 h-2.5" />
-            </div>
+        {/* Concise Brand Identity */}
+        <div className="flex items-center gap-2.5">
+          <div
+            className={`w-9 h-9 rounded-xl flex items-center justify-center p-1 transition-all duration-300 ${
+              isScrolled
+                ? 'bg-slate-100/80 border border-slate-200/60 shadow-2xs'
+                : 'bg-white/15 backdrop-blur-md border border-white/25 shadow-xs'
+            }`}
+          >
+            <img
+              src={ASSETS.logo}
+              alt="MDC"
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
           </div>
 
           <div className="flex flex-col">
-            <span
-              className={`text-sm font-bold tracking-tight leading-tight transition-colors duration-300 ${
-                isScrolled ? 'text-slate-900' : 'text-white'
-              }`}
-            >
-              Menifee Drywall
-            </span>
             <div className="flex items-center gap-1.5">
               <span
-                className={`text-[10px] font-semibold tracking-wider uppercase transition-colors duration-300 ${
-                  isScrolled ? 'text-brand-600' : 'text-brand-300'
+                className={`text-[13px] font-extrabold tracking-tight transition-colors duration-200 ${
+                  isScrolled ? 'text-slate-900' : 'text-white'
                 }`}
               >
-                Construction
+                Menifee Drywall
               </span>
-              <span className="text-[9px] text-emerald-400 font-medium flex items-center gap-0.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                20+ Yrs Exp
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" title="Available now" />
             </div>
+            <span
+              className={`text-[10px] font-medium tracking-wide transition-colors duration-200 ${
+                isScrolled ? 'text-slate-500' : 'text-slate-300'
+              }`}
+            >
+              20+ Yrs Exp &bull; Riverside & OC
+            </span>
           </div>
         </div>
 
-        {/* Quick CTA Actions */}
-        <div className="flex items-center gap-2">
-          {/* Direct Tap to Call */}
-          <button
-            onClick={onOpenCallModal}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm transition-all active:scale-95 ${
-              isScrolled
-                ? 'bg-brand-600 text-white hover:bg-brand-700 shadow-brand-500/20'
-                : 'bg-white/95 text-brand-900 hover:bg-white shadow-black/20 backdrop-blur-md'
-            }`}
-          >
-            <Phone className="w-3.5 h-3.5 fill-current" />
-            <span className="hidden sm:inline">Call</span>
-            <span className="font-bold">951-746-8891</span>
-          </button>
-
-          {/* Quick Free Quote Pill */}
+        {/* Clean, High-Converting Actions */}
+        <div className="flex items-center gap-1.5">
+          {/* Quick Free Quote Button */}
           <button
             onClick={onOpenConsultation}
-            className={`p-2 rounded-full transition-all active:scale-95 ${
+            className={`px-2.5 py-1.5 rounded-full text-[11px] font-bold transition-all active:scale-95 flex items-center gap-1 ${
               isScrolled
-                ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-md'
+                ? 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                : 'bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/20'
             }`}
-            title="Instant Consultation"
-            aria-label="Request Instant Estimate"
           >
-            <Clock className="w-4 h-4" />
+            <Sparkles className="w-3 h-3 text-amber-400" />
+            <span>Quote</span>
+          </button>
+
+          {/* Primary Call Pill */}
+          <button
+            onClick={onOpenCallModal}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 shadow-sm shadow-brand-500/25 active:scale-95 transition-all"
+            aria-label="Call Jessie Lisardo"
+          >
+            <Phone className="w-3 h-3 fill-current" />
+            <span>(951) 746-8891</span>
           </button>
         </div>
       </div>

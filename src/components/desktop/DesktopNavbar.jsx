@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, Clock, MapPin, Sparkles, ChevronDown, ShieldCheck, Star } from 'lucide-react';
+import { Phone, Mail, Clock, MapPin, Sparkles, ChevronDown, ShieldCheck, Star, Calculator } from 'lucide-react';
 import { ASSETS } from '../../utils/assets';
 import { COMPANY_INFO } from '../../data/drywallData';
 

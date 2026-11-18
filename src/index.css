@@ -5,19 +5,74 @@
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
   }
 
-  *::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-    width: 0;
-    height: 0;
+  /* Native app feel on mobile (< 768px): clean edge-to-edge with hidden scrollbars */
+  @media (max-width: 767px) {
+    * {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    *::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+      width: 0;
+      height: 0;
+    }
+
+    body {
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+
+  /* Minimal, elegant floating scrollbar on Desktop (>= 768px) */
+  @media (min-width: 768px) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(27, 77, 117, 0.3) transparent;
+      scroll-behavior: smooth;
+    }
+
+    /* Track: completely transparent so it blends seamlessly with the page */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Thumb: minimal floating pill with 2.5px transparent padding border */
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.3);
+      border-radius: 9999px;
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    /* Interactive state: craftsman brand navy on hover/drag */
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(27, 77, 117, 0.65);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+      background: rgba(27, 77, 117, 0.85);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    body {
+      user-select: text;
+      -webkit-user-select: text;
+    }
   }
 
   body {
-    user-select: none;
-    -webkit-user-select: none;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 

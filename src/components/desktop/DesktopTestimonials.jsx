@@ -75,20 +75,20 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
                 </div>
 
                 {/* Service Tag */}
-                <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 border border-brand-100 mb-3">
+                <div className="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-stone-100 text-[#163a63] border border-stone-200 mb-3">
                   Job: {item.service}
                 </div>
 
                 {/* Review Text */}
-                <p className="text-xs text-slate-700 leading-relaxed italic">
+                <p className="text-xs text-stone-700 leading-relaxed italic">
                   "{item.text}"
                 </p>
               </div>
 
               {/* Bottom Verified Badge */}
-              <div className="mt-5 pt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
+              <div className="mt-5 pt-4 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <ThumbsUp className="w-3.5 h-3.5 text-brand-600" />
+                  <ThumbsUp className="w-3.5 h-3.5 text-[#163a63]" />
                   <span>Verified Customer Story</span>
                 </span>
                 <span className="font-semibold text-slate-400">{item.date}</span>

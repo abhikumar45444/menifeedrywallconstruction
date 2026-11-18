@@ -42,33 +42,33 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
   };
 
   return (
-    <section className="relative w-full bg-slate-950 text-white overflow-hidden py-16 lg:py-24 border-b border-slate-800">
-      {/* Background Image with Dark Vignette Overlay */}
+    <section className="relative w-full bg-[#102334] text-white overflow-hidden py-16 lg:py-20 border-b border-slate-800">
+      {/* Background Image with Authentic Scrim */}
       <div className="absolute inset-0 z-0">
         <img
           src={ASSETS.heroBanner}
           alt="Drywall Construction"
-          className="w-full h-full object-cover object-center opacity-30 brightness-75 scale-105 transform"
+          className="w-full h-full object-cover object-center opacity-25 brightness-75 scale-105 transform"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0c1a27] via-[#0c1a27]/95 to-[#102334]/80" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column: Headlines & Value Propositions */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/15 border border-brand-400/30 text-brand-300 text-xs font-bold backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#c97a18]/20 border border-[#c97a18]/40 text-[#f5a742] text-xs font-bold tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-[#f5a742]"></span>
             <span>Riverside County's Premier Drywall Contractor &bull; 20+ Years Exp</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
             Full Service Drywall Contractor in{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-sky-300">
+            <span className="text-[#f5a742]">
               Menifee, CA
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
+          <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl">
             The craftsmanship, pricing, and customer service you deserve. Residential & commercial drywall hanging, water damage repairs, texture matching, and popcorn ceiling removal by President/Owner <strong className="text-white font-semibold">Jessie Lisardo</strong>.
           </p>
 
@@ -84,11 +84,11 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Licensed, Bonded & Insured Professional</span>
+              <span>Licensed, Bonded & Insured (#CA Contractor)</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Dust-Free Plastic Masking & Cleanup</span>
+              <span>Dust-Free Plastic Containment & Broom Clean</span>
             </div>
           </div>
 
@@ -96,7 +96,7 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <button
               onClick={() => scrollTo('estimator')}
-              className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold text-sm shadow-xl shadow-brand-500/25 transition-all active:scale-95 flex items-center gap-2.5 cursor-pointer"
+              className="px-6 py-3.5 rounded-xl bg-[#c97a18] hover:bg-[#b36710] text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center gap-2.5 cursor-pointer"
             >
               <Calculator className="w-4 h-4" />
               <span>Calculate Your Repair Cost</span>
@@ -105,9 +105,9 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
 
             <button
               onClick={onOpenCallModal}
-              className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition-all active:scale-95 flex items-center gap-2.5 cursor-pointer"
+              className="px-6 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-white font-bold text-sm border border-slate-600 transition-all active:scale-95 flex items-center gap-2.5 cursor-pointer"
             >
-              <Phone className="w-4 h-4 text-brand-300 fill-current" />
+              <Phone className="w-4 h-4 text-[#f5a742] fill-current" />
               <span>Call (951) 746-8891</span>
             </button>
           </div>
@@ -118,7 +118,7 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
               <img
                 src={ASSETS.topProBadge}
                 alt="Thumbtack Top Pro"
-                className="w-10 h-10 rounded-xl object-contain border border-slate-700"
+                className="w-10 h-10 rounded-xl object-contain border border-slate-700 bg-white"
               />
               <div>
                 <p className="font-bold text-white text-xs">Thumbtack Top Pro</p>
@@ -133,34 +133,34 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
                 ))}
               </div>
               <div>
-                <p className="font-bold text-white text-xs">5.0 Star Rated</p>
+                <p className="font-bold text-white text-xs">5.0 Star Rating</p>
                 <p className="text-[11px] text-slate-400">140+ verified local reviews</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-8 h-8 text-brand-400 shrink-0" />
+              <ShieldCheck className="w-8 h-8 text-[#f5a742] shrink-0" />
               <div>
                 <p className="font-bold text-white text-xs">20+ Years In Business</p>
-                <p className="text-[11px] text-slate-400">Riverside County trusted</p>
+                <p className="text-[11px] text-slate-400">Serving Riverside & Orange County</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Interactive Quick Estimate Card */}
+        {/* Right Column: Grounded Contractor Quote Card */}
         <div className="lg:col-span-5">
-          <div className="rounded-3xl bg-slate-900/90 border border-slate-800 p-6 shadow-2xl backdrop-blur-md">
+          <div className="rounded-2xl bg-[#0c1a27] border border-slate-700/80 p-6 shadow-2xl">
             <div className="flex items-center justify-between pb-4 border-b border-slate-800">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-800">
-                  Instant Calculator
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                  Instant Estimate Tool
                 </span>
-                <h3 className="text-lg font-black text-white mt-1">Get an Instant Quote</h3>
+                <h3 className="text-lg font-black text-white mt-1">Quick Project Estimate</h3>
               </div>
               <div className="text-right">
-                <span className="text-xs text-slate-400">Est. Range</span>
-                <p className="text-xl font-black text-brand-400">${low} – ${high}</p>
+                <span className="text-xs text-slate-400">Estimated Range</span>
+                <p className="text-2xl font-black text-[#f5a742]">${low} – ${high}</p>
               </div>
             </div>
 
@@ -173,7 +173,7 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
                 <select
                   value={selectedService}
                   onChange={(e) => setSelectedService(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-medium focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-slate-800/90 border border-slate-600 text-white font-medium focus:ring-2 focus:ring-[#c97a18] focus:outline-none"
                 >
                   <option value="patch">Wall or Ceiling Hole Patch</option>
                   <option value="water">Water Damage & Leak Cutback</option>
@@ -198,10 +198,10 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
                       key={s.id}
                       type="button"
                       onClick={() => setSelectedSize(s.id)}
-                      className={`p-2 rounded-xl text-center font-medium border transition-all ${
+                      className={`p-2 rounded-lg text-center font-medium border transition-all ${
                         selectedSize === s.id
-                          ? 'bg-brand-600 border-brand-500 text-white font-bold'
-                          : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
+                          ? 'bg-[#1b4d75] border-brand-400 text-white font-bold'
+                          : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-700'
                       }`}
                     >
                       {s.label}
@@ -217,7 +217,7 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
                 <select
                   value={selectedTexture}
                   onChange={(e) => setSelectedTexture(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-medium focus:ring-2 focus:ring-brand-500 focus:outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-slate-800/90 border border-slate-600 text-white font-medium focus:ring-2 focus:ring-[#c97a18] focus:outline-none"
                 >
                   <option value="orange">Orange Peel (Standard Spray)</option>
                   <option value="knockdown">Knockdown / Troweled Texture</option>
@@ -230,13 +230,13 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
             <div className="pt-3 border-t border-slate-800">
               <button
                 onClick={onOpenConsultation}
-                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-sm shadow-lg shadow-emerald-600/25 transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-3.5 rounded-xl bg-[#c97a18] hover:bg-[#b36710] text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Sparkles className="w-4 h-4 text-white" />
                 <span>Lock In This Quote with Jessie</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
-              <p className="text-[10px] text-center text-slate-400 mt-2">
-                Free assessment &bull; No obligation &bull; Direct quote from owner
+              <p className="text-[11px] text-center text-slate-400 mt-2">
+                Honest upfront pricing &bull; Free in-person confirmation &bull; No obligation
               </p>
             </div>
           </div>

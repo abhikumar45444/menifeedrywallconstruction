@@ -8,37 +8,44 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7', // Primary Contractor Blue
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#f2f6fa',
+          100: '#e1ecf5',
+          200: '#c3d8eb',
+          300: '#94bcdb',
+          400: '#5e9bc6',
+          500: '#2c76ac',
+          600: '#1b4d75', // Established Master Contractor Blue
+          700: '#143c5e',
+          800: '#0f2c45',
+          900: '#0a1e30',
+          950: '#061320',
+        },
+        trade: {
+          navy: '#122538', // Deep Craftsman Navy
+          dark: '#0c1a27',
+          steel: '#2b4158',
+          gold: '#c97a18', // Warm Tool Ochre / Craftsmanship Gold
+          amber: '#d97706',
+          chalk: '#faf8f5', // Gypsum Plaster / Clean Wall
+          stone: '#f4f1ea',
+          border: '#e4dfd5',
         },
         accent: {
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
+          400: '#f59e0b',
+          500: '#d97706', // Warm Construction Amber
+          600: '#b45309',
+          700: '#92400e',
         }
       },
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
       animation: {
-        'pulse-subtle': 'pulseSubtle 2.5s infinite ease-in-out',
-        'fade-in': 'fadeIn 0.25s ease-out',
+        'fade-in': 'fadeIn 0.2s ease-out',
       },
       keyframes: {
-        pulseSubtle: {
-          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-          '50%': { transform: 'scale(1.02)', opacity: '0.95' },
-        },
         fadeIn: {
-          from: { opacity: '0', transform: 'translateY(6px)' },
+          from: { opacity: '0', transform: 'translateY(4px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         }
       }

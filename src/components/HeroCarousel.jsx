@@ -141,8 +141,8 @@ export default function HeroCarousel({
         <div className="relative z-20 h-full flex flex-col justify-end px-5 pb-6 pt-32 md:pt-36 text-white">
           {/* Top Pill / Badge */}
           <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-brand-500/90 text-white backdrop-blur-md shadow-sm border border-brand-400/30">
-              <Sparkles className="w-3 h-3 text-amber-300" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-[#c97a18]/90 text-white backdrop-blur-md shadow-sm border border-amber-400/30">
+              <Sparkles className="w-3 h-3 text-amber-200" />
               {activeSlide.badge}
             </span>
             <span className="text-[11px] text-slate-300 font-medium">
@@ -164,7 +164,7 @@ export default function HeroCarousel({
           <div className="flex items-center gap-2.5 mb-4">
             <button
               onClick={() => onSelectTab(activeSlide.primaryTab)}
-              className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-brand-600/30 active:scale-[0.98] transition-all"
+              className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#c97a18] hover:bg-[#b36710] text-white font-bold text-xs sm:text-sm shadow-md active:scale-[0.98] transition-all"
             >
               <Calculator className="w-4 h-4" />
               <span>{activeSlide.primaryCta}</span>
@@ -177,9 +177,9 @@ export default function HeroCarousel({
                 else if (activeSlide.secondaryAction === 'consultation') onOpenConsultation();
                 else onSelectTab('services');
               }}
-              className="flex items-center justify-center gap-1.5 py-3 px-3.5 rounded-2xl bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/20 font-semibold text-xs active:scale-[0.98] transition-all"
+              className="flex items-center justify-center gap-1.5 py-3 px-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white backdrop-blur-md border border-white/20 font-semibold text-xs active:scale-[0.98] transition-all"
             >
-              <Phone className="w-3.5 h-3.5 fill-current text-brand-300" />
+              <Phone className="w-3.5 h-3.5 fill-current text-[#f5a742]" />
               <span>{activeSlide.secondaryCta}</span>
             </button>
           </div>

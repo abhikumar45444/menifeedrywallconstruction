@@ -19,18 +19,18 @@ export default function DesktopProjects({ onOpenConsultation }) {
     : ASSETS.projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 bg-slate-50 border-b border-slate-200">
+    <section id="projects" className="py-20 bg-white border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3">
-              <ImageIcon className="w-3.5 h-3.5 text-brand-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#163a63]/10 text-[#163a63] text-xs font-bold uppercase tracking-wider mb-3">
+              <ImageIcon className="w-3.5 h-3.5 text-[#163a63]" />
               <span>Job Portfolio</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight">
               Recent Completed Drywall Work
             </h2>
-            <p className="text-slate-600 mt-2 max-w-2xl text-base">
+            <p className="text-stone-600 mt-2 max-w-2xl text-base">
               Real craftsmanship across Riverside, Corona, Mission Viejo, and Menifee. Click any project to view high-resolution photography.
             </p>
           </div>
@@ -43,8 +43,8 @@ export default function DesktopProjects({ onOpenConsultation }) {
                 onClick={() => setActiveCategory(c.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === c.id
-                    ? 'bg-brand-600 text-white shadow-md shadow-brand-500/20'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                    ? 'bg-[#163a63] text-white shadow-sm'
+                    : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-300'
                 }`}
               >
                 {c.label}
@@ -134,7 +134,7 @@ export default function DesktopProjects({ onOpenConsultation }) {
                       setSelectedProject(null);
                       onOpenConsultation();
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl bg-[#c97a18] hover:bg-[#b36710] text-white font-bold text-xs cursor-pointer shadow-sm"
                   >
                     Request Similar Work for Your Home
                   </button>

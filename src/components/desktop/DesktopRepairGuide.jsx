@@ -9,7 +9,7 @@ export default function DesktopRepairGuide({ onOpenConsultation, onOpenCallModal
       id: 'holes',
       title: 'Holes & cracks',
       summary: 'From accidental doorknob punctures to structural settling cracks along ceiling seams, we square off the area, install solid wood backing where needed, and feather the joints so the repair disappears.',
-      photo: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3394.jpg',
+      photo: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3395.jpg',
       badge: 'DOORKNOB & WALL SETTLING'
     },
     {
@@ -23,7 +23,7 @@ export default function DesktopRepairGuide({ onOpenConsultation, onOpenCallModal
       id: 'texture',
       title: 'Ceiling texture',
       summary: 'Ceiling repairs are notorious for showing seams under natural light. Jessie hand-blends spray orange peel, knockdown, or skip trowel to match surrounding aged surfaces cleanly.',
-      photo: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3384.jpg',
+      photo: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3401.jpg',
       badge: 'HAND & SPRAY TEXTURE MATCH'
     }
   ];

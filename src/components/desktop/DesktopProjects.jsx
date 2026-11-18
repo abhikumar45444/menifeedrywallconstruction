@@ -107,8 +107,8 @@ export default function DesktopProjects({ onOpenConsultation }) {
                   </p>
                 </div>
 
-                {/* Corner ↗ Indicator */}
-                <span className="absolute bottom-3 right-3 w-7 h-7 bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white text-xs font-medium flex items-center justify-center border border-neutral-200 dark:border-neutral-800 rounded-xs shadow-xs group-hover:bg-[#096899] group-hover:text-white group-hover:border-[#096899] transition-colors">
+                {/* Corner ↗ Indicator: Subtle Dark-Glass Badge */}
+                <span className="absolute bottom-3 right-3 w-7 h-7 bg-black/45 backdrop-blur-sm text-white/85 border border-white/15 text-xs font-medium flex items-center justify-center rounded-xs transition-colors group-hover:bg-white group-hover:text-black group-hover:border-white">
                   ↗
                 </span>
               </button>

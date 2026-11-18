@@ -16,7 +16,7 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
       id: 'drywall-installation',
       title: 'Drywall installation',
       summary: 'Complete hanging, taping, and finishing for new construction, additions, and full renovations, with surfaces primed for painting.',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3383.jpg',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3385.jpg',
       tag: 'RESIDENTIAL & COMMERCIAL'
     }
   ];
@@ -42,8 +42,8 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
               </p>
             </Reveal>
             <Reveal delay={80}>
-              <h2 
-                id="services-title" 
+              <h2
+                id="services-title"
                 className="text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-950 dark:text-white mt-2 leading-tight"
               >
                 From the first patch<br />to the final finish<span className="text-[#096899] dark:text-[#8bd4f6]">.</span>
@@ -61,7 +61,7 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {flagshipServices.map((service, index) => (
             <Reveal key={service.id} delay={index * 120} className="h-full">
-              <article 
+              <article
                 className="group cursor-pointer flex flex-col h-full"
                 onClick={() => {
                   const fullService = SERVICES.find(s => s.id === service.id) || SERVICES[0];

@@ -16,8 +16,8 @@ export default function DesktopAbout({ onOpenCallModal, onOpenConsultation }) {
             <Reveal delay={120}>
               <figure className="relative w-full h-[clamp(320px,36vw,480px)] overflow-hidden bg-neutral-200 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 rounded-sm group">
                 <img
-                  src="https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3384.jpg"
-                  alt="Jessie Lisardo, owner of Menifee Drywall Construction"
+                  src="https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3382.jpg"
+                  alt="Finished smooth-wall interior craftsmanship by Menifee Drywall Construction"
                   className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                   loading="lazy"
                 />

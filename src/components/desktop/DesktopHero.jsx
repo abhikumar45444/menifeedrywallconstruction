@@ -49,14 +49,17 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
         <Reveal delay={240}>
           <figure className="relative w-full h-[clamp(280px,36vw,480px)] overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-sm group">
             <img
-              src={ASSETS.heroBanner}
-              alt="Menifee Drywall Construction hanging and finishing drywall"
+              src="https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3383.jpg"
+              alt="Clean taped drywall architectural room by Menifee Drywall Construction"
               className="w-full h-full object-cover object-[50%_40%] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               fetchPriority="high"
             />
-            <figcaption className="absolute bottom-3 left-3 bg-white/95 dark:bg-[#121312]/95 border border-neutral-200 dark:border-neutral-800 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-neutral-800 dark:text-neutral-200 rounded-xs">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#096899] dark:bg-[#8bd4f6] mr-2"></span>
-              DRYWALL REPAIR &bull; INSTALLATION &bull; TEXTURE MATCHING
+            {/* Subtle bottom dark gradient for clean caption legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+            
+            <figcaption className="absolute bottom-3 left-3 bg-black/55 backdrop-blur-sm text-white/90 border border-white/15 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.08em] rounded-xs flex items-center gap-2">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#8bd4f6]"></span>
+              <span>RESIDENTIAL &amp; COMMERCIAL DRYWALL</span>
             </figcaption>
           </figure>
         </Reveal>

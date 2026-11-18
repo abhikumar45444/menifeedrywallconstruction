@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
-import { Phone, Sparkles, MapPin, ChevronRight, ShieldCheck, Sun, Moon } from 'lucide-react';
+import { Phone, Sparkles, MapPin, ChevronRight, ShieldCheck } from 'lucide-react';
 import { ASSETS } from '../utils/assets';
 import { COMPANY_INFO } from '../data/drywallData';
-import { useTheme } from '../context/ThemeContext';
 
 const TopHeader = forwardRef(function TopHeader(
   {
@@ -14,7 +13,6 @@ const TopHeader = forwardRef(function TopHeader(
   },
   ref
 ) {
-  const { isDark, toggleTheme } = useTheme();
   return (
     <header
       ref={ref}
@@ -49,19 +47,6 @@ const TopHeader = forwardRef(function TopHeader(
 
         {/* Action Group */}
         <div className="flex items-center gap-2">
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-xl bg-white/15 backdrop-blur-md text-white hover:bg-white/25 active:scale-95 transition-all cursor-pointer border border-white/10 shadow-xs"
-            aria-label="Toggle Theme"
-          >
-            {isDark ? (
-              <Sun className="w-4 h-4 text-amber-400" />
-            ) : (
-              <Moon className="w-4 h-4 text-brand-300" />
-            )}
-          </button>
-
           {/* Quick Quote Button */}
           <button
             onClick={onOpenConsultation}

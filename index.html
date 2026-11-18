@@ -11,13 +11,25 @@
     <meta name="description" content="Menifee Drywall Construction - Riverside County's premier drywall contractor with 20+ years experience. Drywall installation, repair, water damage restoration, and texture matching." />
     <title>Menifee Drywall Construction | The Craftsmanship You Deserve</title>
     <script>
-      try {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      } catch (_) {}
+      (function() {
+        try {
+          var darkMedia = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme(e) {
+            var isDark = e ? e.matches : darkMedia.matches;
+            if (isDark) {
+              document.documentElement.classList.add('dark');
+            } else {
+              document.documentElement.classList.remove('dark');
+            }
+          }
+          applyTheme();
+          if (darkMedia.addEventListener) {
+            darkMedia.addEventListener('change', applyTheme);
+          } else if (darkMedia.addListener) {
+            darkMedia.addListener(applyTheme);
+          }
+        } catch (_) {}
+      })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

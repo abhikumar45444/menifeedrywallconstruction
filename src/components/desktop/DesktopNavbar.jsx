@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Clock, MapPin, ChevronDown, Calculator, Sun, Moon } from 'lucide-react';
+import { Phone, Clock, MapPin, ChevronDown, Calculator } from 'lucide-react';
 import { ASSETS } from '../../utils/assets';
 import { COMPANY_INFO } from '../../data/drywallData';
-import { useTheme } from '../../context/ThemeContext';
 
 export default function DesktopNavbar({ 
   onOpenConsultation, 
@@ -11,7 +10,6 @@ export default function DesktopNavbar({
   selectedArea 
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,22 +143,8 @@ export default function DesktopNavbar({
             </button>
           </div>
 
-          {/* Right Action Callouts & Theme Toggle */}
+          {/* Right Action Callouts */}
           <div className="flex items-center gap-3.5">
-            {/* Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 border border-[#cccac3] dark:border-[#2b2d2a] bg-white dark:bg-[#1a1b18] text-[#151614] dark:text-[#f4f2ed] hover:bg-[#f4f2ed] dark:hover:bg-[#252723] transition-colors cursor-pointer flex items-center justify-center shadow-xs"
-              title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <Sun className="w-4 h-4 text-amber-400" />
-              ) : (
-                <Moon className="w-4 h-4 text-[#096899]" />
-              )}
-            </button>
-
             <button
               onClick={onOpenCallModal}
               className="hidden sm:inline-flex items-center gap-2 font-mono text-[13px] font-medium text-[#151614] dark:text-[#e5e4de] hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"

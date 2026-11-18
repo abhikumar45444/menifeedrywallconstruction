@@ -16,7 +16,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       date: 'Verified Client',
       avatar: TESTIMONIALS[0]?.avatar,
       service: 'Urgent Escrow Leak Patch',
-      preview: 'Jessie saved the day on our move-out escrow deadline. He was quick to respond at 9 PM, arrived right on time, and did flawless repair work for a very reasonable price.',
+      preview: 'Quick to respond at 9 PM, arrived right on time, and did flawless repair work for a very reasonable price.',
       fullText: TESTIMONIALS[0]?.text
     },
     {
@@ -27,7 +27,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       date: 'Verified Homeowner',
       avatar: TESTIMONIALS[1]?.avatar,
       service: 'Ceiling Mud, Tape & Texture',
-      preview: 'Fair pricing, on-time arrival, and great attention to detail across our 240 sq ft ceiling project. I was really happy with the craftsmanship and highly recommend him.',
+      preview: 'Fair pricing, on-time arrival, and great attention to detail across our 240 sq ft ceiling project.',
       fullText: TESTIMONIALS[1]?.text
     },
     {
@@ -38,7 +38,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       date: 'Verified Client',
       avatar: TESTIMONIALS[2]?.avatar,
       service: 'Water Damage Restoration',
-      preview: 'Water heater burst affected three rooms. Jessie matched the texture in our daughter’s room perfectly. A true professional and an absolute pleasure to work with.',
+      preview: 'Matched the texture in our daughter’s room perfectly after a leak. A true professional and pleasure to work with.',
       fullText: TESTIMONIALS[2]?.text
     },
     {
@@ -49,7 +49,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       date: 'Verified Homeowner',
       avatar: TESTIMONIALS[3]?.avatar,
       service: 'Bathroom Remodel Drywall',
-      preview: 'The texturing is EXACTLY the same as the original texture. I really was not expecting it to be this seamless—he exceeded all my expectations. Will definitely rehire!',
+      preview: 'The texturing is exactly the same as original. Seamless finish exceeding expectations—will definitely rehire!',
       fullText: TESTIMONIALS[3]?.text
     },
     {
@@ -60,7 +60,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       date: 'Community / Residential',
       avatar: TESTIMONIALS[4]?.avatar,
       service: 'Kitchen Can Lights & Patch',
-      preview: 'Redid our kitchen ceiling after can lighting was installed—you cannot tell where it was patched between old and new! Fast, respectful, and spotless clean-up.',
+      preview: 'You cannot tell where it was patched between old and new. Fast, respectful, and spotless clean-up.',
       fullText: TESTIMONIALS[4]?.text
     },
     {
@@ -71,7 +71,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       date: 'Verified Client',
       avatar: TESTIMONIALS[5]?.avatar,
       service: 'Interior Wall Finishing',
-      preview: 'Jessie is very professional and friendly. Our two interior walls turned out completely flawless and timely. The quality of his taping and mudding speaks for itself.',
+      preview: 'Our two interior walls turned out completely flawless. The quality of his taping and mudding speaks for itself.',
       fullText: TESTIMONIALS[5]?.text
     }
   ];
@@ -89,10 +89,10 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
             <span className="dot"></span> CUSTOMER TESTIMONIALS
           </p>
           <h2 id="reviews-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-3">
-            See What Our Customers<br />Have To Say<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
+            Client Testimonials<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
           <p className="font-mono text-xs text-[#096899] dark:text-[#8bd4f6] uppercase tracking-wider mt-2">
-            See What Our Thumbtack Customers Have To Say
+            Verified Reviews from Riverside County Homeowners
           </p>
         </div>
 

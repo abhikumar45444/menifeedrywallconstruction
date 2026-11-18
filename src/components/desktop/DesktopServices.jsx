@@ -8,56 +8,56 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
     {
       id: 'drywall-installation',
       title: 'Drywall Installation',
-      summary: 'Offering two decades of experience in drywall installation, here at Menifee Drywall Construction we can confidently say we are the perfect professionals for the job. Save yourself the trouble and call Menifee Drywall Construction today to make sure you get the drywall installation you need done right.',
+      summary: 'Professional sheetrock hanging, framing, and clean finishing for new construction and remodels.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3383.jpg',
       tag: 'RESIDENTIAL & COMMERCIAL'
     },
     {
       id: 'drywall-repair',
       title: 'Drywall Repair',
-      summary: 'When it comes to repairing drywall, once there is a giant hole in your drywall, you can’t seem to think of anything else. Let us help you out. At Menifee Drywall Construction we make it our main focus to restore peace of mind to your home by restoring your damaged drywall to better than new.',
+      summary: 'Flawless restoration for holes, stress cracks, settlement damage, and plumbing cutouts.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3394.jpg',
       tag: 'HOLES & CRACKS'
     },
     {
       id: 'water-damage',
       title: 'Water Damage',
-      summary: 'Water damage happens. When it does happen, the tragic truth is that if it gets excessive some portions of your drywall must be removed and replaced to secure a sound structure and avoid mold growth. When it comes to water stains, we can clean it up with a fresh paint. We know how to fix it and are ready to help.',
+      summary: 'Rapid cutback, moisture assessment, and mold-resistant drywall replacement after leaks.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/MVIMG_20181016_135043.jpg',
       tag: 'LEAKS & RESTORATION'
     },
     {
       id: 'texture-matching',
       title: 'Texture Matching',
-      summary: 'Did you just move into a new home and realize that parts of your wall don’t match? Maybe you patched up an area a while back and have been ignoring the bald spot surrounded by textured walls. Whatever the reason, no need to worry. We are fully equipped, experienced and ready to come in and restore your walls with new life, making sure that all of the texture matches throughout your home where it is needed.',
+      summary: 'Seamless blending for orange peel, knockdown, and custom hand-applied wall textures.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3384.jpg',
       tag: 'SEAMLESS BLENDING'
     },
     {
       id: 'popcorn-removal',
       title: 'Acoustic / Popcorn Removal',
-      summary: 'Acoustic ceiling or drywall, sometimes known as “Popcorn” ceiling or drywall, has an outdated look and low resale value. But not just that, it can also attract and hang onto dust particles and create an all-over dirty atmosphere. We are the specialists that you need for the job. Reach out today to learn more about what that process looks like.',
+      summary: 'Clean acoustic ceiling removal with dust containment for modern, dust-free interiors.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3382.jpg',
       tag: 'CEILING UPGRADE'
     },
     {
       id: 'smooth-wall',
       title: 'Smooth Wall Finish',
-      summary: 'Do your textured walls give you an unfinished feel? Are you simply ready for some change in your home? Not a problem! At Menifee Drywall Construction we get that no questions asked. We are ready to offer smooth wall finish assistance whenever you are ready and needing it. We will come in and smooth out the problem with ease. Give us a call today.',
+      summary: 'Level-5 skim coating transforming outdated textured walls into sleek, contemporary surfaces.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/cache/2018/10/IMG_3382/3002124147.jpg',
       tag: 'CLEAN MODERN WALLS'
     },
     {
       id: 'custom-texture',
       title: 'Custom Texture',
-      summary: 'Who says that your drywall can’t come custom? Not us. We believe that your home building or remodeling needs should be about you. That is why we offer custom textures for your drywall. Get the fresh look you want in your walls with the custom textures we have to offer. Give us a call today to find out more.',
+      summary: 'Personalized troweled textures crafted to match your aesthetic and remodeling vision.',
       image: ASSETS.heroBanner,
-      tag: 'PERSONALIZED TEXTURES'
+      tag: 'CUSTOM TEXTURES'
     },
     {
       id: 'demolition',
       title: 'Demolition Services',
-      summary: 'Don’t hire just anyone for demolition services. Hire someone that is confident and experienced in what they are doing with the task at hand. At Menifee Drywall Construction we step beyond our name. That’s right! It’s not all about drywall installation and repair, we offer demolition services too. When you need something torn down and cleared out for remodeling jobs, we are the ones to call.',
+      summary: 'Precise tear-outs, wall removals, and complete debris cleanup ready for new framing.',
       image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3380.jpg',
       tag: 'REMODELING & TEAR-OUTS'
     }
@@ -65,8 +65,8 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
 
   return (
     <section className="shell py-16 lg:py-24 border-b border-[#cccac3] dark:border-[#2b2d2a]" id="services" aria-labelledby="services-title">
-      {/* 1. Section Header with Authentic Copy */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+      {/* 1. Section Header with Minimal Authentic Copy */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
         <div>
           <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
             <span className="dot"></span> SERVICES &bull; MENIFEE DRYWALL CONSTRUCTION
@@ -75,12 +75,9 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
             Riverside County’s Premier<br />
             Drywall Contractor<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
-          <p className="font-mono text-sm text-[#096899] dark:text-[#8bd4f6] font-semibold mt-2 uppercase tracking-wider">
-            No matter where you’re located, we have your back
-          </p>
         </div>
-        <p className="text-[16px] text-[#4b4c46] dark:text-[#a0a29c] leading-[1.5] max-w-md">
-          Our team at Menifee Drywall Construction specializes in professional drywall installation, repair, custom texture, popcorn removal, water damage restoration, smooth wall finish, and demolition services.
+        <p className="text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed max-w-md">
+          Complete drywall solutions for homeowners and general contractors throughout Riverside County.
         </p>
       </div>
 
@@ -122,23 +119,23 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
             </div>
 
             <div className="pt-4 border-t border-[#e2e0d8] dark:border-[#2b2d2a] mt-5 flex items-center justify-between font-mono text-[11px] text-[#096899] dark:text-[#8bd4f6]">
-              <span>LEARN MORE &bull; FREE CONSULTATION</span>
-              <span>&rarr;</span>
+              <span>LEARN MORE &bull; FREE ESTIMATE</span>
+              <span>↗</span>
             </div>
           </article>
         ))}
       </div>
 
       {/* 3. Bottom Service Action Footer */}
-      <div className="mt-12 pt-6 flex flex-wrap items-center justify-between gap-6 font-mono text-[12px] text-[#4b4c46] dark:text-[#a0a29c]">
-        <div className="flex items-center gap-6">
-          <span>&bull; HOME REMODELING &bull; ROOM ADDITIONS &bull; GARAGE CONVERSIONS &bull; RESTORATION &bull; FLOOD DAMAGE</span>
+      <div className="mt-12 pt-6 flex flex-wrap items-center justify-between gap-6 font-mono text-[11px] text-[#4b4c46] dark:text-[#a0a29c]">
+        <div className="flex items-center gap-4">
+          <span>&bull; REMODELS &bull; ADDITIONS &bull; RESTORATION &bull; FLOOD DAMAGE</span>
         </div>
         <button
           onClick={onOpenConsultation}
           className="ref-link text-[#151614] dark:text-[#f4f2ed] hover:text-[#096899] dark:hover:text-[#8bd4f6] cursor-pointer"
         >
-          <span>Schedule a free consultation today</span>
+          <span>Schedule a free consultation</span>
           <span aria-hidden="true">↗</span>
         </button>
       </div>

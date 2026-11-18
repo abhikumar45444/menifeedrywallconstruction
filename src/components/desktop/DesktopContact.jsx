@@ -59,17 +59,14 @@ export default function DesktopContact({ onOpenCallModal }) {
 
         {/* 2. Authentic Free Consultation Request Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5 space-y-4 text-white/90 text-[16px] leading-relaxed">
+          <div className="lg:col-span-5 space-y-4 text-white/90 text-[15px] leading-relaxed">
             <p>
-              Contact us today or schedule a free consultation to learn why Menifee Drywall Construction is the ideal fit for your project.
+              Have a project in mind or need an emergency repair estimate? Call Jessie directly or request a free consultation below.
             </p>
-            <p className="text-white/70 text-sm">
-              Whether it’s a residential home job or a commercial-sized project, our skilled team is guaranteed to deliver superior drywall work.
-            </p>
-            <div className="pt-4 border-t border-white/20 font-mono text-xs space-y-2 text-white/80">
-              <div>&bull; Free Consultation &amp; Transparent Pricing</div>
-              <div>&bull; Serving Moreno Valley, Corona, Temecula &amp; Beyond</div>
-              <div>&bull; President/Owner Jessie Lisardo Directly Available</div>
+            <div className="pt-4 border-t border-white/20 font-mono text-xs space-y-2.5 text-white/80">
+              <div>&bull; Free Consultation &amp; Transparent Quotes</div>
+              <div>&bull; Serving All of Riverside County</div>
+              <div>&bull; Owner Jessie Lisardo Directly Available</div>
             </div>
           </div>
 

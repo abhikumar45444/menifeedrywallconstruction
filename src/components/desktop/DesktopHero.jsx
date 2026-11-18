@@ -27,22 +27,22 @@ export default function DesktopHero({ onOpenCallModal, onOpenConsultation }) {
         </div>
 
         <div className="lg:col-span-4 pb-2 space-y-4">
-          <p className="text-[16px] text-[#4b4c46] dark:text-[#a0a29c] leading-[1.5]">
-            With over 20 years of experience in the industry, <strong className="text-[#151614] dark:text-[#f4f2ed] font-semibold">Menifee Drywall Construction</strong> has the knowledge and expertise to handle drywall jobs of any size. Whether it’s a residential home job or a commercial-sized project, our skilled team is guaranteed to deliver superior drywall work.
+          <p className="text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed">
+            Over 20 years of experience delivering guaranteed drywall craftsmanship for residential and commercial projects across Riverside County.
           </p>
           <div className="pt-2 flex items-center gap-6">
             <button 
               onClick={() => scrollTo('services')}
               className="ref-link text-[#151614] dark:text-[#f4f2ed] hover:text-[#096899] dark:hover:text-[#8bd4f6] cursor-pointer"
             >
-              <span>Explore our services</span>
+              <span>Explore services</span>
               <span aria-hidden="true">↘</span>
             </button>
             <button
               onClick={onOpenCallModal}
               className="font-mono text-xs font-semibold text-[#096899] dark:text-[#8bd4f6] hover:underline underline-offset-4 cursor-pointer"
             >
-              Call Today! 951-746-8891
+              Call 951-746-8891
             </button>
           </div>
         </div>

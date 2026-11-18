@@ -38,17 +38,14 @@ export default function DesktopAbout({ onOpenCallModal, onOpenConsultation }) {
             Drywall Excellence<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
 
-          <div className="space-y-4 text-[16px] text-[#4b4c46] dark:text-[#a0a29c] leading-[1.6]">
+          <div className="space-y-3 text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed">
             <p>
-              <strong className="text-[#151614] dark:text-[#f4f2ed] font-semibold">Jessie Lisardo</strong> first got a taste of the drywall trade in high school, working as a general laborer for his uncle. As he continued to learn the trade, becoming a professional at hanging, taping, and finishing, Jessie developed a passion for the work and decided to turn it into his career.
+              <strong className="text-[#151614] dark:text-[#f4f2ed] font-semibold">Jessie Lisardo</strong> learned the drywall trade in high school working alongside his uncle, turning hands-on craft into a lifelong career. Over two decades later, Jessie personally leads Menifee Drywall Construction with a commitment to getting your project done on time without sacrificing quality.
             </p>
             <p>
-              Now, over two decades later, Jessie is the owner of <strong className="text-[#151614] dark:text-[#f4f2ed] font-semibold">Menifee Drywall Construction</strong>, and he has tirelessly worked to make it the best of its kind in Riverside County. Whether your home or business is located in Moreno Valley, Corona, Temecula, or somewhere in between, you can trust Jessie and his team at Menifee Drywall Construction with all of your drywall needs.
+              From custom homes to commercial builds and urgent leak repairs across Riverside County, customer service is our highest priority.
             </p>
-            <p>
-              From homes to commercial properties to the smallest repair imaginable, we pride ourselves in doing things the right way, both in the field and as a reputable member of the business community. We take a great deal of satisfaction in the service provided to our general contractors as well as individual homeowners. We are committed to getting your project done in a timely manner without sacrificing quality.
-            </p>
-            <p className="font-semibold text-[#151614] dark:text-[#f4f2ed] italic pt-1">
+            <p className="font-medium text-[#151614] dark:text-[#f4f2ed] italic pt-1">
               &ldquo;It would be our privilege to be a part of your project!&rdquo;
             </p>
           </div>

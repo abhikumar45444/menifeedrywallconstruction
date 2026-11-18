@@ -3,7 +3,6 @@ import DesktopNavbar from './DesktopNavbar';
 import DesktopHero from './DesktopHero';
 import DesktopServices from './DesktopServices';
 import DesktopAbout from './DesktopAbout';
-import DesktopCustomerService from './DesktopCustomerService';
 import DesktopProjects from './DesktopProjects';
 import DesktopTestimonials from './DesktopTestimonials';
 import DesktopEstimator from './DesktopEstimator';
@@ -45,13 +44,7 @@ export default function DesktopApp({
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 5. The Customer Service You Deserve: Authentic Value Proposition */}
-      <DesktopCustomerService
-        onOpenConsultation={onOpenConsultation}
-        onOpenCallModal={onOpenCallModal}
-      />
-
-      {/* 6. Latest Projects Gallery: Official Photos from menifeedrywallconstruction.com */}
+      {/* 5. Latest Projects Gallery: Official Photos from menifeedrywallconstruction.com */}
       <DesktopProjects
         onOpenConsultation={onOpenConsultation}
       />

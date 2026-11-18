@@ -1,116 +1,84 @@
 import React from 'react';
-import { Phone, Mail, Clock, MapPin, ShieldCheck, Star } from 'lucide-react';
 import { ASSETS } from '../../utils/assets';
-import { COMPANY_INFO, SERVICES } from '../../data/drywallData';
+import { COMPANY_INFO } from '../../data/drywallData';
 
-export default function DesktopFooter({ onOpenCallModal, onOpenConsultation }) {
+export default function DesktopFooter() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
-      {/* Upper Footer: 4-Column Layout */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Column 1: Company Profile (Spans 2 cols) */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 p-1.5 border border-white/20 flex items-center justify-center">
-                <img
-                  src={ASSETS.logo}
-                  alt="Menifee Drywall Construction"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div>
-                <h3 className="text-base font-black text-white leading-tight">Menifee Drywall Construction</h3>
-                <p className="text-[10px] text-brand-400 font-bold uppercase tracking-wider">Riverside County's Premier Contractor</p>
-              </div>
-            </div>
-
-            <p className="text-slate-400 leading-relaxed text-xs max-w-sm">
-              With over 20 years of experience in the industry, Menifee Drywall Construction delivers superior drywall hanging, invisible patch repairs, water damage restoration, and texture matching across Southern California.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
+    <footer className="bg-[#f4f2ed] border-t border-[#cccac3] text-[#151614] py-14">
+      <div className="shell">
+        {/* 1. Brand Row */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-[#cccac3]">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded bg-white p-1 border border-[#cccac3] flex items-center justify-center">
               <img
-                src={ASSETS.topProBadge}
-                alt="Thumbtack Top Pro"
-                className="w-10 h-10 object-contain rounded-xl border border-slate-800"
+                src={ASSETS.logo}
+                alt="Menifee Drywall Construction"
+                className="w-full h-full object-contain"
               />
-              <div>
-                <div className="flex text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-[11px] font-bold text-white mt-0.5">Top Pro Rated &bull; 140+ Reviews</p>
-              </div>
+            </div>
+            <div>
+              <span className="font-bold text-base tracking-tight block">
+                Menifee Drywall Construction<span className="text-[#1188c4]">.</span>
+              </span>
+              <span className="font-mono text-[10px] text-[#4b4c46] tracking-wider uppercase">
+                EST. 2004 &bull; PRESIDENT: JESSIE LISARDO
+              </span>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">Navigation</h4>
-            <ul className="space-y-2">
-              <li><button onClick={() => scrollTo('services')} className="hover:text-white transition-colors cursor-pointer">All Services</button></li>
-              <li><button onClick={() => scrollTo('about')} className="hover:text-white transition-colors cursor-pointer">About Jessie Lisardo</button></li>
-              <li><button onClick={() => scrollTo('estimator')} className="hover:text-white transition-colors cursor-pointer">Cost Estimator</button></li>
-              <li><button onClick={() => scrollTo('projects')} className="hover:text-white transition-colors cursor-pointer">Completed Projects</button></li>
-              <li><button onClick={() => scrollTo('reviews')} className="hover:text-white transition-colors cursor-pointer">Customer Testimonials</button></li>
-              <li><button onClick={() => scrollTo('contact')} className="hover:text-white transition-colors cursor-pointer">Contact Us</button></li>
-            </ul>
-          </div>
+          <p className="font-mono text-[12px] text-[#4b4c46]">
+            Menifee &bull; Murrieta &bull; Temecula &bull; Corona &bull; Lake Elsinore &bull; Orange County, CA
+          </p>
 
-          {/* Column 3: Services Directory */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">Drywall Services</h4>
-            <ul className="space-y-2">
-              {SERVICES.slice(0, 6).map((s) => (
-                <li key={s.id}>
-                  <button onClick={() => scrollTo('services')} className="hover:text-white transition-colors text-left cursor-pointer truncate max-w-[200px]">
-                    {s.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: Contact & Service Areas */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">Contact & Hours</h4>
-            <div className="space-y-2.5">
-              <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="w-3.5 h-3.5 text-brand-400 fill-current" />
-                <span className="font-bold text-white">{COMPANY_INFO.phone}</span>
-              </a>
-              <a href={`mailto:${COMPANY_INFO.email}`} className="flex items-center gap-2 hover:text-white transition-colors truncate">
-                <Mail className="w-3.5 h-3.5 text-brand-400" />
-                <span className="truncate">{COMPANY_INFO.email}</span>
-              </a>
-              <div className="flex items-center gap-2 text-slate-400">
-                <Clock className="w-3.5 h-3.5 text-brand-400" />
-                <span>Mon – Sat: 7am – 6pm</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-400">
-                <MapPin className="w-3.5 h-3.5 text-brand-400" />
-                <span>Menifee, CA &bull; Riverside & OC</span>
-              </div>
-            </div>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="ref-link text-[#151614] hover:text-[#096899] font-mono text-xs cursor-pointer"
+          >
+            <span>Back to top</span>
+            <span aria-hidden="true">&uarr;</span>
+          </button>
         </div>
-      </div>
 
-      {/* Bottom Bar: Copyright & License */}
-      <div className="border-t border-slate-900 bg-black/60 py-5 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Menifee Drywall Construction. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <span>President & Owner: Jessie Lisardo</span>
-            <span>&bull;</span>
-            <span className="text-slate-400">Licensed, Bonded & Insured Professional Contractor</span>
+        {/* 2. Navigation Link Wrap */}
+        <div className="pt-8 flex flex-wrap items-center justify-between gap-6 text-xs font-semibold text-[#4b4c46]">
+          <div className="flex flex-wrap items-center gap-6">
+            <button onClick={() => scrollTo('services')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              Services
+            </button>
+            <button onClick={() => scrollTo('guide')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              Repair Guide
+            </button>
+            <button onClick={() => scrollTo('estimator')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              Cost Estimator
+            </button>
+            <button onClick={() => scrollTo('work')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              Project Gallery
+            </button>
+            <button onClick={() => scrollTo('about')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              About Jessie
+            </button>
+            <button onClick={() => scrollTo('reviews')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              Reviews
+            </button>
+            <button onClick={() => scrollTo('faq')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              FAQs
+            </button>
+            <button onClick={() => scrollTo('contact')} className="hover:text-[#096899] transition-colors cursor-pointer">
+              Contact
+            </button>
+          </div>
+
+          <div className="font-mono text-[11px] text-[#73756d]">
+            &copy; {new Date().getFullYear()} Menifee Drywall Construction. All rights reserved.
           </div>
         </div>
       </div>

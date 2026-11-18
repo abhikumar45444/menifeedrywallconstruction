@@ -2,10 +2,12 @@ import React from 'react';
 import DesktopNavbar from './DesktopNavbar';
 import DesktopHero from './DesktopHero';
 import DesktopServices from './DesktopServices';
+import DesktopRepairGuide from './DesktopRepairGuide';
+import DesktopProjects from './DesktopProjects';
 import DesktopAbout from './DesktopAbout';
 import DesktopEstimator from './DesktopEstimator';
-import DesktopProjects from './DesktopProjects';
 import DesktopTestimonials from './DesktopTestimonials';
+import DesktopFaq from './DesktopFaq';
 import DesktopContact from './DesktopContact';
 import DesktopFooter from './DesktopFooter';
 
@@ -17,8 +19,8 @@ export default function DesktopApp({
   selectedArea
 }) {
   return (
-    <div className="w-full min-h-screen bg-slate-50 font-sans text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
-      {/* 1. Desktop Navbar */}
+    <div className="w-full min-h-screen bg-[#f4f2ed] font-sans text-[#151614] antialiased selection:bg-[#096899] selection:text-white">
+      {/* 1. Desktop Navbar with Monospace Ticker & Minimal Header */}
       <DesktopNavbar
         onOpenConsultation={onOpenConsultation}
         onOpenCallModal={onOpenCallModal}
@@ -26,50 +28,56 @@ export default function DesktopApp({
         selectedArea={selectedArea}
       />
 
-      {/* 2. Hero Section with Live Estimator Widget */}
+      {/* 2. Editorial Hero Section: "Drywall done. Done right." */}
       <DesktopHero
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 3. Services Catalog Grid */}
+      {/* 3. Flagship Services Showcase: "From the first patch to the final finish." */}
       <DesktopServices
         onOpenServiceModal={onOpenServiceModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 4. About Jessie Lisardo & Craftsmanship Story */}
+      {/* 4. Interactive Repair Guide: "What needs fixing?" */}
+      <DesktopRepairGuide
+        onOpenConsultation={onOpenConsultation}
+        onOpenCallModal={onOpenCallModal}
+      />
+
+      {/* 5. Dark Graphite Project Gallery: "A closer look." with Lightbox */}
+      <DesktopProjects
+        onOpenConsultation={onOpenConsultation}
+      />
+
+      {/* 6. Craftsman Story: "Local with 20+ years." */}
       <DesktopAbout
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 5. Interactive Cost Estimator & Diagnostic Tool */}
+      {/* 7. Interactive Repair Cost Estimator Tool */}
       <DesktopEstimator
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 6. Completed Projects Portfolio Gallery */}
-      <DesktopProjects
-        onOpenConsultation={onOpenConsultation}
-      />
-
-      {/* 7. Verified Client Testimonials */}
+      {/* 8. Verified Homeowner Testimonials */}
       <DesktopTestimonials
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 8. Contact, Map & Free Estimate Form */}
+      {/* 9. Common Questions Accordion: "Good to know." */}
+      <DesktopFaq />
+
+      {/* 10. High-Impact Contact & Estimate Form: "Let's talk drywall." */}
       <DesktopContact
         onOpenCallModal={onOpenCallModal}
       />
 
-      {/* 9. Comprehensive Desktop Footer */}
-      <DesktopFooter
-        onOpenCallModal={onOpenCallModal}
-        onOpenConsultation={onOpenConsultation}
-      />
+      {/* 11. Architectural Footer */}
+      <DesktopFooter />
     </div>
   );
 }

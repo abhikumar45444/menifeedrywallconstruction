@@ -1,145 +1,110 @@
-import React, { useState } from 'react';
-import { 
-  Wrench, Droplets, Sparkles, Layers, Hammer, 
-  CheckCircle2, Clock, DollarSign, ArrowRight, ShieldCheck 
-} from 'lucide-react';
+import React from 'react';
 import { SERVICES } from '../../data/drywallData';
+import { ASSETS } from '../../utils/assets';
 
 export default function DesktopServices({ onOpenServiceModal, onOpenConsultation }) {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const filters = [
-    { id: 'all', label: 'All Services (8)' },
-    { id: 'repairs', label: 'Repairs & Water Damage' },
-    { id: 'textures', label: 'Textures & Popcorn Removal' },
-    { id: 'construction', label: 'Installations & Demolition' },
+  // Curated flagship services matching the editorial style
+  const flagshipServices = [
+    {
+      id: 'repair-texture',
+      title: 'Drywall Repair & Texture Matching',
+      summary: 'Patches, settling cracks, door knob holes, and seamless texture blending including orange peel, knockdown, and smooth finishes.',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3394.jpg',
+      tag: 'MOST POPULAR'
+    },
+    {
+      id: 'water-damage',
+      title: 'Water Damage Restoration',
+      summary: 'Emergency plumbing cutouts, damp insulation removal, antimicrobial drying assessment, and clean drywall reconstruction.',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/MVIMG_20181016_135043.jpg',
+      tag: 'SAME-DAY DISPATCH'
+    },
+    {
+      id: 'installation',
+      title: 'Drywall Installation & Remodeling',
+      summary: 'Full hanging and precision taping for room additions, home renovations, custom ceiling framing, and new construction.',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3383.jpg',
+      tag: 'NEW BUILDS & ADUS'
+    },
+    {
+      id: 'popcorn-smooth',
+      title: 'Popcorn Ceiling Removal & Level 5',
+      summary: 'Dust-contained acoustic ceiling scraping, skim coating, and conversion to ultra-clean, modern gallery smooth surfaces.',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3382.jpg',
+      tag: 'MODERN FINISH'
+    }
   ];
 
-  const filteredServices = SERVICES.filter((s) => {
-    if (activeFilter === 'repairs') {
-      return s.id === 'drywall-repair' || s.id === 'water-damage';
-    }
-    if (activeFilter === 'textures') {
-      return s.id === 'texture-matching' || s.id === 'popcorn-removal' || s.id === 'smooth-wall-finish';
-    }
-    if (activeFilter === 'construction') {
-      return s.id === 'drywall-installation' || s.id === 'demolition' || s.id === 'commercial-drywall';
-    }
-    return true;
-  });
-
   return (
-    <section id="services" className="py-20 bg-[#fbf9f5] border-b border-stone-200">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#163a63]/10 text-[#163a63] text-xs font-bold uppercase tracking-wider mb-3">
-              <Wrench className="w-3.5 h-3.5 text-[#163a63]" />
-              <span>Full Service Drywall Contractor</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-stone-900 tracking-tight">
-              Our Professional Drywall Services
-            </h2>
-            <p className="text-stone-600 mt-2 max-w-2xl text-base">
-              From residential patchwork to whole-home installations, ADUs, and commercial builds, Jessie Lisardo brings two decades of flawless craftsmanship to every job.
-            </p>
-          </div>
-
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2">
-            {filters.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                  activeFilter === f.id
-                    ? 'bg-[#163a63] text-white shadow-sm'
-                    : 'bg-white text-stone-700 hover:bg-stone-100 border border-stone-300'
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
+    <section className="shell py-16 lg:py-24 border-b border-[#cccac3]" id="services" aria-labelledby="services-title">
+      {/* 1. Section Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+        <div>
+          <p className="eyebrow text-[#4b4c46]">
+            <span className="dot"></span> OUR SERVICES
+          </p>
+          <h2 id="services-title" className="editorial-h2 text-[#151614] mt-4">
+            From the first patch<br />
+            to the final finish<span className="text-[#1188c4]">.</span>
+          </h2>
         </div>
+        <p className="text-[17px] text-[#4b4c46] leading-[1.5] max-w-md">
+          From a small ceiling water leak patch to complete drywall hanging across a custom remodel, we prepare walls and ceilings for a flawless, paint-ready finish.
+        </p>
+      </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredServices.map((service) => (
-            <div
-              key={service.id}
-              onClick={() => onOpenServiceModal(service)}
-              className="group bg-white rounded-2xl border border-stone-200/90 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1"
-            >
-              {/* Service Thumbnail */}
-              <div className="relative h-48 w-full overflow-hidden bg-stone-900">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-3 left-3 bg-[#c97a18] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded shadow-xs">
-                  {service.badge}
-                </div>
-                <div className="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-amber-400" />
-                  <span>{service.turnaround}</span>
-                </div>
-              </div>
-
-              {/* Service Info */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-base font-extrabold text-stone-900 group-hover:text-[#163a63] transition-colors leading-snug">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs text-stone-600 mt-2 line-clamp-3 leading-relaxed">
-                    {service.overview}
-                  </p>
-
-                  {/* Feature Checkpoints */}
-                  <div className="mt-4 pt-3 border-t border-stone-100 space-y-1.5 text-xs text-stone-600">
-                    {service.features.slice(0, 3).map((feat, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span className="truncate">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Footer Pricing & Trigger */}
-                <div className="mt-5 pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
-                  <div>
-                    <span className="text-[10px] text-stone-400 font-semibold uppercase">Pricing</span>
-                    <p className="font-extrabold text-stone-900 text-xs">{service.priceEstimate}</p>
-                  </div>
-                  <span className="inline-flex items-center gap-1 font-bold text-[#163a63] group-hover:translate-x-1 transition-transform">
-                    <span>Details & Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Custom Project Callout Bar */}
-        <div className="mt-12 p-8 rounded-2xl bg-[#122538] text-white shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-700">
-          <div className="space-y-1 text-center md:text-left">
-            <h3 className="text-xl font-black">Need custom texture matching or multi-room remodel drywall?</h3>
-            <p className="text-xs text-slate-300 max-w-xl">
-              President Jessie Lisardo personally conducts free in-person walkthroughs across Riverside County and parts of Orange County.
-            </p>
-          </div>
-          <button
-            onClick={onOpenConsultation}
-            className="px-6 py-3 rounded-xl bg-[#c97a18] hover:bg-[#b36710] text-white font-bold text-xs shadow-md transition-all active:scale-95 shrink-0 cursor-pointer"
+      {/* 2. 2-Column Editorial Service Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        {flagshipServices.map((service) => (
+          <article 
+            key={service.id} 
+            className="group cursor-pointer"
+            onClick={() => {
+              const fullService = SERVICES.find(s => s.id === service.id) || SERVICES[0];
+              onOpenServiceModal(fullService);
+            }}
           >
-            Schedule Free Walkthrough
-          </button>
+            {/* Image Container with hover zoom */}
+            <div className="relative w-full h-[clamp(280px,32vw,460px)] overflow-hidden bg-[#d3c9b8] border border-[#cccac3]">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <span className="absolute top-4 left-4 bg-[#f4f2ed]/95 border border-[#cccac3] px-2.5 py-1 font-mono text-[10px] font-medium tracking-wider text-[#151614]">
+                {service.tag}
+              </span>
+            </div>
+
+            {/* Service Copy */}
+            <div className="border-b border-[#cccac3] py-5">
+              <h3 className="editorial-h3 text-[#151614] group-hover:text-[#096899] transition-colors flex items-center justify-between">
+                <span>{service.title}</span>
+                <span aria-hidden="true" className="text-2xl font-normal opacity-70 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                  ↗
+                </span>
+              </h3>
+              <p className="text-[15px] text-[#4b4c46] leading-relaxed mt-2.5 max-w-xl">
+                {service.summary}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {/* 3. Bottom Service Action Footer */}
+      <div className="mt-12 pt-6 flex flex-wrap items-center justify-between gap-6 font-mono text-[12px] text-[#4b4c46]">
+        <div className="flex items-center gap-6">
+          <span>&bull; ALL TEXTURES MATCHED: ORANGE PEEL, KNOCKDOWN, SKIP TROWEL, SMOOTH</span>
         </div>
+        <button
+          onClick={onOpenConsultation}
+          className="ref-link text-[#151614] hover:text-[#096899] cursor-pointer"
+        >
+          <span>Need custom drywall hanging? Request estimate</span>
+          <span aria-hidden="true">↗</span>
+        </button>
       </div>
     </section>
   );

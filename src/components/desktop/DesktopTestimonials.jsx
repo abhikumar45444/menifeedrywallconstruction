@@ -1,101 +1,72 @@
 import React from 'react';
-import { Star, MapPin, ThumbsUp, Quote, Award } from 'lucide-react';
 import { TESTIMONIALS } from '../../data/drywallData';
 import { ASSETS } from '../../utils/assets';
 
 export default function DesktopTestimonials({ onOpenConsultation }) {
   return (
-    <section id="reviews" className="py-20 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Heading & Rating Badge */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
-              <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-              <span>Verified Client Testimonials</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              See What Our Customers Have to Say
-            </h2>
-            <p className="text-slate-600 mt-2 max-w-2xl text-base">
-              Over two decades of 5-star ratings across Thumbtack, Google, and word-of-mouth recommendations throughout Riverside County.
-            </p>
-          </div>
+    <section className="shell py-20 lg:py-28 border-b border-[#cccac3]" id="reviews" aria-labelledby="reviews-title">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        <div>
+          <p className="eyebrow text-[#4b4c46]">
+            <span className="dot"></span> CLIENT TESTIMONIALS
+          </p>
+          <h2 id="reviews-title" className="editorial-h2 text-[#151614] mt-4">
+            Words from<br />
+            our clients<span className="text-[#1188c4]">.</span>
+          </h2>
+        </div>
 
-          <div className="flex items-center gap-4 bg-slate-50 border border-slate-200 p-3.5 rounded-2xl shadow-xs">
-            <img
-              src={ASSETS.topProBadge}
-              alt="Thumbtack Top Pro Badge"
-              className="w-12 h-12 object-contain rounded-xl"
-            />
+        <div className="flex items-center gap-4 bg-white p-3.5 border border-[#cccac3] shadow-xs">
+          <img
+            src={ASSETS.topProBadge}
+            alt="Thumbtack Top Pro"
+            className="w-10 h-10 object-contain border border-[#cccac3]"
+          />
+          <div className="font-mono text-xs">
+            <span className="font-bold text-[#151614] block">5.0 / 5.0 STAR AVERAGE</span>
+            <span className="text-[#4b4c46]">Thumbtack Top Pro &bull; Yelp &bull; Google</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Grid of Verified Client Testimonials */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {TESTIMONIALS.map((t) => (
+          <article
+            key={t.id}
+            className="bg-white p-6 lg:p-7 border border-[#cccac3] shadow-xs flex flex-col justify-between"
+          >
             <div>
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400" />
-                ))}
-              </div>
-              <p className="text-xs font-black text-slate-900 mt-0.5">5.0 Star Rating (140+ Reviews)</p>
-              <p className="text-[10px] text-slate-500">100% Verified Customer Satisfaction</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 3-Column Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((item) => (
-            <div
-              key={item.id}
-              className="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between hover:shadow-lg transition-all duration-300"
-            >
-              <div>
-                {/* Header with avatar & name */}
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={item.avatar}
-                      alt={item.name}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-xs"
-                    />
-                    <div>
-                      <h3 className="text-sm font-extrabold text-slate-900 leading-tight">
-                        {item.name}
-                      </h3>
-                      <p className="text-[11px] text-slate-500 flex items-center gap-1 mt-0.5">
-                        <MapPin className="w-3 h-3 text-slate-400" />
-                        <span>{item.location}</span>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex text-amber-400">
-                    {[...Array(item.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                    ))}
-                  </div>
+              {/* Star Rating and Project Type */}
+              <div className="flex justify-between items-center pb-4 border-b border-[#e2e0d8] font-mono text-[11px]">
+                <div className="flex text-amber-500 tracking-widest">
+                  {'★'.repeat(t.rating)}
                 </div>
-
-                {/* Service Tag */}
-                <div className="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-stone-100 text-[#163a63] border border-stone-200 mb-3">
-                  Job: {item.service}
-                </div>
-
-                {/* Review Text */}
-                <p className="text-xs text-stone-700 leading-relaxed italic">
-                  "{item.text}"
-                </p>
-              </div>
-
-              {/* Bottom Verified Badge */}
-              <div className="mt-5 pt-4 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
-                <span className="flex items-center gap-1.5 font-medium">
-                  <ThumbsUp className="w-3.5 h-3.5 text-[#163a63]" />
-                  <span>Verified Customer Story</span>
+                <span className="text-[#096899] font-medium uppercase">
+                  {t.project}
                 </span>
-                <span className="font-semibold text-slate-400">{item.date}</span>
               </div>
+
+              {/* Review Text */}
+              <p className="text-[15px] text-[#151614] leading-[1.6] mt-4 italic">
+                &ldquo;{t.comment}&rdquo;
+              </p>
             </div>
-          ))}
-        </div>
+
+            {/* Author Footer */}
+            <div className="pt-6 border-t border-[#e2e0d8] mt-6 flex items-center justify-between font-mono text-xs">
+              <div>
+                <strong className="font-bold text-[#151614] block not-italic font-sans">
+                  {t.name}
+                </strong>
+                <span className="text-[#4b4c46] text-[11px]">{t.location}</span>
+              </div>
+              <span className="text-[#096899] bg-[#096899]/10 px-2 py-0.5 text-[10px] font-bold">
+                VERIFIED
+              </span>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

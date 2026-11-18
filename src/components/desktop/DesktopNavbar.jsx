@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, Clock, MapPin, Sparkles, ChevronDown, ShieldCheck, Star, Calculator } from 'lucide-react';
+import { Phone, Clock, MapPin, ChevronDown, Calculator, ArrowUpRight } from 'lucide-react';
 import { ASSETS } from '../../utils/assets';
 import { COMPANY_INFO } from '../../data/drywallData';
 
@@ -13,7 +13,7 @@ export default function DesktopNavbar({
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -28,53 +28,52 @@ export default function DesktopNavbar({
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
-      {/* 1. Top Utility Notification Strip */}
-      <div className="bg-[#08121c] text-slate-300 text-xs py-2 px-6 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2 text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <strong className="text-white">Emergency Repairs & Water Leaks:</strong> Priority Same-Day Scheduling
+      {/* 1. Top Monospace Utility Ticker */}
+      <div className="bg-[#151614] text-[#d5d5cd] text-[11px] font-mono py-2 px-6 border-b border-[#2b2d2a]">
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#8bd4f6] inline-block"></span>
+              <span className="tracking-wider uppercase">EMERGENCY ESCROW &amp; WATER LEAKS: SAME-DAY DISPATCH</span>
             </span>
-            <span className="hidden lg:flex items-center gap-1.5 text-slate-400">
-              <Clock className="w-3.5 h-3.5 text-[#f5a742]" />
-              <span>{COMPANY_INFO.hours}</span>
+            <span className="hidden lg:inline text-white/30">/</span>
+            <span className="hidden lg:inline text-[#9e9d96]">
+              {COMPANY_INFO.hours}
             </span>
           </div>
 
           <div className="flex items-center gap-5">
             <button
               onClick={onOpenAreaModal}
-              className="flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-[#d5d5cd] hover:text-white transition-colors cursor-pointer"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#f5a742]" />
+              <MapPin className="w-3 h-3 text-[#8bd4f6]" />
               <span>{selectedArea}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <ChevronDown className="w-3 h-3 opacity-60" />
             </button>
-            <span className="text-slate-600">|</span>
+            <span className="text-white/20">|</span>
             <a
-              href={`mailto:${COMPANY_INFO.email}`}
-              className="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors"
+              href={`tel:${COMPANY_INFO.phoneRaw}`}
+              className="text-[#8bd4f6] hover:text-white font-medium transition-colors"
             >
-              <Mail className="w-3.5 h-3.5 text-[#f5a742]" />
-              <span>{COMPANY_INFO.email}</span>
+              {COMPANY_INFO.phone}
             </a>
           </div>
         </div>
       </div>
 
-      {/* 2. Main Desktop Navbar */}
+      {/* 2. Main Architectural Header */}
       <nav
-        className={`w-full transition-all duration-300 ${
+        className={`w-full transition-all duration-200 border-b border-[#cccac3] ${
           isScrolled
-            ? 'bg-[#0c1a27]/98 backdrop-blur-md shadow-md py-3 border-b border-slate-800'
-            : 'bg-[#102334] py-4 border-b border-slate-800/80'
+            ? 'bg-[#f4f2ed]/95 backdrop-blur-md shadow-xs py-3.5'
+            : 'bg-[#f4f2ed] py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Brand Logo & Name */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-xl bg-white p-1 border border-slate-300 shadow-sm flex items-center justify-center">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-14 flex items-center justify-between">
+          {/* Brand Logo & Editorial Wordmark */}
+          <a href="#" className="flex items-center gap-3.5 group">
+            <div className="w-10 h-10 rounded-md bg-white p-1 border border-[#cccac3] shadow-xs flex items-center justify-center shrink-0">
               <img
                 src={ASSETS.logo}
                 alt="Menifee Drywall Construction"
@@ -82,55 +81,78 @@ export default function DesktopNavbar({
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-black text-white tracking-tight leading-none">
-                Menifee Drywall
+              <span className="text-lg font-bold tracking-tight text-[#151614] leading-none">
+                Menifee Drywall<span className="text-[#1188c4]">.</span>
               </span>
-              <span className="text-[10px] font-bold text-[#f5a742] uppercase tracking-widest mt-1">
-                Construction &bull; 20+ Years Exp
+              <span className="font-mono text-[10px] text-[#4b4c46] tracking-wider uppercase mt-1">
+                RIVERSIDE CO. / EST. 2004
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-200">
-            <button onClick={() => scrollTo('services')} className="hover:text-[#f5a742] transition-colors cursor-pointer">
+          <div className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-[#151614]">
+            <button 
+              onClick={() => scrollTo('services')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer"
+            >
               Services
             </button>
-            <button onClick={() => scrollTo('about')} className="hover:text-[#f5a742] transition-colors cursor-pointer">
+            <button 
+              onClick={() => scrollTo('guide')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer"
+            >
+              Repair Guide
+            </button>
+            <button 
+              onClick={() => scrollTo('estimator')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer flex items-center gap-1.5"
+            >
+              <span>Cost Estimator</span>
+              <span className="font-mono text-[10px] bg-[#096899]/10 text-[#096899] px-1.5 py-0.5 rounded">NEW</span>
+            </button>
+            <button 
+              onClick={() => scrollTo('work')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer"
+            >
+              Our Work
+            </button>
+            <button 
+              onClick={() => scrollTo('about')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer"
+            >
               About Jessie
             </button>
-            <button onClick={() => scrollTo('estimator')} className="hover:text-[#f5a742] transition-colors cursor-pointer flex items-center gap-1.5 text-amber-300">
-              <Calculator className="w-3.5 h-3.5" />
-              <span>Cost Estimator</span>
+            <button 
+              onClick={() => scrollTo('faq')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer"
+            >
+              FAQs
             </button>
-            <button onClick={() => scrollTo('projects')} className="hover:text-[#f5a742] transition-colors cursor-pointer">
-              Projects
-            </button>
-            <button onClick={() => scrollTo('reviews')} className="hover:text-[#f5a742] transition-colors cursor-pointer">
-              Testimonials
-            </button>
-            <button onClick={() => scrollTo('contact')} className="hover:text-[#f5a742] transition-colors cursor-pointer">
+            <button 
+              onClick={() => scrollTo('contact')} 
+              className="hover:text-[#096899] transition-colors cursor-pointer"
+            >
               Contact
             </button>
           </div>
 
-          {/* Right Action Buttons */}
-          <div className="flex items-center gap-3">
-            {/* Direct Phone Call Button */}
+          {/* Right Action Callouts */}
+          <div className="flex items-center gap-4">
             <button
               onClick={onOpenCallModal}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs border border-slate-600 transition-all active:scale-95 cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-2 font-mono text-[13px] font-medium text-[#151614] hover:text-[#096899] transition-colors cursor-pointer"
             >
-              <Phone className="w-3.5 h-3.5 text-[#f5a742] fill-current" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               <span>(951) 746-8891</span>
             </button>
 
-            {/* Request Free Quote Button */}
             <button
               onClick={onOpenConsultation}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#c97a18] hover:bg-[#b36710] text-white font-bold text-xs shadow-sm transition-all active:scale-95 cursor-pointer"
+              className="ref-button cursor-pointer"
             >
-              <span>Get Free Quote</span>
+              <span>Free estimate</span>
+              <span aria-hidden="true" className="text-lg leading-none">↗</span>
             </button>
           </div>
         </div>

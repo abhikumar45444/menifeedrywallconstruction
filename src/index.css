@@ -55,13 +55,13 @@
 
     /* Interactive state: craftsman brand navy on hover/drag */
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(27, 77, 117, 0.65);
+      background: rgba(9, 104, 153, 0.65);
       border: 2px solid transparent;
       background-clip: padding-box;
     }
 
     ::-webkit-scrollbar-thumb:active {
-      background: rgba(27, 77, 117, 0.85);
+      background: rgba(9, 104, 153, 0.85);
       border: 2px solid transparent;
       background-clip: padding-box;
     }
@@ -73,6 +73,9 @@
   }
 
   body {
+    background: #f4f2ed;
+    color: #151614;
+    font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -80,6 +83,99 @@
     user-select: text;
     -webkit-user-select: text;
   }
+}
+
+/* Reference site editorial classes */
+.shell {
+  width: min(100% - 48px, 1440px);
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .shell {
+    width: min(100% - 96px, 1440px);
+  }
+}
+@media (min-width: 1024px) {
+  .shell {
+    width: min(100% - 112px, 1440px);
+  }
+}
+
+.eyebrow {
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #1188c4;
+  display: inline-block;
+  flex: none;
+}
+
+.slash {
+  opacity: 0.4;
+}
+
+.editorial-h1 {
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  font-size: clamp(56px, 8.5vw, 150px);
+  line-height: 0.85;
+}
+
+.editorial-h2 {
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  font-size: clamp(42px, 5.8vw, 98px);
+  line-height: 0.89;
+}
+
+.editorial-h3 {
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  font-size: clamp(24px, 2.8vw, 38px);
+  line-height: 1.05;
+}
+
+.ref-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #096899;
+  color: #ffffff;
+  padding: 13px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.ref-button:hover {
+  background: #075176;
+}
+
+.ref-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: max-content;
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.2s ease;
+}
+.ref-link:hover {
+  color: #096899;
 }
 
 /* Custom scrollbar class */

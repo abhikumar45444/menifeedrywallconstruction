@@ -99,47 +99,35 @@ export default function DesktopNavbar({
               Services
             </button>
             <button 
-              onClick={() => scrollTo('guide')} 
+              onClick={() => scrollTo('about')} 
               className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
-              Repair Guide
+              About Us
+            </button>
+            <button 
+              onClick={() => scrollTo('projects')} 
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
+            >
+              Latest Projects
+            </button>
+            <button 
+              onClick={() => scrollTo('reviews')} 
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
+            >
+              Testimonials
             </button>
             <button 
               onClick={() => scrollTo('estimator')} 
               className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <span>Cost Estimator</span>
-              <span className="font-mono text-[10px] bg-[#096899]/10 dark:bg-[#8bd4f6]/20 text-[#096899] dark:text-[#8bd4f6] px-1.5 py-0.5 rounded">NEW</span>
-            </button>
-            <button 
-              onClick={() => scrollTo('work')} 
-              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
-            >
-              Our Work
-            </button>
-            <button 
-              onClick={() => scrollTo('about')} 
-              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
-            >
-              About Jessie
-            </button>
-            <button 
-              onClick={() => scrollTo('reviews')} 
-              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
-            >
-              Reviews
-            </button>
-            <button 
-              onClick={() => scrollTo('faq')} 
-              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
-            >
-              FAQs
+              <span className="font-mono text-[10px] bg-[#096899]/10 dark:bg-[#8bd4f6]/20 text-[#096899] dark:text-[#8bd4f6] px-1.5 py-0.5 rounded">CALCULATOR</span>
             </button>
             <button 
               onClick={() => scrollTo('contact')} 
               className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
-              Contact
+              Contact Us
             </button>
           </div>
 
@@ -150,14 +138,14 @@ export default function DesktopNavbar({
               className="hidden sm:inline-flex items-center gap-2 font-mono text-[13px] font-medium text-[#151614] dark:text-[#e5e4de] hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              <span>(951) 746-8891</span>
+              <span>Call Today! 951-746-8891</span>
             </button>
 
             <button
               onClick={onOpenConsultation}
               className="ref-button dark:bg-[#1188c4] dark:hover:bg-[#096899] cursor-pointer"
             >
-              <span>Free estimate</span>
+              <span>Free Consultation</span>
               <span aria-hidden="true" className="text-lg leading-none">↗</span>
             </button>
           </div>

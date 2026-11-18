@@ -86,11 +86,14 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
-            <span className="dot"></span> CLIENT REVIEWS
+            <span className="dot"></span> CUSTOMER TESTIMONIALS
           </p>
           <h2 id="reviews-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-3">
-            Words from our clients<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
+            See What Our Customers<br />Have To Say<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
+          <p className="font-mono text-xs text-[#096899] dark:text-[#8bd4f6] uppercase tracking-wider mt-2">
+            See What Our Thumbtack Customers Have To Say
+          </p>
         </div>
 
         {/* Minimal Controls: Rating Pill & Page Stepper */}

@@ -30,13 +30,13 @@ export default function DesktopFooter() {
                 Menifee Drywall Construction<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
               </span>
               <span className="font-mono text-[10px] text-[#4b4c46] dark:text-[#a0a29c] tracking-wider uppercase">
-                EST. 2004 &bull; PRESIDENT: JESSIE LISARDO
+                The Craftsmanship, Pricing, and Customer Service You Deserve
               </span>
             </div>
           </div>
 
           <p className="font-mono text-[12px] text-[#4b4c46] dark:text-[#a0a29c]">
-            Menifee &bull; Murrieta &bull; Temecula &bull; Corona &bull; Lake Elsinore &bull; Orange County, CA
+            Menifee &bull; Murrieta &bull; Temecula &bull; Moreno Valley &bull; Corona &bull; Riverside County, CA
           </p>
 
           <button
@@ -54,31 +54,25 @@ export default function DesktopFooter() {
             <button onClick={() => scrollTo('services')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
               Services
             </button>
-            <button onClick={() => scrollTo('guide')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
-              Repair Guide
+            <button onClick={() => scrollTo('about')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
+              About Us
+            </button>
+            <button onClick={() => scrollTo('projects')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
+              Latest Projects
+            </button>
+            <button onClick={() => scrollTo('reviews')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
+              Testimonials
             </button>
             <button onClick={() => scrollTo('estimator')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
               Cost Estimator
             </button>
-            <button onClick={() => scrollTo('work')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
-              Project Gallery
-            </button>
-            <button onClick={() => scrollTo('about')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
-              About Jessie
-            </button>
-            <button onClick={() => scrollTo('reviews')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
-              Reviews
-            </button>
-            <button onClick={() => scrollTo('faq')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
-              FAQs
-            </button>
             <button onClick={() => scrollTo('contact')} className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer">
-              Contact
+              Contact Us
             </button>
           </div>
 
           <div className="font-mono text-[11px] text-[#73756d] dark:text-[#6a6c65]">
-            &copy; {new Date().getFullYear()} Menifee Drywall Construction. All rights reserved.
+            &copy; {new Date().getFullYear()} Menifee Drywall Construction. All rights reserved. &bull; Call Today! 951-746-8891
           </div>
         </div>
       </div>

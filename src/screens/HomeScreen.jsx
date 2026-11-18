@@ -9,10 +9,10 @@ import HeroCarousel from '../components/HeroCarousel';
 import { COMPANY_INFO, SERVICES, TESTIMONIALS } from '../data/drywallData';
 import { ASSETS } from '../utils/assets';
 
-export default function HomeScreen({ 
-  onSelectTab, 
-  onOpenServiceModal, 
-  onOpenCallModal, 
+export default function HomeScreen({
+  onSelectTab,
+  onOpenServiceModal,
+  onOpenCallModal,
   onOpenConsultation,
   selectedArea = 'Riverside County (Menifee & Murrieta)',
   onOpenAreaModal
@@ -68,7 +68,7 @@ export default function HomeScreen({
     });
 
   return (
-    <div 
+    <div
       ref={scrollRef}
       onScroll={handleScroll}
       className="flex-1 overflow-y-auto no-scrollbar scrollbar-hide hide-scrollbar relative h-full bg-slate-50 font-sans select-none rounded-none md:rounded-t-[40px] pb-28"

@@ -58,12 +58,12 @@ const SLIDES = [
   }
 ];
 
-export default function HeroCarousel({ 
+export default function HeroCarousel({
   headerHeight = 96,
   parallaxOffset = 0,
-  onSelectTab, 
-  onOpenCallModal, 
-  onOpenConsultation 
+  onSelectTab,
+  onOpenCallModal,
+  onOpenConsultation
 }) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);

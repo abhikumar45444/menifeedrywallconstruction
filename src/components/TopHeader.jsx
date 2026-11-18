@@ -16,11 +16,10 @@ const TopHeader = forwardRef(function TopHeader(
   return (
     <header
       ref={ref}
-      className={`sticky top-0 left-0 right-0 z-30 transition-all duration-300 px-4 pt-3.5 md:pt-12 pb-3.5 rounded-none md:rounded-t-[40px] select-none ${
-        isScrolled
-          ? 'bg-[#0f172a] shadow-md'
-          : 'bg-gradient-to-b from-black/85 via-black/40 to-transparent shadow-none'
-      }`}
+      className={`sticky top-0 left-0 right-0 z-30 transition-all duration-300 px-4 pt-3.5 md:pt-12 pb-3.5 rounded-none md:rounded-t-[40px] select-none ${isScrolled
+        ? 'bg-[#0f172a] shadow-md'
+        : 'bg-gradient-to-b from-black/85 via-black/40 to-transparent shadow-none'
+        }`}
     >
       {/* 1. Top Row: Wordmark Logo & Quick Actions */}
       <div className="flex items-center justify-between">

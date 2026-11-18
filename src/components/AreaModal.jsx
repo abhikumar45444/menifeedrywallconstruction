@@ -33,10 +33,10 @@ export default function AreaModal({ isOpen, onClose, selectedArea, onSelectArea 
   };
 
   return (
-    <div className="fixed md:absolute inset-0 z-[100] bg-black/60 backdrop-blur-xs flex flex-col justify-end overflow-hidden animate-island select-none">
+    <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-xs flex flex-col justify-end md:justify-center md:items-center overflow-hidden animate-island select-none p-0 md:p-4">
       <div className="flex-1" onClick={onClose} />
 
-      <div className="w-full bg-white rounded-t-[36px] max-h-[92dvh] md:max-h-[90%] h-[92dvh] md:h-[90%] flex flex-col overflow-hidden shadow-2xl border-t border-slate-200 z-10 transition-transform duration-300">
+      <div className="w-full md:max-w-md bg-white rounded-t-[36px] md:rounded-3xl max-h-[92dvh] md:max-h-[85vh] h-[92dvh] md:h-auto flex flex-col overflow-hidden shadow-2xl border-t md:border border-slate-200 z-10 transition-transform duration-300">
         <div className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto my-3 flex-shrink-0" />
 
         <div className="px-5 pb-3 flex items-center justify-between border-b border-slate-100 flex-shrink-0">

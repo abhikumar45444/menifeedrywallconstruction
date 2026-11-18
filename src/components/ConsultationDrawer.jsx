@@ -26,10 +26,10 @@ export default function ConsultationDrawer({ isOpen, onClose }) {
   };
 
   return (
-    <div className="absolute inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300">
+    <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300 p-0 md:p-4">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full bg-white rounded-t-[32px] shadow-2xl max-h-[85%] flex flex-col overflow-hidden animate-slide-up z-10 border-t border-slate-200">
+      <div className="relative w-full md:max-w-lg bg-white rounded-t-[32px] md:rounded-3xl shadow-2xl max-h-[88%] md:max-h-[85vh] flex flex-col overflow-hidden animate-slide-up z-10 border-t md:border border-slate-200">
         {/* Grab Handle */}
         <div className="flex justify-center pt-3 pb-1">
           <div className="w-12 h-1.5 bg-slate-300 rounded-full" />

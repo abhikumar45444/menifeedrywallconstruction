@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PhoneShell from './components/PhoneShell';
 import BottomNav from './components/BottomNav';
 import HomeScreen from './screens/HomeScreen';
 import ServicesScreen from './screens/ServicesScreen';
@@ -9,6 +8,7 @@ import ServiceModal from './components/ServiceModal';
 import CallModal from './components/CallModal';
 import ConsultationDrawer from './components/ConsultationDrawer';
 import AreaModal from './components/AreaModal';
+import DesktopApp from './components/desktop/DesktopApp';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -22,76 +22,98 @@ export default function App() {
     setActiveTab(tab);
   };
 
-  const isModalOpen = !!selectedService || isCallModalOpen || isConsultationOpen || showAreaModal;
-
   return (
-    <PhoneShell isLocked={isModalOpen}>
-      <div className="flex flex-col flex-1 relative h-full overflow-hidden bg-slate-50">
-        <div className="flex-1 flex flex-col relative h-full min-h-0 overflow-hidden bg-slate-50">
-          {activeTab === 'home' && (
-            <HomeScreen
-              onSelectTab={handleSelectTab}
-              onOpenServiceModal={(service) => setSelectedService(service)}
-              onOpenCallModal={() => setIsCallModalOpen(true)}
-              onOpenConsultation={() => setIsConsultationOpen(true)}
-              selectedArea={selectedArea}
-              onOpenAreaModal={() => setShowAreaModal(true)}
-            />
-          )}
-
-          {activeTab === 'services' && (
-            <ServicesScreen
-              onSelectTab={handleSelectTab}
-              onOpenServiceModal={(service) => setSelectedService(service)}
-              onOpenCallModal={() => setIsCallModalOpen(true)}
-            />
-          )}
-
-          {activeTab === 'estimate' && (
-            <EstimatorScreen
-              onOpenCallModal={() => setIsCallModalOpen(true)}
-            />
-          )}
-
-          {activeTab === 'reviews' && (
-            <ReviewsScreen
-              onOpenCallModal={() => setIsCallModalOpen(true)}
-              onOpenConsultation={() => setIsConsultationOpen(true)}
-            />
-          )}
-        </div>
-
-        {/* Floating Pill Bottom Navigation Bar */}
-        <BottomNav
-          activeTab={activeTab}
-          onSelectTab={handleSelectTab}
-        />
-
-        {/* Modals & Slide-up Drawers (contained within phone shell) */}
-        <ServiceModal
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-          onSelectTab={handleSelectTab}
+    <>
+      {/* =========================================================================
+          1. DESKTOP VIEWPORT (md: breakpoint and up)
+          Full modern desktop website redesign with multi-column layouts,
+          sticky desktop navbar, interactive estimator widget, and full sections.
+          ========================================================================= */}
+      <div className="hidden md:block w-full min-h-screen bg-slate-50">
+        <DesktopApp
+          onOpenServiceModal={(service) => setSelectedService(service)}
           onOpenCallModal={() => setIsCallModalOpen(true)}
-        />
-
-        <CallModal
-          isOpen={isCallModalOpen}
-          onClose={() => setIsCallModalOpen(false)}
-        />
-
-        <ConsultationDrawer
-          isOpen={isConsultationOpen}
-          onClose={() => setIsConsultationOpen(false)}
-        />
-
-        <AreaModal
-          isOpen={showAreaModal}
-          onClose={() => setShowAreaModal(false)}
+          onOpenConsultation={() => setIsConsultationOpen(true)}
+          onOpenAreaModal={() => setShowAreaModal(true)}
           selectedArea={selectedArea}
-          onSelectArea={(area) => setSelectedArea(area)}
         />
       </div>
-    </PhoneShell>
+
+      {/* =========================================================================
+          2. REAL MOBILE DEVICE VIEWPORT (< md breakpoint)
+          100% native edge-to-edge mobile web app with bottom floating pill nav,
+          auto-advancing touch carousel, mobile tabs, and fast micro-flows.
+          ========================================================================= */}
+      <div className="block md:hidden w-full h-[100dvh] overflow-hidden bg-slate-50 font-sans">
+        <div className="flex flex-col w-full h-full relative overflow-hidden bg-slate-50">
+          <div className="flex-1 flex flex-col relative h-full min-h-0 overflow-hidden bg-slate-50">
+            {activeTab === 'home' && (
+              <HomeScreen
+                onSelectTab={handleSelectTab}
+                onOpenServiceModal={(service) => setSelectedService(service)}
+                onOpenCallModal={() => setIsCallModalOpen(true)}
+                onOpenConsultation={() => setIsConsultationOpen(true)}
+                selectedArea={selectedArea}
+                onOpenAreaModal={() => setShowAreaModal(true)}
+              />
+            )}
+
+            {activeTab === 'services' && (
+              <ServicesScreen
+                onSelectTab={handleSelectTab}
+                onOpenServiceModal={(service) => setSelectedService(service)}
+                onOpenCallModal={() => setIsCallModalOpen(true)}
+              />
+            )}
+
+            {activeTab === 'estimate' && (
+              <EstimatorScreen
+                onOpenCallModal={() => setIsCallModalOpen(true)}
+              />
+            )}
+
+            {activeTab === 'reviews' && (
+              <ReviewsScreen
+                onOpenCallModal={() => setIsCallModalOpen(true)}
+                onOpenConsultation={() => setIsConsultationOpen(true)}
+              />
+            )}
+          </div>
+
+          {/* Floating Pill Bottom Navigation Bar on Mobile */}
+          <BottomNav
+            activeTab={activeTab}
+            onSelectTab={handleSelectTab}
+          />
+        </div>
+      </div>
+
+      {/* =========================================================================
+          3. SHARED MODALS & DRAWERS (Responsive: bottom sheet on mobile, dialog on desktop)
+          ========================================================================= */}
+      <ServiceModal
+        service={selectedService}
+        onClose={() => setSelectedService(null)}
+        onSelectTab={handleSelectTab}
+        onOpenCallModal={() => setIsCallModalOpen(true)}
+      />
+
+      <CallModal
+        isOpen={isCallModalOpen}
+        onClose={() => setIsCallModalOpen(false)}
+      />
+
+      <ConsultationDrawer
+        isOpen={isConsultationOpen}
+        onClose={() => setIsConsultationOpen(false)}
+      />
+
+      <AreaModal
+        isOpen={showAreaModal}
+        onClose={() => setShowAreaModal(false)}
+        selectedArea={selectedArea}
+        onSelectArea={(area) => setSelectedArea(area)}
+      />
+    </>
   );
 }

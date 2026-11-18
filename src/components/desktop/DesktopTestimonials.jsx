@@ -42,26 +42,35 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
                 <div className="flex text-amber-500 tracking-widest">
                   {'★'.repeat(t.rating)}
                 </div>
-                <span className="text-[#096899] font-medium uppercase">
-                  {t.project}
+                <span className="text-[#096899] font-medium uppercase truncate max-w-[180px]">
+                  {t.service || t.project}
                 </span>
               </div>
 
               {/* Review Text */}
               <p className="text-[15px] text-[#151614] leading-[1.6] mt-4 italic">
-                &ldquo;{t.comment}&rdquo;
+                &ldquo;{t.text || t.comment}&rdquo;
               </p>
             </div>
 
             {/* Author Footer */}
             <div className="pt-6 border-t border-[#e2e0d8] mt-6 flex items-center justify-between font-mono text-xs">
-              <div>
-                <strong className="font-bold text-[#151614] block not-italic font-sans">
-                  {t.name}
-                </strong>
-                <span className="text-[#4b4c46] text-[11px]">{t.location}</span>
+              <div className="flex items-center gap-3">
+                {t.avatar && (
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-9 h-9 rounded-full object-cover border border-[#cccac3]"
+                  />
+                )}
+                <div>
+                  <strong className="font-bold text-[#151614] block not-italic font-sans">
+                    {t.name}
+                  </strong>
+                  <span className="text-[#4b4c46] text-[11px]">{t.location}</span>
+                </div>
               </div>
-              <span className="text-[#096899] bg-[#096899]/10 px-2 py-0.5 text-[10px] font-bold">
+              <span className="text-[#096899] bg-[#096899]/10 px-2 py-0.5 text-[10px] font-bold shrink-0">
                 VERIFIED
               </span>
             </div>

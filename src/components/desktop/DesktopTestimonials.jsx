@@ -81,121 +81,122 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
   const currentReviews = reviewsData.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
 
   return (
-    <section className="shell py-16 lg:py-20 border-b border-[#cccac3] dark:border-[#2b2d2a]" id="reviews" aria-labelledby="reviews-title">
-      {/* 1. Minimal Editorial Header with Stepper Controls */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-        <div>
-          <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
-            <span className="dot"></span> CUSTOMER TESTIMONIALS
-          </p>
-          <h2 id="reviews-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-3">
-            Client Testimonials<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
-          </h2>
-          <p className="font-mono text-xs text-[#096899] dark:text-[#8bd4f6] uppercase tracking-wider mt-2">
-            Verified Reviews from Riverside County Homeowners
-          </p>
-        </div>
-
-        {/* Minimal Controls: Rating Pill & Page Stepper */}
-        <div className="flex items-center gap-4">
-          <div className="hidden sm:flex items-center gap-2.5 bg-white dark:bg-[#1a1b18] px-3.5 py-2 border border-[#cccac3] dark:border-[#2b2d2a] font-mono text-xs shadow-xs text-[#151614] dark:text-[#f4f2ed]">
-            <span className="text-amber-500 tracking-wider">★★★★★</span>
-            <span className="font-bold">5.0 / 5.0</span>
-            <span className="text-[#73756d] dark:text-[#9e9d96]">&bull; Thumbtack Top Pro</span>
+    <section className="bg-[#FFFFFF] dark:bg-[#121312] py-16 lg:py-24 border-b border-neutral-200 dark:border-neutral-800 transition-colors" id="reviews" aria-labelledby="reviews-title">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+        {/* 1. Minimal Editorial Header with Stepper Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+              CLIENT REVIEWS
+            </p>
+            <h2 id="reviews-title" className="text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-950 dark:text-white mt-2">
+              What homeowners say<span className="text-[#096899] dark:text-[#8bd4f6]">.</span>
+            </h2>
+            <p className="text-[15px] text-neutral-600 dark:text-neutral-300 leading-relaxed mt-2">
+              Verified feedback from homeowners and contractors across Riverside County.
+            </p>
           </div>
 
-          {/* Prev / Next Minimal Buttons */}
-          <div className="flex items-center border border-[#cccac3] dark:border-[#2b2d2a] bg-white dark:bg-[#1a1b18] shadow-xs">
-            <button
-              onClick={() => setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1))}
-              className="p-2.5 text-[#151614] dark:text-[#f4f2ed] hover:bg-[#f4f2ed] dark:hover:bg-[#252723] transition-colors border-r border-[#cccac3] dark:border-[#2b2d2a] cursor-pointer"
-              aria-label="Previous reviews"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className="px-3.5 font-mono text-[11px] text-[#4b4c46] dark:text-[#a0a29c]">
-              0{currentPage + 1} / 0{totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0))}
-              className="p-2.5 text-[#151614] dark:text-[#f4f2ed] hover:bg-[#f4f2ed] dark:hover:bg-[#252723] transition-colors cursor-pointer"
-              aria-label="Next reviews"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </div>
+          {/* Minimal Controls: Rating Pill & Page Stepper */}
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:flex items-center gap-2 bg-[#F9F8F6] dark:bg-[#181917] px-3.5 py-2 border border-neutral-200 dark:border-neutral-800 font-mono text-xs text-neutral-950 dark:text-white rounded-xs">
+              <span className="text-amber-500 tracking-wider">★★★★★</span>
+              <span className="font-semibold">5.0 / 5.0</span>
+              <span className="text-neutral-400">&bull; Thumbtack Top Pro</span>
+            </div>
 
-      {/* 2. Compact 3-Card Minimal Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {currentReviews.map((t) => (
-          <article
-            key={t.id}
-            className="bg-[#fcfbf9] dark:bg-[#161715] p-6 border border-[#cccac3] dark:border-[#2b2d2a] flex flex-col justify-between transition-colors hover:border-[#151614] dark:hover:border-white group"
-          >
-            <div>
-              {/* Minimal Top Tag: Service & Rating */}
-              <div className="flex justify-between items-center pb-3 border-b border-[#e2e0d8] dark:border-[#2b2d2a] font-mono text-[10px]">
-                <span className="text-[#096899] dark:text-[#8bd4f6] font-medium uppercase tracking-wider truncate max-w-[170px]">
-                  {t.service}
-                </span>
-                <span className="text-amber-500 tracking-widest shrink-0">
-                  {'★'.repeat(t.rating)}
-                </span>
-              </div>
-
-              {/* Minimal Punchy Review Quote */}
-              <p className="text-[14px] text-[#151614] dark:text-[#e5e4de] leading-[1.6] mt-3.5 italic">
-                &ldquo;{t.preview}&rdquo;
-              </p>
-
-              {/* Read Full Review Modal Trigger */}
+            {/* Prev / Next Minimal Buttons */}
+            <div className="flex items-center border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#181917] rounded-xs">
               <button
-                type="button"
-                onClick={() => setSelectedReview(t)}
-                className="inline-flex items-center gap-1 font-mono text-[11px] text-[#096899] dark:text-[#8bd4f6] hover:text-[#075176] dark:hover:text-white font-semibold mt-3 cursor-pointer group-hover:underline"
+                onClick={() => setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1))}
+                className="p-2 text-neutral-950 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors border-r border-neutral-200 dark:border-neutral-800 cursor-pointer"
+                aria-label="Previous reviews"
               >
-                <span>Read full review</span>
-                <span aria-hidden="true" className="text-xs">↗</span>
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <span className="px-3 font-mono text-[11px] text-neutral-600 dark:text-neutral-400">
+                0{currentPage + 1} / 0{totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0))}
+                className="p-2 text-neutral-950 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+                aria-label="Next reviews"
+              >
+                <ChevronRight className="w-4 h-4" />
               </button>
             </div>
+          </div>
+        </div>
 
-            {/* Minimal Author Footer */}
-            <div className="pt-4 border-t border-[#e2e0d8] dark:border-[#2b2d2a] mt-5 flex items-center justify-between font-mono text-xs">
-              <div className="flex items-center gap-2.5">
-                {t.avatar && (
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="w-7 h-7 rounded-full object-cover border border-[#cccac3] dark:border-[#383a36]"
-                  />
-                )}
-                <div>
-                  <strong className="font-bold text-[#151614] dark:text-[#f4f2ed] block not-italic text-xs font-sans">
-                    {t.name}
-                  </strong>
-                  <span className="text-[#73756d] dark:text-[#9e9d96] text-[10px]">{t.location}</span>
+        {/* 2. Compact 3-Card Minimal Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {currentReviews.map((t) => (
+            <article
+              key={t.id}
+              className="bg-[#F9F8F6] dark:bg-[#181917] p-6 border border-neutral-200 dark:border-neutral-800 rounded-sm flex flex-col justify-between transition-colors hover:border-neutral-950 dark:hover:border-white group"
+            >
+              <div>
+                {/* Minimal Top Tag: Service & Rating */}
+                <div className="flex justify-between items-center pb-3 border-b border-neutral-200 dark:border-neutral-800 font-mono text-[10px]">
+                  <span className="text-[#096899] dark:text-[#8bd4f6] font-medium uppercase tracking-wider truncate max-w-[170px]">
+                    {t.service}
+                  </span>
+                  <span className="text-amber-500 tracking-widest shrink-0">
+                    {'★'.repeat(t.rating)}
+                  </span>
                 </div>
-              </div>
-              <span className="font-mono text-[9px] text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 px-1.5 py-0.5 font-semibold">
-                VERIFIED
-              </span>
-            </div>
-          </article>
-        ))}
-      </div>
 
-      {/* 3. Subtle Monospace Verification Ticker */}
-      <div className="mt-8 pt-4 border-t border-[#cccac3] dark:border-[#2b2d2a] flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-[#73756d] dark:text-[#a0a29c]">
-        <span>&bull; ALL REVIEWS WRITTEN BY VERIFIED HOMEOWNERS IN RIVERSIDE &amp; ORANGE COUNTY</span>
-        <button
-          onClick={onOpenConsultation}
-          className="ref-link text-[#151614] dark:text-[#f4f2ed] hover:text-[#096899] dark:hover:text-[#8bd4f6] cursor-pointer"
-        >
-          <span>Ready to start your project? Request free quote</span>
-          <span aria-hidden="true">↗</span>
-        </button>
+                {/* Minimal Punchy Review Quote */}
+                <p className="text-[14px] text-neutral-800 dark:text-neutral-200 leading-[1.6] mt-3.5 italic">
+                  &ldquo;{t.preview}&rdquo;
+                </p>
+
+                {/* Read Full Review Modal Trigger */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedReview(t)}
+                  className="inline-flex items-center gap-1 font-mono text-[11px] text-[#096899] dark:text-[#8bd4f6] font-semibold mt-3 cursor-pointer hover:underline"
+                >
+                  <span>Read full review</span>
+                  <span aria-hidden="true" className="text-xs">↗</span>
+                </button>
+              </div>
+
+              {/* Minimal Author Footer */}
+              <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 mt-5 flex items-center justify-between font-mono text-xs">
+                <div className="flex items-center gap-2.5">
+                  {t.avatar && (
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="w-7 h-7 rounded-full object-cover border border-neutral-300 dark:border-neutral-700"
+                    />
+                  )}
+                  <div>
+                    <strong className="font-semibold text-neutral-950 dark:text-white block not-italic text-xs font-sans">
+                      {t.name}
+                    </strong>
+                    <span className="text-neutral-500 text-[10px]">{t.location}</span>
+                  </div>
+                </div>
+                <span className="font-mono text-[9px] text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 px-1.5 py-0.5 font-medium rounded-xs">
+                  VERIFIED
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* 3. Subtle Monospace Verification Ticker */}
+        <div className="mt-8 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-neutral-500 dark:text-neutral-400">
+          <span>&bull; Verified Homeowner Reviews &bull; Riverside &amp; Orange County</span>
+          <button
+            onClick={onOpenConsultation}
+            className="hover:text-neutral-950 dark:hover:text-white transition-colors cursor-pointer border-b border-neutral-300 dark:border-neutral-700 pb-0.5"
+          >
+            <span>Ready to start? Request free estimate ↗</span>
+          </button>
+        </div>
       </div>
 
       {/* 4. Full Review Modal Dialog */}

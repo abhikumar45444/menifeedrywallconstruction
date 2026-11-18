@@ -2,10 +2,11 @@ import React from 'react';
 import DesktopNavbar from './DesktopNavbar';
 import DesktopHero from './DesktopHero';
 import DesktopServices from './DesktopServices';
-import DesktopAbout from './DesktopAbout';
+import DesktopRepairGuide from './DesktopRepairGuide';
 import DesktopProjects from './DesktopProjects';
+import DesktopAbout from './DesktopAbout';
 import DesktopTestimonials from './DesktopTestimonials';
-import DesktopEstimator from './DesktopEstimator';
+import DesktopFaq from './DesktopFaq';
 import DesktopContact from './DesktopContact';
 import DesktopFooter from './DesktopFooter';
 
@@ -17,8 +18,8 @@ export default function DesktopApp({
   selectedArea
 }) {
   return (
-    <div className="w-full min-h-screen bg-[#f4f2ed] dark:bg-[#121312] font-sans text-[#151614] dark:text-[#f4f2ed] antialiased selection:bg-[#096899] dark:selection:bg-[#8bd4f6] dark:selection:text-[#121312] transition-colors duration-200">
-      {/* 1. Desktop Navbar with Authentic Links & Motto */}
+    <div className="w-full min-h-screen bg-[#FFFFFF] dark:bg-[#121312] font-sans text-neutral-950 dark:text-neutral-100 antialiased selection:bg-[#096899] dark:selection:bg-[#8bd4f6] dark:selection:text-[#121312] transition-colors duration-200">
+      {/* 1. Minimal Top Header */}
       <DesktopNavbar
         onOpenConsultation={onOpenConsultation}
         onOpenCallModal={onOpenCallModal}
@@ -26,47 +27,50 @@ export default function DesktopApp({
         selectedArea={selectedArea}
       />
 
-      {/* 2. Hero Section: "Full Service Drywall Contractor in Menifee, CA" */}
+      {/* 2. Editorial Hero Section: "Drywall done. Done right." */}
       <DesktopHero
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 3. Authentic Services Showcase: 8 Real Services from menifeedrywallconstruction.com */}
+      {/* 3. 2-Column Services Grid: "From the first patch to the final finish." */}
       <DesktopServices
         onOpenServiceModal={onOpenServiceModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 4. About Jessie Lisardo & Menifee Drywall Construction: "Over Two Decades of Drywall Excellence" */}
+      {/* 4. Split Repair Guide: "What needs fixing?" */}
+      <DesktopRepairGuide
+        onOpenConsultation={onOpenConsultation}
+        onOpenCallModal={onOpenCallModal}
+      />
+
+      {/* 5. 3-Column Project Gallery: "A closer look." */}
+      <DesktopProjects
+        onOpenConsultation={onOpenConsultation}
+      />
+
+      {/* 6. Editorial About Section: 20+ Years Craftsmanship */}
       <DesktopAbout
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 5. Latest Projects Gallery: Official Photos from menifeedrywallconstruction.com */}
-      <DesktopProjects
-        onOpenConsultation={onOpenConsultation}
-      />
-
-      {/* 7. Verified Customer Testimonials: Real Reviews from Original Website */}
+      {/* 7. Client Reviews: Verified Testimonials */}
       <DesktopTestimonials
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 8. Interactive Repair Cost Estimator Tool */}
-      <DesktopEstimator
-        onOpenCallModal={onOpenCallModal}
-        onOpenConsultation={onOpenConsultation}
-      />
+      {/* 8. Clean FAQ Accordion: "Good to know." */}
+      <DesktopFaq />
 
-      {/* 9. Contact Us & Free Consultation Section */}
+      {/* 9. Streamlined Contact CTA: "Let's talk drywall." */}
       <DesktopContact
         onOpenCallModal={onOpenCallModal}
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 10. Architectural Footer */}
+      {/* 10. Quiet Minimal Footer */}
       <DesktopFooter />
     </div>
   );

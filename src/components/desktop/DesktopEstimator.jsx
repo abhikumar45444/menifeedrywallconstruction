@@ -78,11 +78,10 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                   key={item.id}
                   onClick={() => setDamageType(item.id)}
                   type="button"
-                  className={`py-3 px-3.5 text-xs font-semibold text-left border transition-all cursor-pointer ${
-                    damageType === item.id
-                      ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
-                      : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
-                  }`}
+                  className={`py-3 px-3.5 text-xs font-semibold text-left border transition-all cursor-pointer ${damageType === item.id
+                    ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
+                    : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -106,11 +105,10 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                   key={item.id}
                   onClick={() => setDamageSize(item.id)}
                   type="button"
-                  className={`py-3 px-2.5 text-xs font-semibold text-center border transition-all cursor-pointer ${
-                    damageSize === item.id
-                      ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
-                      : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
-                  }`}
+                  className={`py-3 px-2.5 text-xs font-semibold text-center border transition-all cursor-pointer ${damageSize === item.id
+                    ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
+                    : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -134,11 +132,10 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                   key={item.id}
                   onClick={() => setTextureType(item.id)}
                   type="button"
-                  className={`py-3 px-2.5 text-xs font-semibold text-center border transition-all cursor-pointer ${
-                    textureType === item.id
-                      ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
-                      : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
-                  }`}
+                  className={`py-3 px-2.5 text-xs font-semibold text-center border transition-all cursor-pointer ${textureType === item.id
+                    ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
+                    : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
+                    }`}
                 >
                   {item.label}
                 </button>

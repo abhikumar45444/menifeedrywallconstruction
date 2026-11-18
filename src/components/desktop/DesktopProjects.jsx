@@ -1,139 +1,143 @@
 import React, { useState } from 'react';
-import { ASSETS } from '../../utils/assets';
 import { X } from 'lucide-react';
+import Reveal from '../Reveal';
 
 export default function DesktopProjects({ onOpenConsultation }) {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  // Official projects directly from menifeedrywallconstruction.com/projects/
   const galleryItems = [
     {
       id: 'proj-1',
-      title: 'Drywall Installation & Hanging',
-      location: 'Riverside County, CA',
-      tag: 'NEW HOMES',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3383.jpg',
-      aspect: 'col-span-12 md:col-span-6 lg:col-span-6'
+      title: 'Drywall hanging & framing prep',
+      location: 'Menifee, CA',
+      tag: 'NEW CONSTRUCTION',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3383.jpg'
     },
     {
       id: 'proj-2',
-      title: 'Smooth Wall Finish',
-      location: 'Menifee, CA',
+      title: 'Level-5 smooth ceiling finish',
+      location: 'Murrieta, CA',
       tag: 'SMOOTH WALL',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3382.jpg',
-      aspect: 'col-span-12 md:col-span-6 lg:col-span-3'
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3382.jpg'
     },
     {
       id: 'proj-3',
-      title: 'Drywall Repair & Patching',
+      title: 'Invisible repair & patch blending',
       location: 'Corona, CA',
-      tag: 'DRYWALL REPAIR',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3394.jpg',
-      aspect: 'col-span-12 md:col-span-6 lg:col-span-3'
+      tag: 'REPAIR & TEXTURE',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3394.jpg'
     },
     {
       id: 'proj-4',
-      title: 'Texture Matching & Remodel Mudding',
-      location: 'Menifee, CA',
-      tag: 'TEXTURE MATCHING',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3384.jpg',
-      aspect: 'col-span-12 md:col-span-6 lg:col-span-4'
+      title: 'Orange peel texture matching',
+      location: 'Temecula, CA',
+      tag: 'CUSTOM TEXTURE',
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3384.jpg'
     },
     {
       id: 'proj-5',
-      title: 'Water Damage Restoration',
-      location: 'Murrieta, CA',
+      title: 'Water leak cutback & greenboard',
+      location: 'Lake Elsinore, CA',
       tag: 'WATER DAMAGE',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/MVIMG_20181016_135043.jpg',
-      aspect: 'col-span-12 md:col-span-6 lg:col-span-4'
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/MVIMG_20181016_135043.jpg'
     },
     {
       id: 'proj-6',
-      title: 'Demolition & Framing Cleanout',
-      location: 'Temecula, CA',
+      title: 'Demolition & remodeling cleanout',
+      location: 'Perris, CA',
       tag: 'DEMOLITION',
-      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3380.jpg',
-      aspect: 'col-span-12 md:col-span-6 lg:col-span-4'
+      image: 'https://menifeedrywallconstruction.com/wp-content/uploads/2018/10/IMG_3380.jpg'
     }
   ];
 
   return (
-    <section className="bg-[#181a18] text-[#f4f2ed] py-20 lg:py-28" id="projects" aria-labelledby="projects-title">
-      <div className="shell">
-        {/* 1. Gallery Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <section className="bg-[#FFFFFF] dark:bg-[#121312] py-16 lg:py-24 border-b border-neutral-200 dark:border-neutral-800 transition-colors" id="work" aria-labelledby="work-title">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="eyebrow text-[#d5d5cd]">
-              <span className="dot bg-[#8bd4f6]"></span> PROJECT GALLERY
-            </p>
-            <h2 id="projects-title" className="editorial-h2 text-[#f4f2ed] mt-3">
-              A closer look<span className="text-[#8bd4f6]">.</span>
-            </h2>
+            <Reveal delay={0}>
+              <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+                PROJECT GALLERY
+              </p>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2
+                id="work-title"
+                className="text-3xl lg:text-4xl font-semibold tracking-tight text-neutral-950 dark:text-white mt-2"
+              >
+                A closer look<span className="text-[#096899] dark:text-[#8bd4f6]">.</span>
+              </h2>
+            </Reveal>
           </div>
-          <button
-            onClick={onOpenConsultation}
-            className="ref-link text-[#f4f2ed] hover:text-[#8bd4f6] cursor-pointer"
-          >
-            <span>Schedule a consultation</span>
-            <span aria-hidden="true">↗</span>
-          </button>
+          <Reveal delay={120}>
+            <button
+              onClick={onOpenConsultation}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-950 dark:text-white border-b border-neutral-950 dark:border-white pb-0.5 hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer w-max"
+            >
+              <span>See the full gallery</span>
+              <span aria-hidden="true">↗</span>
+            </button>
+          </Reveal>
         </div>
 
-        {/* 2. Masonry Gallery Grid with Corner Arrow Zoom Indicator */}
-        <div className="grid grid-cols-12 gap-4">
-          {galleryItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setSelectedPhoto(item)}
-              type="button"
-              className={`${item.aspect} relative h-[320px] lg:h-[380px] overflow-hidden bg-[#30302c] group cursor-zoom-in text-left border border-[#51544e]/60`}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
-              {/* Bottom Gradient Overlay & Info */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#181a18]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-              
-              <div className="absolute bottom-4 left-4 right-16">
-                <span className="font-mono text-[10px] text-[#8bd4f6] tracking-wider uppercase block">
-                  {item.location} &bull; {item.tag}
-                </span>
-                <p className="text-sm font-semibold text-white tracking-tight mt-1 line-clamp-1">
-                  {item.title}
-                </p>
-              </div>
+        {/* 3-Column Uniform Photo Grid with Staggered Cascading Reveals */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {galleryItems.map((item, index) => (
+            <Reveal key={item.id} delay={index * 100}>
+              <button
+                onClick={() => setSelectedPhoto(item)}
+                type="button"
+                className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-sm text-left cursor-zoom-in"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                  loading="lazy"
+                />
 
-              {/* Monospace Zoom Trigger Badge */}
-              <span className="absolute bottom-4 right-4 w-9 h-9 bg-[#f4f2ed] text-[#151614] font-mono text-base font-bold flex items-center justify-center group-hover:bg-[#8bd4f6] transition-colors shadow-xs">
-                ↗
-              </span>
-            </button>
+                {/* Bottom Subtle Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-neutral-300">
+                    {item.location} &bull; {item.tag}
+                  </span>
+                  <p className="text-xs font-semibold mt-0.5 line-clamp-1">
+                    {item.title}
+                  </p>
+                </div>
+
+                {/* Corner ↗ Indicator */}
+                <span className="absolute bottom-3 right-3 w-7 h-7 bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white text-xs font-medium flex items-center justify-center border border-neutral-200 dark:border-neutral-800 rounded-xs shadow-xs group-hover:bg-[#096899] group-hover:text-white group-hover:border-[#096899] transition-colors">
+                  ↗
+                </span>
+              </button>
+            </Reveal>
           ))}
         </div>
 
-        {/* 3. Monospace Metadata Divider */}
-        <div className="flex justify-between items-center border-t border-[#51544e] pt-4 mt-8 font-mono text-[11px] text-[#d5d5cd] tracking-wider uppercase">
-          <p>LATEST PROJECTS &bull; MENIFEE DRYWALL CONSTRUCTION</p>
-          <p>MORENO VALLEY &bull; CORONA &bull; TEMECULA &bull; MENIFEE</p>
-        </div>
+        {/* Minimal Bottom Label */}
+        <Reveal delay={250}>
+          <div className="mt-8 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+            <span>&bull; Residential &bull; Commercial &bull; Remodels</span>
+            <span>Menifee &bull; Murrieta &bull; Temecula &bull; Corona &bull; Inland Empire</span>
+          </div>
+        </Reveal>
       </div>
 
-      {/* 4. Lightbox Zoom Dialog Modal */}
+      {/* Lightbox Dialog Modal */}
       {selectedPhoto && (
-        <div 
-          className="fixed inset-0 z-50 bg-[#101110]/95 backdrop-blur-md flex items-center justify-center p-4 lg:p-10"
+        <div
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10"
           onClick={() => setSelectedPhoto(null)}
         >
-          <div 
-            className="relative max-w-5xl max-h-[90vh] bg-[#181a18] border border-[#51544e] p-3 shadow-2xl flex flex-col"
+          <div
+            className="relative max-w-4xl max-h-[90vh] bg-white dark:bg-[#121312] border border-neutral-200 dark:border-neutral-800 p-2 rounded-sm shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-[#f4f2ed] text-[#151614] flex items-center justify-center font-bold hover:bg-[#8bd4f6] transition-colors cursor-pointer"
+              className="absolute top-4 right-4 z-10 w-9 h-9 bg-neutral-950 text-white flex items-center justify-center font-bold hover:bg-neutral-800 transition-colors cursor-pointer rounded-xs"
               aria-label="Close photo"
             >
               <X className="w-5 h-5" />
@@ -141,11 +145,11 @@ export default function DesktopProjects({ onOpenConsultation }) {
             <img
               src={selectedPhoto.image}
               alt={selectedPhoto.title}
-              className="max-h-[75vh] w-auto object-contain"
+              className="max-h-[75vh] w-auto object-contain rounded-xs"
             />
-            <div className="pt-3 px-2 flex justify-between items-center font-mono text-xs text-[#d5d5cd]">
-              <span>{selectedPhoto.title} &bull; {selectedPhoto.location}</span>
-              <span className="text-[#8bd4f6]">{selectedPhoto.tag}</span>
+            <div className="pt-3 px-3 pb-1 flex justify-between items-center font-mono text-xs text-neutral-600 dark:text-neutral-400">
+              <span className="font-semibold text-neutral-950 dark:text-white">{selectedPhoto.title}</span>
+              <span className="uppercase text-[10px]">{selectedPhoto.location}</span>
             </div>
           </div>
         </div>

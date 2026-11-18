@@ -7,6 +7,7 @@ import ReviewsScreen from './screens/ReviewsScreen';
 import ServiceModal from './components/ServiceModal';
 import CallModal from './components/CallModal';
 import ConsultationDrawer from './components/ConsultationDrawer';
+import EstimateDrawer from './components/EstimateDrawer';
 import AreaModal from './components/AreaModal';
 import DesktopApp from './components/desktop/DesktopApp';
 
@@ -15,11 +16,18 @@ export default function App() {
   const [selectedService, setSelectedService] = useState(null);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [isEstimateDrawerOpen, setIsEstimateDrawerOpen] = useState(false);
+  const [estimatePresetService, setEstimatePresetService] = useState('Drywall Repair');
   const [showAreaModal, setShowAreaModal] = useState(false);
   const [selectedArea, setSelectedArea] = useState('Riverside County (Menifee & Murrieta)');
 
   const handleSelectTab = (tab) => {
     setActiveTab(tab);
+  };
+
+  const handleOpenEstimate = (preset = 'Drywall Repair') => {
+    setEstimatePresetService(typeof preset === 'string' ? preset : 'Drywall Repair');
+    setIsEstimateDrawerOpen(true);
   };
 
   return (
@@ -33,7 +41,7 @@ export default function App() {
         <DesktopApp
           onOpenServiceModal={(service) => setSelectedService(service)}
           onOpenCallModal={() => setIsCallModalOpen(true)}
-          onOpenConsultation={() => setIsConsultationOpen(true)}
+          onOpenConsultation={handleOpenEstimate}
           onOpenAreaModal={() => setShowAreaModal(true)}
           selectedArea={selectedArea}
         />
@@ -89,13 +97,14 @@ export default function App() {
       </div>
 
       {/* =========================================================================
-          3. SHARED MODALS & DRAWERS (Responsive: bottom sheet on mobile, dialog on desktop)
+          3. SHARED MODALS & DRAWERS (Architectural dialogs on desktop, bottom-sheet on mobile)
           ========================================================================= */}
       <ServiceModal
         service={selectedService}
         onClose={() => setSelectedService(null)}
         onSelectTab={handleSelectTab}
         onOpenCallModal={() => setIsCallModalOpen(true)}
+        onOpenEstimate={handleOpenEstimate}
       />
 
       <CallModal
@@ -106,6 +115,12 @@ export default function App() {
       <ConsultationDrawer
         isOpen={isConsultationOpen}
         onClose={() => setIsConsultationOpen(false)}
+      />
+
+      <EstimateDrawer
+        isOpen={isEstimateDrawerOpen}
+        onClose={() => setIsEstimateDrawerOpen(false)}
+        initialService={estimatePresetService}
       />
 
       <AreaModal

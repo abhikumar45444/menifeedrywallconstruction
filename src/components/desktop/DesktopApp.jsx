@@ -22,6 +22,10 @@ export default function DesktopApp({
   const [estimatePresetService, setEstimatePresetService] = useState('Drywall Repair');
 
   const handleOpenEstimate = (preset = 'Drywall Repair') => {
+    if (onOpenConsultation) {
+      onOpenConsultation(preset);
+      return;
+    }
     if (typeof preset === 'string') {
       setEstimatePresetService(preset);
     } else {
@@ -87,12 +91,14 @@ export default function DesktopApp({
       {/* 10. Quiet Minimal Footer */}
       <DesktopFooter />
 
-      {/* 11. Interactive Slide-Over Estimate Drawer */}
-      <EstimateDrawer
-        isOpen={isEstimateDrawerOpen}
-        onClose={() => setIsEstimateDrawerOpen(false)}
-        initialService={estimatePresetService}
-      />
+      {/* 11. Interactive Slide-Over Estimate Drawer (if rendered standalone) */}
+      {!onOpenConsultation && (
+        <EstimateDrawer
+          isOpen={isEstimateDrawerOpen}
+          onClose={() => setIsEstimateDrawerOpen(false)}
+          initialService={estimatePresetService}
+        />
+      )}
     </div>
   );
 }

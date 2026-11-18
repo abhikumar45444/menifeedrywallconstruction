@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2, Phone, Sparkles, MapPin, Calendar, FileText } from 'lucide-react';
-import { COMPANY_INFO, SERVICES } from '../data/drywallData';
+import { X, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { COMPANY_INFO } from '../data/drywallData';
 
 export default function ConsultationDrawer({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -26,191 +26,182 @@ export default function ConsultationDrawer({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300 p-0 md:p-4">
-      <div className="absolute inset-0" onClick={onClose} />
+    <div
+      className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50 dark:bg-black/80 backdrop-blur-xs transition-opacity duration-200 p-0 md:p-6"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="consultation-title"
+    >
+      <div className="absolute inset-0" />
 
-      <div className="relative w-full md:max-w-lg bg-white rounded-t-[32px] md:rounded-3xl shadow-2xl max-h-[88%] md:max-h-[85vh] flex flex-col overflow-hidden animate-slide-up z-10 border-t md:border border-slate-200">
-        {/* Grab Handle */}
-        <div className="flex justify-center pt-3 pb-1">
-          <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
+      {/* Architectural Dialog Card */}
+      <div
+        className="relative w-full md:max-w-lg bg-white dark:bg-[#121316] rounded-t-xl md:rounded-sm border-t md:border border-neutral-200 dark:border-white/10 shadow-2xl max-h-[90vh] md:max-h-[85vh] flex flex-col overflow-hidden z-10 animate-fade-in text-neutral-950 dark:text-white"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Subtle Mobile Grab Handle (Hidden on Desktop) */}
+        <div className="md:hidden flex justify-center pt-2.5 pb-1">
+          <div className="w-10 h-1 bg-neutral-300 dark:bg-neutral-700 rounded-full" />
         </div>
 
         {/* Header */}
-        <div className="px-5 pb-3 border-b border-slate-100 flex items-center justify-between">
+        <div className="px-6 py-5 border-b border-neutral-200 dark:border-white/10 flex items-start justify-between">
           <div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Free In-Person or Phone Estimate</span>
-            </div>
-            <h2 className="text-lg font-extrabold text-slate-900 leading-tight">
-              Request Fast Consultation
+            <p className="text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
+              FAST CONSULTATION / ESTIMATE
+            </p>
+            <h2
+              id="consultation-title"
+              className="text-xl font-semibold tracking-tight text-neutral-950 dark:text-white mt-1"
+            >
+              Request Fast Consultation<span className="text-[#096899] dark:text-[#8bd4f6]">.</span>
             </h2>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+              In-person or phone estimate with owner Jessie Lisardo
+            </p>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition-all"
+            className="p-1.5 -mr-1.5 text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition-colors cursor-pointer rounded-xs"
+            aria-label="Close"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Body Form */}
-        <div className="flex-1 overflow-y-auto px-5 py-4 smooth-scroll hide-scrollbar">
+        <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
           {submitted ? (
-            <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
-                <CheckCircle2 className="w-9 h-9" />
+            <div className="py-6 text-center space-y-4">
+              <div className="w-12 h-12 rounded-full bg-neutral-100 dark:bg-white/10 text-[#096899] dark:text-[#8bd4f6] flex items-center justify-center mx-auto border border-neutral-200 dark:border-white/10">
+                <CheckCircle2 className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-extrabold text-slate-900">Request Received!</h3>
-                <p className="text-xs text-slate-600 mt-1 max-w-xs mx-auto">
-                  Jessie Lisardo has been notified. He typically responds within 30 minutes during work hours.
+                <h3 className="text-lg font-semibold tracking-tight text-neutral-950 dark:text-white">Request Received!</h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-300 mt-1 max-w-xs mx-auto">
+                  Jessie Lisardo has been notified. Typically responds within 30 minutes during work hours.
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 text-left text-xs space-y-1.5">
-                <p><span className="font-semibold text-slate-500">Service:</span> {formData.service}</p>
-                <p><span className="font-semibold text-slate-500">Location:</span> {formData.city}, CA</p>
-                <p><span className="font-semibold text-slate-500">Timeline:</span> {formData.urgency}</p>
+              <div className="p-3.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-left text-xs font-mono space-y-1.5 text-neutral-700 dark:text-neutral-300">
+                <p><span className="text-neutral-500 dark:text-neutral-400">Service:</span> {formData.service}</p>
+                <p><span className="text-neutral-500 dark:text-neutral-400">Location:</span> {formData.city}, CA</p>
+                <p><span className="text-neutral-500 dark:text-neutral-400">Timeline:</span> {formData.urgency}</p>
               </div>
 
               <div className="pt-2 flex flex-col gap-2">
                 <button
                   onClick={handleSendViaSms}
-                  className="w-full py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm"
+                  className="w-full py-3 px-4 rounded-xs bg-neutral-950 hover:bg-neutral-800 text-white dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200 font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Text Details to Jessie Directly</span>
+                  <span>Text Details to Jessie Directly ↗</span>
                 </button>
                 <button
                   onClick={() => {
                     setSubmitted(false);
                     onClose();
                   }}
-                  className="py-2.5 text-xs text-slate-500 hover:text-slate-800 font-semibold"
+                  className="py-2 text-xs font-mono text-neutral-500 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white transition-colors cursor-pointer"
                 >
-                  Done & Close
+                  Done &amp; Close
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3.5">
-              {/* Service Selection */}
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Drywall Service Needed
+                <label className="block text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
+                  Service Needed
                 </label>
-                <select
+                <input
+                  type="text"
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
-                >
-                  {SERVICES.map((s) => (
-                    <option key={s.id} value={s.title}>
-                      {s.title}
-                    </option>
-                  ))}
-                  <option value="Custom Project / Other">Other / Unsure</option>
-                </select>
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs text-neutral-950 dark:text-white focus:outline-none focus:border-neutral-950 dark:focus:border-white transition-colors"
+                />
               </div>
 
-              {/* City Selection */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Your City / Area (Riverside & OC)
-                </label>
-                <select
-                  value={formData.city}
-                  onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                  className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
-                >
-                  {COMPANY_INFO.serviceAreas.map((city) => (
-                    <option key={city} value={city}>
-                      {city}, CA
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Name & Phone */}
-              <div className="grid grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
                     Your Name
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. John Miller"
+                    placeholder="Full Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    className="w-full px-3.5 py-2.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs text-neutral-950 dark:text-white focus:outline-none focus:border-neutral-950 dark:focus:border-white transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Phone Number
+                  <label className="block text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    Phone / Email
                   </label>
                   <input
-                    type="tel"
+                    type="text"
                     required
-                    placeholder="(951) 000-0000"
+                    placeholder="Contact Info"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                    className="w-full px-3.5 py-2.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs text-neutral-950 dark:text-white focus:outline-none focus:border-neutral-950 dark:focus:border-white transition-colors"
                   />
                 </div>
               </div>
 
-              {/* Urgency */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Desired Timeline
-                </label>
-                <div className="grid grid-cols-3 gap-1.5">
-                  {['Urgent (1-2 days)', 'This Week', 'Flexible'].map((time) => (
-                    <button
-                      type="button"
-                      key={time}
-                      onClick={() => setFormData({ ...formData, urgency: time })}
-                      className={`py-2 px-1 text-[11px] rounded-xl font-medium border text-center transition-all ${
-                        formData.urgency === time
-                          ? 'bg-brand-50 border-brand-500 text-brand-700 font-bold'
-                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
-                      }`}
-                    >
-                      {time}
-                    </button>
-                  ))}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.city}
+                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs text-neutral-950 dark:text-white focus:outline-none focus:border-neutral-950 dark:focus:border-white transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
+                    Timeline
+                  </label>
+                  <select
+                    value={formData.urgency}
+                    onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs text-neutral-950 dark:text-white focus:outline-none focus:border-neutral-950 dark:focus:border-white transition-colors cursor-pointer"
+                  >
+                    <option value="Urgent / Same Day" className="bg-white dark:bg-[#121316]">Urgent / Same Day</option>
+                    <option value="This Week" className="bg-white dark:bg-[#121316]">This Week</option>
+                    <option value="Within 2 Weeks" className="bg-white dark:bg-[#121316]">Within 2 Weeks</option>
+                    <option value="Flexible / Planning" className="bg-white dark:bg-[#121316]">Flexible / Planning</option>
+                  </select>
                 </div>
               </div>
 
-              {/* Project description */}
               <div>
-                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Project Notes / Details (Optional)
+                <label className="block text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
+                  Project Notes (Optional)
                 </label>
                 <textarea
                   rows={2}
-                  placeholder="Describe damage, room location, approximate dimensions, or texture type..."
+                  placeholder="Describe damage, room size, or ceiling height..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500"
+                  className="w-full px-3.5 py-2.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs text-neutral-950 dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-neutral-950 dark:focus:border-white transition-colors resize-none leading-relaxed"
                 />
               </div>
 
-              {/* Submit CTA */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-500/25 active:scale-[0.98] transition-all"
+                  className="w-full py-3 px-4 rounded-xs bg-neutral-950 hover:bg-neutral-800 text-white dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200 font-semibold text-xs tracking-wide flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Free Quote Request</span>
+                  <span>Submit Consultation Request</span>
+                  <span aria-hidden="true">↗</span>
                 </button>
-                <p className="text-[10px] text-center text-slate-400 mt-2">
-                  No credit card required. Free, honest assessment by President Jessie Lisardo.
-                </p>
               </div>
             </form>
           )}

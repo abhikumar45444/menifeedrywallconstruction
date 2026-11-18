@@ -1,145 +1,179 @@
 import React from 'react';
-import { X, CheckCircle2, Phone, Calculator, Clock, DollarSign, Shield, ArrowRight } from 'lucide-react';
+import { X, CheckCircle2, Phone, DollarSign, Clock, Shield, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/drywallData';
 
-export default function ServiceModal({ service, onClose, onSelectTab, onOpenCallModal }) {
+export default function ServiceModal({
+  service,
+  onClose,
+  onSelectTab,
+  onOpenCallModal,
+  onOpenEstimate
+}) {
   if (!service) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/60 backdrop-blur-xs transition-opacity duration-300 p-0 md:p-4">
-      {/* Backdrop tap dismiss */}
-      <div className="absolute inset-0" onClick={onClose} />
+  const handleEstimateAction = () => {
+    onClose();
+    if (onOpenEstimate) {
+      onOpenEstimate(service.title);
+    } else if (onSelectTab) {
+      onSelectTab('estimate');
+    }
+  };
 
-      {/* Sheet Content */}
-      <div className="relative w-full md:max-w-xl bg-white rounded-t-[32px] md:rounded-3xl shadow-2xl max-h-[88%] md:max-h-[85vh] flex flex-col overflow-hidden animate-slide-up z-10 border-t md:border border-slate-200">
-        {/* Grab Handle */}
-        <div className="flex justify-center pt-3 pb-1">
-          <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-end md:items-center justify-center bg-black/50 dark:bg-black/80 backdrop-blur-xs transition-opacity duration-200 p-0 md:p-6"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="service-modal-title"
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0" />
+
+      {/* Architectural Modal Card */}
+      <div
+        className="relative w-full md:max-w-2xl bg-white dark:bg-[#121316] rounded-t-xl md:rounded-sm border-t md:border border-neutral-200 dark:border-white/10 shadow-2xl max-h-[90vh] md:max-h-[85vh] flex flex-col overflow-hidden z-10 animate-fade-in"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Subtle Mobile Grab Handle (Hidden on Desktop) */}
+        <div className="md:hidden flex justify-center pt-2.5 pb-1">
+          <div className="w-10 h-1 bg-neutral-300 dark:bg-neutral-700 rounded-full" />
         </div>
 
-        {/* Header with image */}
-        <div className="relative h-44 w-full bg-slate-900 shrink-0">
+        {/* Hero Image Frame with Minimal Architectural Caption */}
+        <div className="relative h-44 md:h-52 w-full bg-neutral-900 shrink-0 overflow-hidden">
           <img
             src={service.image}
             alt={service.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
 
-          {/* Close button */}
+          {/* Close Button: Subtle Dark-Glass Pill */}
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 p-2 rounded-full bg-black/50 hover:bg-black/70 text-white backdrop-blur-md transition-all active:scale-95"
+            className="absolute top-3 right-3 p-2 rounded-xs bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm border border-white/20 transition-all cursor-pointer z-10"
             aria-label="Close details"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
 
-          {/* Service Title on image bottom */}
-          <div className="absolute bottom-3 left-4 right-4 text-white">
-            <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-500 text-white mb-1 shadow-xs">
-              {service.badge}
+          {/* Service Title & Micro-Tag */}
+          <div className="absolute bottom-4 left-5 right-5 text-white">
+            <span className="inline-block px-2 py-0.5 rounded-xs text-[10px] font-mono tracking-wider uppercase bg-white/95 text-neutral-950 dark:bg-white/15 dark:text-white border border-white/20 mb-2">
+              {service.badge || 'SPECIALTY SERVICE'}
             </span>
-            <h2 className="text-xl font-black tracking-tight leading-tight">
-              {service.title}
+            <h2
+              id="service-modal-title"
+              className="text-xl md:text-2xl font-semibold tracking-tight text-white leading-tight"
+            >
+              {service.title}<span className="text-[#8bd4f6]">.</span>
             </h2>
           </div>
         </div>
 
-        {/* Scrollable details body */}
-        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4 smooth-scroll hide-scrollbar">
-          {/* Quick stats pills */}
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="p-2.5 rounded-2xl bg-brand-50/70 border border-brand-100 flex items-center gap-2">
-              <DollarSign className="w-4 h-4 text-brand-600 shrink-0" />
-              <div>
-                <p className="text-[10px] text-slate-500 uppercase font-semibold">Typical Range</p>
-                <p className="font-bold text-slate-800">{service.priceEstimate}</p>
+        {/* Scrollable Details Body */}
+        <div className="flex-1 overflow-y-auto p-5 md:p-6 space-y-5 text-neutral-950 dark:text-white">
+          {/* Quick Metrics Hairline Strip */}
+          <div className="grid grid-cols-2 gap-3 text-xs font-mono">
+            <div className="p-3 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10">
+              <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400 text-[10px] uppercase tracking-wider mb-1">
+                <DollarSign className="w-3.5 h-3.5 text-[#096899] dark:text-[#8bd4f6]" />
+                <span>Typical Range</span>
               </div>
+              <p className="font-semibold text-sm font-sans text-neutral-950 dark:text-white">
+                {service.priceEstimate}
+              </p>
             </div>
-            <div className="p-2.5 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
-              <div>
-                <p className="text-[10px] text-slate-500 uppercase font-semibold">Turnaround</p>
-                <p className="font-bold text-slate-800">{service.turnaround}</p>
+
+            <div className="p-3 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10">
+              <div className="flex items-center gap-1.5 text-neutral-500 dark:text-neutral-400 text-[10px] uppercase tracking-wider mb-1">
+                <Clock className="w-3.5 h-3.5 text-[#096899] dark:text-[#8bd4f6]" />
+                <span>Turnaround</span>
               </div>
+              <p className="font-semibold text-sm font-sans text-neutral-950 dark:text-white">
+                {service.turnaround}
+              </p>
             </div>
           </div>
 
-          {/* Overview text */}
+          {/* Service Overview */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+            <h3 className="text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-1.5">
               Service Overview
             </h3>
-            <p className="text-xs text-slate-700 leading-relaxed font-normal">
+            <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
               {service.overview}
             </p>
           </div>
 
-          {/* What's Included / Features Checklist */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-              What We Deliver
-            </h3>
-            <div className="space-y-2">
-              {service.features.map((feature, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* FAQ Accordion */}
-          {service.faqs && service.faqs.length > 0 && (
-            <div className="pt-2 border-t border-slate-100">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                Frequently Asked
+          {/* What We Deliver (Feature Checklist) */}
+          {service.features && service.features.length > 0 && (
+            <div>
+              <h3 className="text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-2">
+                What We Deliver
               </h3>
-              <div className="space-y-2.5">
-                {service.faqs.map((faq, i) => (
-                  <div key={i} className="p-3 rounded-2xl bg-slate-50 border border-slate-100 text-xs">
-                    <p className="font-bold text-slate-900 mb-1">{faq.q}</p>
-                    <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+              <div className="space-y-2">
+                {service.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs md:text-[13px] text-neutral-700 dark:text-neutral-300">
+                    <CheckCircle2 className="w-4 h-4 text-[#096899] dark:text-[#8bd4f6] shrink-0 mt-0.5" />
+                    <span>{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Guarantee banner */}
-          <div className="p-3 rounded-2xl bg-amber-50/80 border border-amber-200/60 flex items-center gap-3">
-            <Shield className="w-5 h-5 text-amber-600 shrink-0" />
-            <div className="text-[11px]">
-              <p className="font-bold text-amber-900">{COMPANY_INFO.guarantee}</p>
-              <p className="text-amber-700">Clean job site guaranteed. 20+ years of Riverside County trust.</p>
+          {/* FAQs Accordion */}
+          {service.faqs && service.faqs.length > 0 && (
+            <div className="pt-2 border-t border-neutral-200 dark:border-white/10">
+              <h3 className="text-[11px] font-mono uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 mb-2.5">
+                Common Questions
+              </h3>
+              <div className="space-y-2.5">
+                {service.faqs.map((faq, i) => (
+                  <div key={i} className="p-3.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-xs">
+                    <p className="font-semibold text-neutral-950 dark:text-white mb-1">{faq.q}</p>
+                    <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Guarantee Banner */}
+          <div className="p-3.5 rounded-xs bg-neutral-50 dark:bg-white/5 border border-neutral-200 dark:border-white/10 flex items-center gap-3 font-mono text-xs text-neutral-700 dark:text-neutral-300">
+            <Shield className="w-4 h-4 text-[#096899] dark:text-[#8bd4f6] shrink-0" />
+            <div>
+              <span className="font-semibold text-neutral-950 dark:text-white block font-sans">
+                {COMPANY_INFO.guarantee}
+              </span>
+              <span className="text-[11px] text-neutral-500 dark:text-neutral-400">
+                Clean job site guarantee &bull; 20+ years of Riverside County craftsmanship.
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Sticky bottom CTA actions */}
-        <div className="p-4 bg-white border-t border-slate-100 shrink-0 flex items-center gap-2">
+        {/* Bottom CTA Action Bar */}
+        <div className="p-4 md:px-6 md:py-4 bg-white dark:bg-[#121316] border-t border-neutral-200 dark:border-white/10 shrink-0 flex items-center justify-between gap-3">
           <button
-            onClick={() => {
-              onClose();
-              onSelectTab('estimate');
-            }}
-            className="flex-1 py-3 px-4 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-brand-500/20 active:scale-[0.98] transition-all"
+            onClick={handleEstimateAction}
+            className="flex-1 py-3 px-4 rounded-xs bg-neutral-950 hover:bg-neutral-800 text-white dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200 font-semibold text-xs tracking-wide flex items-center justify-center gap-2 transition-colors cursor-pointer"
           >
-            <Calculator className="w-4 h-4" />
-            <span>Calculate Cost</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Request Free Estimate</span>
+            <span aria-hidden="true">↗</span>
           </button>
 
           <button
             onClick={() => {
               onClose();
-              onOpenCallModal();
+              if (onOpenCallModal) onOpenCallModal();
             }}
-            className="py-3 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all"
+            className="py-3 px-4 rounded-xs border border-neutral-200 dark:border-white/15 hover:bg-neutral-100 dark:hover:bg-white/5 text-neutral-950 dark:text-white font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
           >
-            <Phone className="w-4 h-4 text-brand-600" />
+            <Phone className="w-3.5 h-3.5 text-[#096899] dark:text-[#8bd4f6]" />
             <span>Call Jessie</span>
           </button>
         </div>

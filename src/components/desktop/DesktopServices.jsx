@@ -65,62 +65,57 @@ export default function DesktopServices({ onOpenServiceModal, onOpenConsultation
 
   return (
     <section className="shell py-16 lg:py-24 border-b border-[#cccac3] dark:border-[#2b2d2a]" id="services" aria-labelledby="services-title">
-      {/* 1. Section Header with Minimal Authentic Copy */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+      {/* 1. Section Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 lg:mb-16">
         <div>
           <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
-            <span className="dot"></span> SERVICES &bull; MENIFEE DRYWALL CONSTRUCTION
+            <span className="dot"></span> OUR SERVICES
           </p>
-          <h2 id="services-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-4">
-            Riverside County’s Premier<br />
-            Drywall Contractor<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
+          <h2 id="services-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-3">
+            From the first patch<br />
+            to the final finish<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
         </div>
-        <p className="text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed max-w-md">
+        <p className="text-[16px] text-[#4b4c46] dark:text-[#a0a29c] leading-[1.5] max-w-sm">
           Complete drywall solutions for homeowners and general contractors throughout Riverside County.
         </p>
       </div>
 
-      {/* 2. Authentic Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+      {/* 2. Minimalist Unboxed Services Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 lg:gap-x-12 lg:gap-y-16">
         {authenticServices.map((service) => (
           <article 
             key={service.id} 
-            className="group cursor-pointer bg-white dark:bg-[#1a1b18] border border-[#cccac3] dark:border-[#2b2d2a] p-6 shadow-xs hover:border-[#151614] dark:hover:border-white transition-all flex flex-col justify-between"
+            className="group cursor-pointer flex flex-col"
             onClick={() => {
               const fullService = SERVICES.find(s => s.id === service.id) || SERVICES[0];
               onOpenServiceModal(fullService);
             }}
           >
-            <div>
-              {/* Image Container with hover zoom */}
-              <div className="relative w-full h-[240px] lg:h-[280px] overflow-hidden bg-[#d3c9b8] dark:bg-[#121312] border border-[#cccac3] dark:border-[#2b2d2a] mb-5">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-                <span className="absolute top-3 left-3 bg-[#f4f2ed]/95 dark:bg-[#121312]/95 border border-[#cccac3] dark:border-[#2b2d2a] px-2.5 py-1 font-mono text-[10px] font-medium tracking-wider text-[#151614] dark:text-[#f4f2ed]">
-                  {service.tag}
-                </span>
-              </div>
+            {/* Framed Image with subtle hover zoom */}
+            <div className="relative w-full h-[clamp(240px,26vw,360px)] overflow-hidden bg-[#d3c9b8] dark:bg-[#1a1b18] border border-[#cccac3] dark:border-[#2b2d2a]">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <span className="absolute bottom-3 left-3 bg-[#f4f2ed] dark:bg-[#121312] border border-[#cccac3] dark:border-[#2b2d2a] px-2.5 py-1 font-mono text-[10px] font-medium tracking-wider text-[#151614] dark:text-[#f4f2ed]">
+                {service.tag}
+              </span>
+            </div>
 
-              {/* Service Copy directly from the original website */}
+            {/* Editorial Copy with hairline bottom border */}
+            <div className="border-b border-[#cccac3] dark:border-[#2b2d2a] pt-5 pb-6">
               <h3 className="editorial-h3 text-[#151614] dark:text-[#f4f2ed] group-hover:text-[#096899] dark:group-hover:text-[#8bd4f6] transition-colors flex items-center justify-between">
                 <span>{service.title}</span>
-                <span aria-hidden="true" className="text-xl font-normal opacity-70 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                <span aria-hidden="true" className="text-xl font-normal opacity-60 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                   ↗
                 </span>
               </h3>
-              <p className="text-[14px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed mt-2.5">
+              <p className="text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed mt-2">
                 {service.summary}
               </p>
-            </div>
-
-            <div className="pt-4 border-t border-[#e2e0d8] dark:border-[#2b2d2a] mt-5 flex items-center justify-between font-mono text-[11px] text-[#096899] dark:text-[#8bd4f6]">
-              <span>LEARN MORE &bull; FREE ESTIMATE</span>
-              <span>↗</span>
             </div>
           </article>
         ))}

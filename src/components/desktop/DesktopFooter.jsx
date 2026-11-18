@@ -44,7 +44,7 @@ export default function DesktopFooter() {
             className="ref-link text-[#151614] dark:text-[#f4f2ed] hover:text-[#096899] dark:hover:text-[#8bd4f6] font-mono text-xs cursor-pointer"
           >
             <span>Back to top</span>
-            <span aria-hidden="true">&uarr;</span>
+            <span aria-hidden="true">↑</span>
           </button>
         </div>
 

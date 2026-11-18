@@ -132,7 +132,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
         {currentReviews.map((t) => (
           <article
             key={t.id}
-            className="bg-white dark:bg-[#1a1b18] p-6 border border-[#cccac3] dark:border-[#2b2d2a] shadow-xs flex flex-col justify-between transition-all hover:border-[#151614] dark:hover:border-white group"
+            className="bg-[#fcfbf9] dark:bg-[#161715] p-6 border border-[#cccac3] dark:border-[#2b2d2a] flex flex-col justify-between transition-colors hover:border-[#151614] dark:hover:border-white group"
           >
             <div>
               {/* Minimal Top Tag: Service & Rating */}

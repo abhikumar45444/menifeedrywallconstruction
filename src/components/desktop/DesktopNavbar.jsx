@@ -118,10 +118,9 @@ export default function DesktopNavbar({
             </button>
             <button 
               onClick={() => scrollTo('estimator')} 
-              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer flex items-center gap-1.5"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
-              <span>Cost Estimator</span>
-              <span className="font-mono text-[10px] bg-[#096899]/10 dark:bg-[#8bd4f6]/20 text-[#096899] dark:text-[#8bd4f6] px-1.5 py-0.5 rounded">CALCULATOR</span>
+              Cost Estimator
             </button>
             <button 
               onClick={() => scrollTo('contact')} 

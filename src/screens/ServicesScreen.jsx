@@ -126,7 +126,7 @@ export default function ServicesScreen({
                         className="w-full h-full object-cover"
                       />
                       <span className="absolute bottom-1 right-1 bg-black/60 text-white text-[8px] font-bold px-1 rounded">
-                        Details &rarr;
+                        Details →
                       </span>
                     </div>
 

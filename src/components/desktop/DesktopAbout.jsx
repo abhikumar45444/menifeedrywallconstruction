@@ -30,27 +30,24 @@ export default function DesktopAbout({ onOpenCallModal, onOpenConsultation }) {
         {/* Right: Authentic Story from the Original Website */}
         <div className="lg:col-span-6 space-y-6">
           <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
-            <span className="dot"></span> ABOUT US &bull; MENIFEE DRYWALL CONSTRUCTION
+            <span className="dot"></span> ABOUT US
           </p>
 
           <h2 id="about-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed]">
-            Over Two Decades of<br />
-            Drywall Excellence<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
+            Over 20 Years in<br />
+            Riverside County<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
 
-          <div className="space-y-3 text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed">
+          <div className="space-y-3 text-[16px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed">
             <p>
               <strong className="text-[#151614] dark:text-[#f4f2ed] font-semibold">Jessie Lisardo</strong> learned the drywall trade in high school working alongside his uncle, turning hands-on craft into a lifelong career. Over two decades later, Jessie personally leads Menifee Drywall Construction with a commitment to getting your project done on time without sacrificing quality.
             </p>
             <p>
-              From custom homes to commercial builds and urgent leak repairs across Riverside County, customer service is our highest priority.
-            </p>
-            <p className="font-medium text-[#151614] dark:text-[#f4f2ed] italic pt-1">
-              &ldquo;It would be our privilege to be a part of your project!&rdquo;
+              From custom homes and room additions to emergency water leak patches, customer service and invisible craftsmanship remain our highest priority.
             </p>
           </div>
 
-          {/* Authentic Monospace Badges */}
+          {/* Minimalist Monospace Badges */}
           <div className="grid grid-cols-3 gap-4 border-y border-[#cccac3] dark:border-[#2b2d2a] py-5 font-mono text-[11px] text-[#151614] dark:text-[#f4f2ed]">
             <div>
               <span className="text-xl lg:text-2xl font-bold font-sans block text-[#096899] dark:text-[#8bd4f6]">20+</span>
@@ -66,19 +63,19 @@ export default function DesktopAbout({ onOpenCallModal, onOpenConsultation }) {
             </div>
           </div>
 
-          <div className="pt-2 flex items-center gap-6">
+          <div className="pt-1 flex items-center gap-6">
             <button
               onClick={() => scrollTo('contact')}
               className="ref-link text-[#151614] dark:text-[#f4f2ed] hover:text-[#096899] dark:hover:text-[#8bd4f6] cursor-pointer"
             >
-              <span>Schedule a free consultation</span>
+              <span>Get in touch</span>
               <span aria-hidden="true">↘</span>
             </button>
             <button
               onClick={onOpenCallModal}
               className="font-mono text-xs text-[#096899] dark:text-[#8bd4f6] hover:underline cursor-pointer"
             >
-              Call Today! 951-746-8891
+              Call 951-746-8891
             </button>
           </div>
         </div>

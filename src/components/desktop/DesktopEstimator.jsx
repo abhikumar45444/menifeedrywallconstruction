@@ -58,7 +58,7 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Inputs: Architectural Monospace Controls */}
-        <div className="lg:col-span-7 space-y-8 bg-white dark:bg-[#1a1b18] p-8 border border-[#cccac3] dark:border-[#2b2d2a] shadow-xs">
+        <div className="lg:col-span-7 space-y-8 bg-[#fcfbf9] dark:bg-[#161715] p-8 border border-[#cccac3] dark:border-[#2b2d2a]">
           {/* Step 1: Damage Type */}
           <div>
             <div className="flex justify-between items-center mb-3">
@@ -171,7 +171,7 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
         </div>
 
         {/* Right Output: Bold Editorial Price Card */}
-        <div className="lg:col-span-5 bg-[#151614] dark:bg-[#0c0d0c] text-[#f4f2ed] p-8 border border-[#2b2d2a] shadow-lg sticky top-28">
+        <div className="lg:col-span-5 bg-[#151614] dark:bg-[#0c0d0c] text-[#f4f2ed] p-8 border border-[#2b2d2a] sticky top-28">
           <div className="flex justify-between items-center border-b border-[#2b2d2a] pb-4">
             <span className="font-mono text-[11px] text-[#8bd4f6] uppercase tracking-wider">
               ESTIMATED PROJECT RANGE

@@ -64,20 +64,17 @@ export default function DesktopProjects({ onOpenConsultation }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <p className="eyebrow text-[#d5d5cd]">
-              <span className="dot bg-[#8bd4f6]"></span> PORTFOLIO &bull; MENIFEE DRYWALL CONSTRUCTION
+              <span className="dot bg-[#8bd4f6]"></span> PROJECT GALLERY
             </p>
-            <h2 id="projects-title" className="editorial-h2 text-[#f4f2ed] mt-4">
-              Latest Projects<span className="text-[#8bd4f6]">.</span>
+            <h2 id="projects-title" className="editorial-h2 text-[#f4f2ed] mt-3">
+              A closer look<span className="text-[#8bd4f6]">.</span>
             </h2>
-            <p className="font-mono text-xs text-[#8bd4f6] uppercase tracking-wider mt-2">
-              Work Completed Across Riverside &amp; Orange County
-            </p>
           </div>
           <button
             onClick={onOpenConsultation}
             className="ref-link text-[#f4f2ed] hover:text-[#8bd4f6] cursor-pointer"
           >
-            <span>Schedule a free consultation for your project</span>
+            <span>Schedule a consultation</span>
             <span aria-hidden="true">↗</span>
           </button>
         </div>

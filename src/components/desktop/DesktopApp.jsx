@@ -60,9 +60,10 @@ export default function DesktopApp({
         onOpenConsultation={onOpenConsultation}
       />
 
-      {/* 9. Contact Us & Free Consultation Form */}
+      {/* 9. Contact Us & Free Consultation Section */}
       <DesktopContact
         onOpenCallModal={onOpenCallModal}
+        onOpenConsultation={onOpenConsultation}
       />
 
       {/* 10. Architectural Footer */}

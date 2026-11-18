@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
 import Reveal from '../Reveal';
+import GalleryLightbox from '../GalleryLightbox';
 
-export default function DesktopProjects({ onOpenConsultation }) {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+export default function DesktopProjects({ onOpenConsultation, onOpenEstimate }) {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentLightboxIndex, setCurrentLightboxIndex] = useState(0);
 
   const galleryItems = [
     {
@@ -50,6 +51,19 @@ export default function DesktopProjects({ onOpenConsultation }) {
     }
   ];
 
+  const handleOpenPhoto = (index) => {
+    setCurrentLightboxIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const handleRequestEstimate = (preset) => {
+    if (onOpenEstimate) {
+      onOpenEstimate(preset);
+    } else if (onOpenConsultation) {
+      onOpenConsultation(preset);
+    }
+  };
+
   return (
     <section className="bg-[#FFFFFF] dark:bg-[#121312] py-16 lg:py-24 border-b border-neutral-200 dark:border-neutral-800 transition-colors" id="work" aria-labelledby="work-title">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
@@ -72,7 +86,7 @@ export default function DesktopProjects({ onOpenConsultation }) {
           </div>
           <Reveal delay={120}>
             <button
-              onClick={onOpenConsultation}
+              onClick={() => handleOpenPhoto(0)}
               className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-950 dark:text-white border-b border-neutral-950 dark:border-white pb-0.5 hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer w-max"
             >
               <span>See the full gallery</span>
@@ -86,7 +100,7 @@ export default function DesktopProjects({ onOpenConsultation }) {
           {galleryItems.map((item, index) => (
             <Reveal key={item.id} delay={index * 100}>
               <button
-                onClick={() => setSelectedPhoto(item)}
+                onClick={() => handleOpenPhoto(index)}
                 type="button"
                 className="group relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-sm text-left cursor-zoom-in"
               >
@@ -125,35 +139,15 @@ export default function DesktopProjects({ onOpenConsultation }) {
         </Reveal>
       </div>
 
-      {/* Lightbox Dialog Modal */}
-      {selectedPhoto && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 lg:p-10"
-          onClick={() => setSelectedPhoto(null)}
-        >
-          <div
-            className="relative max-w-4xl max-h-[90vh] bg-white dark:bg-[#121312] border border-neutral-200 dark:border-neutral-800 p-2 rounded-sm shadow-2xl flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedPhoto(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 bg-neutral-950 text-white flex items-center justify-center font-bold hover:bg-neutral-800 transition-colors cursor-pointer rounded-xs"
-              aria-label="Close photo"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <img
-              src={selectedPhoto.image}
-              alt={selectedPhoto.title}
-              className="max-h-[75vh] w-auto object-contain rounded-xs"
-            />
-            <div className="pt-3 px-3 pb-1 flex justify-between items-center font-mono text-xs text-neutral-600 dark:text-neutral-400">
-              <span className="font-semibold text-neutral-950 dark:text-white">{selectedPhoto.title}</span>
-              <span className="uppercase text-[10px]">{selectedPhoto.location}</span>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Full-Viewport Interactive Lightbox Overlay */}
+      <GalleryLightbox
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+        items={galleryItems}
+        currentIndex={currentLightboxIndex}
+        onIndexChange={(idx) => setCurrentLightboxIndex(idx)}
+        onRequestEstimate={handleRequestEstimate}
+      />
     </section>
   );
 }

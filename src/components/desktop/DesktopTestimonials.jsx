@@ -1,71 +1,84 @@
 import React, { useState } from 'react';
 import { TESTIMONIALS } from '../../data/drywallData';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Star } from 'lucide-react';
 
 export default function DesktopTestimonials({ onOpenConsultation }) {
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedReview, setSelectedReview] = useState(null);
 
-  // Complete, punchy authentic quotes extracted from real homeowner reviews
-  const punchyReviews = [
+  // Curated punchy quotes paired with the complete full-length authentic review
+  const reviewsData = [
     {
       id: 'rev-1',
       name: 'Jenny E.',
       location: 'Murrieta, CA',
       rating: 5,
+      date: 'Verified Client',
       avatar: TESTIMONIALS[0]?.avatar,
       service: 'Urgent Escrow Leak Patch',
-      quote: 'Jessie saved the day on our move-out escrow deadline. He was quick to respond at 9 PM, arrived right on time, and did flawless repair work for a very reasonable price.'
+      preview: 'Jessie saved the day on our move-out escrow deadline. He was quick to respond at 9 PM, arrived right on time, and did flawless repair work for a very reasonable price.',
+      fullText: TESTIMONIALS[0]?.text
     },
     {
       id: 'rev-2',
       name: 'Jeff V.',
       location: 'Riverside County, CA',
       rating: 5,
+      date: 'Verified Homeowner',
       avatar: TESTIMONIALS[1]?.avatar,
       service: 'Ceiling Mud, Tape & Texture',
-      quote: 'Fair pricing, on-time arrival, and great attention to detail across our 240 sq ft ceiling project. I was really happy with the craftsmanship and highly recommend him.'
+      preview: 'Fair pricing, on-time arrival, and great attention to detail across our 240 sq ft ceiling project. I was really happy with the craftsmanship and highly recommend him.',
+      fullText: TESTIMONIALS[1]?.text
     },
     {
       id: 'rev-3',
-      name: 'Andi S.',
+      name: 'Andi Shepherd Albright',
       location: 'Corona, CA',
       rating: 5,
+      date: 'Verified Client',
       avatar: TESTIMONIALS[2]?.avatar,
       service: 'Water Damage Restoration',
-      quote: 'Water heater burst affected three rooms. Jessie matched the texture in our daughter’s room perfectly. A true professional and an absolute pleasure to work with.'
+      preview: 'Water heater burst affected three rooms. Jessie matched the texture in our daughter’s room perfectly. A true professional and an absolute pleasure to work with.',
+      fullText: TESTIMONIALS[2]?.text
     },
     {
       id: 'rev-4',
       name: 'Jen Milner',
       location: 'Temecula, CA',
       rating: 5,
+      date: 'Verified Homeowner',
       avatar: TESTIMONIALS[3]?.avatar,
       service: 'Bathroom Remodel Drywall',
-      quote: 'The texturing is EXACTLY the same as the original texture. I really was not expecting it to be this seamless—he exceeded all my expectations. Will definitely rehire!'
+      preview: 'The texturing is EXACTLY the same as the original texture. I really was not expecting it to be this seamless—he exceeded all my expectations. Will definitely rehire!',
+      fullText: TESTIMONIALS[3]?.text
     },
     {
       id: 'rev-5',
       name: 'Kristi Townsend',
       location: 'Murrieta Valley, CA',
       rating: 5,
+      date: 'Community / Residential',
       avatar: TESTIMONIALS[4]?.avatar,
       service: 'Kitchen Can Lights & Patch',
-      quote: 'Redid our kitchen ceiling after can lighting was installed—you cannot tell where it was patched between old and new! Fast, respectful, and spotless clean-up.'
+      preview: 'Redid our kitchen ceiling after can lighting was installed—you cannot tell where it was patched between old and new! Fast, respectful, and spotless clean-up.',
+      fullText: TESTIMONIALS[4]?.text
     },
     {
       id: 'rev-6',
-      name: 'Natalie F.',
+      name: 'Natalie Flores Valenzuela',
       location: 'Menifee, CA',
       rating: 5,
+      date: 'Verified Client',
       avatar: TESTIMONIALS[5]?.avatar,
       service: 'Interior Wall Finishing',
-      quote: 'Jessie is very professional and friendly. Our two interior walls turned out completely flawless and timely. The quality of his taping and mudding speaks for itself.'
+      preview: 'Jessie is very professional and friendly. Our two interior walls turned out completely flawless and timely. The quality of his taping and mudding speaks for itself.',
+      fullText: TESTIMONIALS[5]?.text
     }
   ];
 
   const pageSize = 3;
-  const totalPages = Math.ceil(punchyReviews.length / pageSize);
-  const currentReviews = punchyReviews.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
+  const totalPages = Math.ceil(reviewsData.length / pageSize);
+  const currentReviews = reviewsData.slice(currentPage * pageSize, (currentPage + 1) * pageSize);
 
   return (
     <section className="shell py-16 lg:py-20 border-b border-[#cccac3]" id="reviews" aria-labelledby="reviews-title">
@@ -116,7 +129,7 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
         {currentReviews.map((t) => (
           <article
             key={t.id}
-            className="bg-white p-6 border border-[#cccac3] shadow-xs flex flex-col justify-between transition-all hover:border-[#151614]"
+            className="bg-white p-6 border border-[#cccac3] shadow-xs flex flex-col justify-between transition-all hover:border-[#151614] group"
           >
             <div>
               {/* Minimal Top Tag: Service & Rating */}
@@ -131,8 +144,18 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
 
               {/* Minimal Punchy Review Quote */}
               <p className="text-[14px] text-[#151614] leading-[1.6] mt-3.5 italic">
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{t.preview}&rdquo;
               </p>
+
+              {/* Read Full Review Modal Trigger */}
+              <button
+                type="button"
+                onClick={() => setSelectedReview(t)}
+                className="inline-flex items-center gap-1 font-mono text-[11px] text-[#096899] hover:text-[#075176] font-semibold mt-3 cursor-pointer group-hover:underline"
+              >
+                <span>Read full review</span>
+                <span aria-hidden="true" className="text-xs">↗</span>
+              </button>
             </div>
 
             {/* Minimal Author Footer */}
@@ -171,6 +194,86 @@ export default function DesktopTestimonials({ onOpenConsultation }) {
           <span aria-hidden="true">↗</span>
         </button>
       </div>
+
+      {/* 4. Full Review Modal Dialog */}
+      {selectedReview && (
+        <div
+          className="fixed inset-0 z-50 bg-[#101110]/80 backdrop-blur-sm flex items-center justify-center p-4 lg:p-8"
+          onClick={() => setSelectedReview(null)}
+        >
+          <div
+            className="relative w-full max-w-xl bg-[#f4f2ed] border border-[#cccac3] p-6 lg:p-8 shadow-2xl space-y-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Close Button */}
+            <button
+              onClick={() => setSelectedReview(null)}
+              className="absolute top-4 right-4 w-9 h-9 bg-white border border-[#cccac3] flex items-center justify-center text-[#151614] hover:bg-[#151614] hover:text-white transition-colors cursor-pointer"
+              aria-label="Close review"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Modal Header */}
+            <div className="flex items-center gap-3.5 pr-10">
+              {selectedReview.avatar && (
+                <img
+                  src={selectedReview.avatar}
+                  alt={selectedReview.name}
+                  className="w-12 h-12 rounded-full object-cover border border-[#cccac3]"
+                />
+              )}
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg font-bold font-sans text-[#151614]">
+                    {selectedReview.name}
+                  </h3>
+                  <span className="font-mono text-[9px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 font-semibold">
+                    VERIFIED
+                  </span>
+                </div>
+                <p className="font-mono text-xs text-[#4b4c46] mt-0.5">
+                  {selectedReview.location} &bull; {selectedReview.service}
+                </p>
+              </div>
+            </div>
+
+            {/* Star Rating & Project Badge */}
+            <div className="flex items-center justify-between border-y border-[#cccac3] py-2.5 font-mono text-xs">
+              <span className="text-amber-500 tracking-wider text-sm">
+                {'★'.repeat(selectedReview.rating)} (5.0 / 5.0)
+              </span>
+              <span className="text-[#096899] font-medium">
+                {selectedReview.date}
+              </span>
+            </div>
+
+            {/* Full Story Content */}
+            <div className="max-h-[50vh] overflow-y-auto pr-2">
+              <p className="text-[15px] text-[#151614] leading-[1.7] italic">
+                &ldquo;{selectedReview.fullText}&rdquo;
+              </p>
+            </div>
+
+            {/* Modal Footer Action */}
+            <div className="pt-4 border-t border-[#cccac3] flex items-center justify-between">
+              <span className="font-mono text-[11px] text-[#73756d]">
+                Thumbtack Top Pro &bull; Verified Homeowner
+              </span>
+              <button
+                onClick={() => {
+                  setSelectedReview(null);
+                  onOpenConsultation();
+                }}
+                className="ref-button text-xs py-2.5 px-4 cursor-pointer"
+              >
+                <span>Get a Free Quote</span>
+                <span className="text-sm">↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -27,23 +27,23 @@ export default function DesktopFaq() {
   ];
 
   return (
-    <section className="shell py-20 lg:py-28 border-b border-[#cccac3]" id="faq" aria-labelledby="faq-title">
+    <section className="shell py-20 lg:py-28 border-b border-[#cccac3] dark:border-[#2b2d2a]" id="faq" aria-labelledby="faq-title">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
         {/* Left Column: Heading */}
         <div className="lg:col-span-5">
-          <p className="eyebrow text-[#4b4c46]">
+          <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
             <span className="dot"></span> COMMON QUESTIONS
           </p>
-          <h2 id="faq-title" className="editorial-h2 text-[#151614] mt-4">
-            Good to know<span className="text-[#1188c4]">.</span>
+          <h2 id="faq-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-4">
+            Good to know<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
-          <p className="text-[17px] text-[#4b4c46] leading-relaxed mt-4 max-w-sm">
+          <p className="text-[17px] text-[#4b4c46] dark:text-[#a0a29c] leading-relaxed mt-4 max-w-sm">
             Everything you need to know about our repair process, texture matching guarantees, and job site protection.
           </p>
         </div>
 
         {/* Right Column: Editorial Minimal Accordion with + and − */}
-        <div className="lg:col-span-7 divide-y divide-[#cccac3] border-y border-[#cccac3]">
+        <div className="lg:col-span-7 divide-y divide-[#cccac3] dark:divide-[#2b2d2a] border-y border-[#cccac3] dark:border-[#2b2d2a]">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -53,17 +53,19 @@ export default function DesktopFaq() {
                   className="w-full flex items-center justify-between text-left group cursor-pointer"
                 >
                   <span className={`text-lg font-semibold tracking-tight transition-colors ${
-                    isOpen ? 'text-[#096899]' : 'text-[#151614] group-hover:text-[#096899]'
+                    isOpen 
+                      ? 'text-[#096899] dark:text-[#8bd4f6]' 
+                      : 'text-[#151614] dark:text-[#f4f2ed] group-hover:text-[#096899] dark:group-hover:text-[#8bd4f6]'
                   }`}>
                     {faq.q}
                   </span>
-                  <span className="font-mono text-xl text-[#096899] font-normal leading-none pl-4">
+                  <span className="font-mono text-xl text-[#096899] dark:text-[#8bd4f6] font-normal leading-none pl-4">
                     {isOpen ? '−' : '+'}
                   </span>
                 </button>
                 {isOpen && (
                   <div className="pt-3 pr-6 animate-fade-in">
-                    <p className="text-[15px] text-[#4b4c46] leading-[1.6]">
+                    <p className="text-[15px] text-[#4b4c46] dark:text-[#a0a29c] leading-[1.6]">
                       {faq.a}
                     </p>
                   </div>

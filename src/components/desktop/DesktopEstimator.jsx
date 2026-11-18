@@ -41,28 +41,28 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
   const { low, high } = calculateEstimate();
 
   return (
-    <section className="shell py-20 lg:py-28 border-b border-[#cccac3]" id="estimator" aria-labelledby="estimator-title">
+    <section className="shell py-20 lg:py-28 border-b border-[#cccac3] dark:border-[#2b2d2a]" id="estimator" aria-labelledby="estimator-title">
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
         <div>
-          <p className="eyebrow text-[#4b4c46]">
+          <p className="eyebrow text-[#4b4c46] dark:text-[#a0a29c]">
             <span className="dot"></span> INTERACTIVE ESTIMATOR
           </p>
-          <h2 id="estimator-title" className="editorial-h2 text-[#151614] mt-4">
-            Instant repair quote<span className="text-[#1188c4]">.</span>
+          <h2 id="estimator-title" className="editorial-h2 text-[#151614] dark:text-[#f4f2ed] mt-4">
+            Instant repair quote<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
           </h2>
         </div>
-        <p className="text-[17px] text-[#4b4c46] leading-[1.5] max-w-md">
+        <p className="text-[17px] text-[#4b4c46] dark:text-[#a0a29c] leading-[1.5] max-w-md">
           Transparent, fair trade pricing based on Riverside County standard labor and material costs. No surprise fees.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Left Inputs: Architectural Monospace Controls */}
-        <div className="lg:col-span-7 space-y-8 bg-white p-8 border border-[#cccac3] shadow-xs">
+        <div className="lg:col-span-7 space-y-8 bg-white dark:bg-[#1a1b18] p-8 border border-[#cccac3] dark:border-[#2b2d2a] shadow-xs">
           {/* Step 1: Damage Type */}
           <div>
             <div className="flex justify-between items-center mb-3">
-              <span className="font-mono text-[11px] text-[#4b4c46] uppercase tracking-wider">
+              <span className="font-mono text-[11px] text-[#4b4c46] dark:text-[#a0a29c] uppercase tracking-wider">
                 01 &bull; DAMAGE CATEGORY
               </span>
             </div>
@@ -80,8 +80,8 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                   type="button"
                   className={`py-3 px-3.5 text-xs font-semibold text-left border transition-all cursor-pointer ${
                     damageType === item.id
-                      ? 'border-[#096899] bg-[#096899] text-white'
-                      : 'border-[#cccac3] bg-[#f4f2ed]/60 text-[#151614] hover:border-[#151614]'
+                      ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
+                      : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
                   }`}
                 >
                   {item.label}
@@ -92,7 +92,7 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
 
           {/* Step 2: Size of Area */}
           <div>
-            <span className="font-mono text-[11px] text-[#4b4c46] uppercase tracking-wider block mb-3">
+            <span className="font-mono text-[11px] text-[#4b4c46] dark:text-[#a0a29c] uppercase tracking-wider block mb-3">
               02 &bull; APPROXIMATE SIZE
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -108,8 +108,8 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                   type="button"
                   className={`py-3 px-2.5 text-xs font-semibold text-center border transition-all cursor-pointer ${
                     damageSize === item.id
-                      ? 'border-[#096899] bg-[#096899] text-white'
-                      : 'border-[#cccac3] bg-[#f4f2ed]/60 text-[#151614] hover:border-[#151614]'
+                      ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
+                      : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
                   }`}
                 >
                   {item.label}
@@ -120,7 +120,7 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
 
           {/* Step 3: Texture Finish */}
           <div>
-            <span className="font-mono text-[11px] text-[#4b4c46] uppercase tracking-wider block mb-3">
+            <span className="font-mono text-[11px] text-[#4b4c46] dark:text-[#a0a29c] uppercase tracking-wider block mb-3">
               03 &bull; TEXTURE FINISH
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -136,8 +136,8 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                   type="button"
                   className={`py-3 px-2.5 text-xs font-semibold text-center border transition-all cursor-pointer ${
                     textureType === item.id
-                      ? 'border-[#096899] bg-[#096899] text-white'
-                      : 'border-[#cccac3] bg-[#f4f2ed]/60 text-[#151614] hover:border-[#151614]'
+                      ? 'border-[#096899] bg-[#096899] text-white dark:border-[#1188c4] dark:bg-[#1188c4]'
+                      : 'border-[#cccac3] dark:border-[#383a36] bg-[#f4f2ed]/60 dark:bg-[#252723] text-[#151614] dark:text-[#f4f2ed] hover:border-[#151614] dark:hover:border-white'
                   }`}
                 >
                   {item.label}
@@ -147,15 +147,15 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
           </div>
 
           {/* Step 4: Height & Water Damage Add-ons */}
-          <div className="pt-4 border-t border-[#cccac3] flex flex-wrap items-center justify-between gap-4 font-mono text-[12px]">
+          <div className="pt-4 border-t border-[#cccac3] dark:border-[#2b2d2a] flex flex-wrap items-center justify-between gap-4 font-mono text-[12px]">
             <label className="flex items-center gap-2 cursor-pointer select-none">
               <input
                 type="checkbox"
                 checked={ceilingHeight === 'high'}
                 onChange={(e) => setCeilingHeight(e.target.checked ? 'high' : 'standard')}
-                className="w-4 h-4 accent-[#096899]"
+                className="w-4 h-4 accent-[#096899] dark:accent-[#8bd4f6]"
               />
-              <span className="text-[#151614]">High Ceiling / Scaffolding Needed (&gt; 9 ft)</span>
+              <span className="text-[#151614] dark:text-[#f4f2ed]">High Ceiling / Scaffolding Needed (&gt; 9 ft)</span>
             </label>
 
             <label className="flex items-center gap-2 cursor-pointer select-none">
@@ -163,15 +163,15 @@ export default function DesktopEstimator({ onOpenCallModal, onOpenConsultation }
                 type="checkbox"
                 checked={isWaterDamage}
                 onChange={(e) => setIsWaterDamage(e.target.checked)}
-                className="w-4 h-4 accent-[#096899]"
+                className="w-4 h-4 accent-[#096899] dark:accent-[#8bd4f6]"
               />
-              <span className="text-[#151614]">Insulation / Wet Backing Replacement</span>
+              <span className="text-[#151614] dark:text-[#f4f2ed]">Insulation / Wet Backing Replacement</span>
             </label>
           </div>
         </div>
 
         {/* Right Output: Bold Editorial Price Card */}
-        <div className="lg:col-span-5 bg-[#151614] text-[#f4f2ed] p-8 border border-[#2b2d2a] shadow-lg sticky top-28">
+        <div className="lg:col-span-5 bg-[#151614] dark:bg-[#0c0d0c] text-[#f4f2ed] p-8 border border-[#2b2d2a] shadow-lg sticky top-28">
           <div className="flex justify-between items-center border-b border-[#2b2d2a] pb-4">
             <span className="font-mono text-[11px] text-[#8bd4f6] uppercase tracking-wider">
               ESTIMATED PROJECT RANGE

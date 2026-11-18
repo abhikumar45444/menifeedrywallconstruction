@@ -29,7 +29,7 @@ export default function App() {
           Full modern desktop website redesign with multi-column layouts,
           sticky desktop navbar, interactive estimator widget, and full sections.
           ========================================================================= */}
-      <div className="hidden md:block w-full min-h-screen bg-[#f4f2ed]">
+      <div className="hidden md:block w-full min-h-screen bg-[#f4f2ed] dark:bg-[#121312]">
         <DesktopApp
           onOpenServiceModal={(service) => setSelectedService(service)}
           onOpenCallModal={() => setIsCallModalOpen(true)}
@@ -44,9 +44,9 @@ export default function App() {
           100% native edge-to-edge mobile web app with bottom floating pill nav,
           auto-advancing touch carousel, mobile tabs, and fast micro-flows.
           ========================================================================= */}
-      <div className="block md:hidden w-full h-[100dvh] overflow-hidden bg-[#f4f2ed] font-sans">
-        <div className="flex flex-col w-full h-full relative overflow-hidden bg-[#f4f2ed]">
-          <div className="flex-1 flex flex-col relative h-full min-h-0 overflow-hidden bg-[#f4f2ed]">
+      <div className="block md:hidden w-full h-[100dvh] overflow-hidden bg-[#f4f2ed] dark:bg-[#121312] font-sans">
+        <div className="flex flex-col w-full h-full relative overflow-hidden bg-[#f4f2ed] dark:bg-[#121312]">
+          <div className="flex-1 flex flex-col relative h-full min-h-0 overflow-hidden bg-[#f4f2ed] dark:bg-[#121312]">
             {activeTab === 'home' && (
               <HomeScreen
                 onSelectTab={handleSelectTab}

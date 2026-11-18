@@ -71,7 +71,7 @@ export default function HomeScreen({
     <div
       ref={scrollRef}
       onScroll={handleScroll}
-      className="flex-1 overflow-y-auto no-scrollbar scrollbar-hide hide-scrollbar relative h-full bg-[#f4f2ed] font-sans select-none pb-28"
+      className="flex-1 overflow-y-auto no-scrollbar scrollbar-hide hide-scrollbar relative h-full bg-[#f4f2ed] dark:bg-[#121312] text-[#151614] dark:text-[#f4f2ed] font-sans select-none pb-28"
     >
       {/* 1. TOP OVERLAY BAR (Sticky & Overlaid on Hero - Exactly like AssessME) */}
       <TopHeader

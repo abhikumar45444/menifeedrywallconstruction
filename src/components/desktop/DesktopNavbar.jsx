@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Clock, MapPin, ChevronDown, Calculator, ArrowUpRight } from 'lucide-react';
+import { Phone, Clock, MapPin, ChevronDown, Calculator, Sun, Moon } from 'lucide-react';
 import { ASSETS } from '../../utils/assets';
 import { COMPANY_INFO } from '../../data/drywallData';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function DesktopNavbar({ 
   onOpenConsultation, 
@@ -10,6 +11,7 @@ export default function DesktopNavbar({
   selectedArea 
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +31,7 @@ export default function DesktopNavbar({
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
       {/* 1. Top Monospace Utility Ticker */}
-      <div className="bg-[#151614] text-[#d5d5cd] text-[11px] font-mono py-2 px-6 border-b border-[#2b2d2a]">
+      <div className="bg-[#151614] dark:bg-[#0c0d0c] text-[#d5d5cd] text-[11px] font-mono py-2 px-6 border-b border-[#2b2d2a]">
         <div className="max-w-[1440px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-2">
@@ -64,16 +66,16 @@ export default function DesktopNavbar({
 
       {/* 2. Main Architectural Header */}
       <nav
-        className={`w-full transition-all duration-200 border-b border-[#cccac3] ${
+        className={`w-full transition-all duration-200 border-b ${
           isScrolled
-            ? 'bg-[#f4f2ed]/95 backdrop-blur-md shadow-xs py-3.5'
-            : 'bg-[#f4f2ed] py-4'
+            ? 'bg-[#f4f2ed]/95 dark:bg-[#121312]/95 backdrop-blur-md shadow-xs py-3.5 border-[#cccac3] dark:border-[#2b2d2a]'
+            : 'bg-[#f4f2ed] dark:bg-[#121312] py-4 border-[#cccac3] dark:border-[#2b2d2a]'
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-14 flex items-center justify-between">
           {/* Brand Logo & Editorial Wordmark */}
           <a href="#" className="flex items-center gap-3.5 group">
-            <div className="w-10 h-10 rounded-md bg-white p-1 border border-[#cccac3] shadow-xs flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-md bg-white p-1 border border-[#cccac3] dark:border-[#2b2d2a] shadow-xs flex items-center justify-center shrink-0">
               <img
                 src={ASSETS.logo}
                 alt="Menifee Drywall Construction"
@@ -81,67 +83,87 @@ export default function DesktopNavbar({
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold tracking-tight text-[#151614] leading-none">
-                Menifee Drywall<span className="text-[#1188c4]">.</span>
+              <span className="text-lg font-bold tracking-tight text-[#151614] dark:text-[#f4f2ed] leading-none">
+                Menifee Drywall<span className="text-[#1188c4] dark:text-[#8bd4f6]">.</span>
               </span>
-              <span className="font-mono text-[10px] text-[#4b4c46] tracking-wider uppercase mt-1">
+              <span className="font-mono text-[10px] text-[#4b4c46] dark:text-[#a0a29c] tracking-wider uppercase mt-1">
                 RIVERSIDE CO. / EST. 2004
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-[#151614]">
+          <div className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-[#151614] dark:text-[#e5e4de]">
             <button 
               onClick={() => scrollTo('services')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               Services
             </button>
             <button 
               onClick={() => scrollTo('guide')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               Repair Guide
             </button>
             <button 
               onClick={() => scrollTo('estimator')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer flex items-center gap-1.5"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <span>Cost Estimator</span>
-              <span className="font-mono text-[10px] bg-[#096899]/10 text-[#096899] px-1.5 py-0.5 rounded">NEW</span>
+              <span className="font-mono text-[10px] bg-[#096899]/10 dark:bg-[#8bd4f6]/20 text-[#096899] dark:text-[#8bd4f6] px-1.5 py-0.5 rounded">NEW</span>
             </button>
             <button 
               onClick={() => scrollTo('work')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               Our Work
             </button>
             <button 
               onClick={() => scrollTo('about')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               About Jessie
             </button>
             <button 
+              onClick={() => scrollTo('reviews')} 
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
+            >
+              Reviews
+            </button>
+            <button 
               onClick={() => scrollTo('faq')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               FAQs
             </button>
             <button 
               onClick={() => scrollTo('contact')} 
-              className="hover:text-[#096899] transition-colors cursor-pointer"
+              className="hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               Contact
             </button>
           </div>
 
-          {/* Right Action Callouts */}
-          <div className="flex items-center gap-4">
+          {/* Right Action Callouts & Theme Toggle */}
+          <div className="flex items-center gap-3.5">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 border border-[#cccac3] dark:border-[#2b2d2a] bg-white dark:bg-[#1a1b18] text-[#151614] dark:text-[#f4f2ed] hover:bg-[#f4f2ed] dark:hover:bg-[#252723] transition-colors cursor-pointer flex items-center justify-center shadow-xs"
+              title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
+              aria-label="Toggle theme"
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-[#096899]" />
+              )}
+            </button>
+
             <button
               onClick={onOpenCallModal}
-              className="hidden sm:inline-flex items-center gap-2 font-mono text-[13px] font-medium text-[#151614] hover:text-[#096899] transition-colors cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-2 font-mono text-[13px] font-medium text-[#151614] dark:text-[#e5e4de] hover:text-[#096899] dark:hover:text-[#8bd4f6] transition-colors cursor-pointer"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               <span>(951) 746-8891</span>
@@ -149,7 +171,7 @@ export default function DesktopNavbar({
 
             <button
               onClick={onOpenConsultation}
-              className="ref-button cursor-pointer"
+              className="ref-button dark:bg-[#1188c4] dark:hover:bg-[#096899] cursor-pointer"
             >
               <span>Free estimate</span>
               <span aria-hidden="true" className="text-lg leading-none">↗</span>

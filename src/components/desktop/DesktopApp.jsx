@@ -19,8 +19,8 @@ export default function DesktopApp({
   selectedArea
 }) {
   return (
-    <div className="w-full min-h-screen bg-[#f4f2ed] font-sans text-[#151614] antialiased selection:bg-[#096899] selection:text-white">
-      {/* 1. Desktop Navbar with Monospace Ticker & Minimal Header */}
+    <div className="w-full min-h-screen bg-[#f4f2ed] dark:bg-[#121312] font-sans text-[#151614] dark:text-[#f4f2ed] antialiased selection:bg-[#096899] dark:selection:bg-[#8bd4f6] dark:selection:text-[#121312] transition-colors duration-200">
+      {/* 1. Desktop Navbar with Monospace Ticker & Theme Toggle */}
       <DesktopNavbar
         onOpenConsultation={onOpenConsultation}
         onOpenCallModal={onOpenCallModal}
